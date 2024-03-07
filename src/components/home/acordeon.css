@@ -1,0 +1,46 @@
+.buton .r1alrhcs {
+  font-size: 13px;
+  justify-content: start;
+}
+&.buton {
+  padding: 7px 5px;
+}
+.buton {
+  width: 100%;
+  text-align: start;
+}
+.mi-accordion-item .f199hnxi {
+  margin-left: 0;
+}
+.mi-accordion-item .fkujibs {
+  margin-right: 0;
+}
+.mi-accordion-item {
+  display: flex;
+  flex-direction: column;
+  align-content: start;
+}
+/* .mi-accordion-item .fhovq9v {
+    background-color: var(--colorSubtleBackground);
+} */
+.mi-accordion-item .fhovq9v {
+  background-color: var(--colorSubtleBackground);
+}
+
+/* Estilos para navegadores basados en WebKit (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar {
+  padding-right: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #57909f; /* Cambia el color según tus preferencias */
+  border-radius: 6px;
+}
+
+.custom-scrollbar:hover ::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background-color: #f1f1f1; /* Cambia el color según tus preferencias */
+}

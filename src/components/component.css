@@ -1,0 +1,33 @@
+.input .r1jtohuq {
+  background: white;
+}
+/* .buton .r1alrhcs {
+  min-width: 115px;
+} */
+.buton {
+  justify-content: center;
+}
+/* Estilos para navegadores basados en WebKit (Chrome, Safari) */
+.custom-scrollbar2::-webkit-scrollbar {
+  height: 3px;
+}
+
+.custom-scrollbar2::-webkit-scrollbar-thumb {
+  background-color: #57909f; /* Cambia el color según tus preferencias */
+  border-radius: 6px;
+}
+
+.custom-scrollbar2:hover ::-webkit-scrollbar-track {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 6px;
+  
+  background-color: #f1f1f1; /* Cambia el color según tus preferencias */
+}
+.custom-scrollbar2::-webkit-scrollbar-track {
+  height: 5px;
+  margin-bottom: -15px;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #f1f1f1; /* Cambia el color según tus preferencias */
+}
