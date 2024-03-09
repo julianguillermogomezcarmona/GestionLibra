@@ -7,10 +7,11 @@ import {
   FluentProvider,
   teamsLightTheme,
   webDarkTheme,
+  webLightTheme,
 } from "@fluentui/react-components";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <FluentProvider theme={webDarkTheme}>
+  <FluentProvider theme={webLightTheme}>
     <App />
   </FluentProvider>
 );

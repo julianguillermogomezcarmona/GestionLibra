@@ -2,6 +2,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import login from "../components/login";
 import home from "../components/home/home";
 import {
+  portfolioDeterioration,
+  reverseDeterioration,
+} from "../components/home/cuenta_cobrar/cuentaCobraComponent";
+import {
   cardComponentAbout,
   cardComponentAccountingExtraction,
   cardComponentAccountingNiif,
@@ -90,6 +94,54 @@ import {
   inventoryDeterioration,
   inventoryImpairmentReversal,
 } from "../components/home/inventario/inventoryComponent";
+import {
+  billingMovement,
+  esfaTransactions,
+  niifTransactions,
+  petrobasMovement,
+} from "../components/home/accounting/accountingComponent";
+import {
+  annexes,
+  auxiliaries,
+  auxiliaryKardex,
+  bills,
+  bookFolios,
+  certificatePrinting,
+  checkofPrinting,
+  checkPrinting,
+  consignmentMerchandise,
+  customerMovementSummary,
+  diaryBox,
+  expirationAnalysis,
+  financialStatements,
+  inventoryandBalanceBook,
+  itemsSlock,
+  itemsWithoutMovements,
+  journalVouchers,
+  legalJournalBook,
+  legalLedger,
+  listofCollectionCommissions,
+  listofPayDays,
+  movementProcess,
+  pendingPurchaseOrders,
+  physicalShotList,
+  portfolioMaturity,
+  priceList,
+  printingPendingOrders,
+  processedMovement,
+  processedPortfolioMovement,
+  processedSupplierMovement,
+  proposedvsExecuted,
+  purchasingSummarybySupplier,
+  referrals,
+  referralsSenttoBranches,
+  salesAudit,
+  statementsofAccounts,
+  statistics,
+  stockWarehouse,
+  supplierStatement,
+} from "../components/home/reports/reportsComponent";
+import { cashBilling, creditBilling, customerOrders, petrobasBillingMovement, pintacasaBillingMovement, quotetoClients, referralstoClients, referralstocustomers, referralstoMerchandiseCustomers, returnstoCustomers } from "../components/home/sales/salesComponent";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -140,19 +192,19 @@ const router = createBrowserRouter([
           },
           {
             path: "conveyors",
-            Component: conveyors
+            Component: conveyors,
           },
           {
             path: "sellers",
-            Component: sellers
+            Component: sellers,
           },
           {
             path: "collectors",
-            Component: collectors
+            Component: collectors,
           },
           {
             path: "identification",
-            Component: identification
+            Component: identification,
           },
           {
             path: "interface",
@@ -160,32 +212,32 @@ const router = createBrowserRouter([
           },
           {
             path: "iva",
-            Component: iva
+            Component: iva,
           },
           {
             path: "cost_center",
-            Component: costCenter
+            Component: costCenter,
           },
           {
             path: "items",
-            Component: items
+            Component: items,
           },
           {
             path: "lawyers",
-            Component: lawyers
+            Component: lawyers,
           },
           {
             path: "financial_desing",
-            Component: financialDesing
+            Component: financialDesing,
           },
           {
             path: "users",
-            Component: users
+            Component: users,
           },
           {
             path: "assing_boxes",
-            Component: assingBoxes
-          }
+            Component: assingBoxes,
+          },
         ],
       },
 
@@ -208,8 +260,7 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [
-        ],
+        children: [],
       },
       {
         path: "customers",
@@ -325,11 +376,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: "branch_referral",
-            Component: branchReferral
+            Component: branchReferral,
           },
           {
             path: "branch_entrance",
-            Component: branchEntrance
+            Component: branchEntrance,
           },
         ],
       },
@@ -344,11 +395,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: "inventory_tweaks",
-            Component: inventoryTweaks
+            Component: inventoryTweaks,
           },
           {
             path: "transfer_between_warehousess",
-            Component: transfersBetweenWarehousess
+            Component: transfersBetweenWarehousess,
           },
           {
             path: "internal_consumption",
@@ -356,9 +407,8 @@ const router = createBrowserRouter([
           },
           {
             path: "internal_consumption_refund",
-            Component: InternalConsumptionRefund
+            Component: InternalConsumptionRefund,
           },
-
         ],
       },
       {
@@ -372,15 +422,15 @@ const router = createBrowserRouter([
         children: [
           {
             path: "shot_list",
-            Component: shotList
+            Component: shotList,
           },
           {
             path: "define_count",
-            Component: defineCount
+            Component: defineCount,
           },
           {
             path: "include_physical_shot",
-            Component: includePhysicalShot
+            Component: includePhysicalShot,
           },
           {
             path: "comparative",
@@ -388,10 +438,8 @@ const router = createBrowserRouter([
           },
           {
             path: "automatic_adjustment",
-            Component: automaticAdjustment
+            Component: automaticAdjustment,
           },
-
-
         ],
       },
       {
@@ -415,12 +463,12 @@ const router = createBrowserRouter([
         children: [
           {
             path: "inventory_deterioration",
-            Component: inventoryDeterioration
+            Component: inventoryDeterioration,
           },
           {
             path: "inventory_inpairment_reversal",
-            Component: inventoryImpairmentReversal
-          }
+            Component: inventoryImpairmentReversal,
+          },
         ],
       },
       {
@@ -431,7 +479,16 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "quote_to_clients",
+            Component: quotetoClients,
+          },
+          {
+            path: "customer_orders",
+            Component: customerOrders,
+          },
+        ],
       },
       {
         path: "consignament",
@@ -441,7 +498,16 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "referrals_to_merchandise_customers",
+            Component: referralstoMerchandiseCustomers,
+          },
+          {
+            path: "returns_to_customers",
+            Component: returnstoCustomers,
+          },
+        ],
       },
       {
         path: "ferrals_to_Clients",
@@ -451,7 +517,16 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "referrals_to_customers",
+            Component: referralstocustomers,
+          },
+          {
+            path: "returns_of_referrals_to_clients",
+            Component: referralstoClients,
+          },
+        ],
       },
       {
         path: "billing",
@@ -461,7 +536,16 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "credit_billing",
+            Component: creditBilling,
+          },
+          {
+            path: "cash_billing",
+            Component: cashBilling,
+          },
+        ],
       },
       {
         path: "consolidate",
@@ -511,7 +595,16 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "pintacasa_billing_movement",
+            Component: pintacasaBillingMovement,
+          },
+          {
+            path: "petrobas_billing_movement",
+            Component: petrobasBillingMovement,
+          },
+        ],
       },
       {
         path: "receipts",
@@ -561,7 +654,16 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "portfolio_deterioration",
+            Component: portfolioDeterioration,
+          },
+          {
+            path: "reverse_deterioration",
+            Component: reverseDeterioration,
+          },
+        ],
       },
       {
         path: "transations",
@@ -641,7 +743,16 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "billing_movement",
+            Component: billingMovement,
+          },
+          {
+            path: "petrobas_movement",
+            Component: petrobasMovement,
+          },
+        ],
       },
       {
         path: "accounting_niif",
@@ -651,7 +762,16 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "niif_transations",
+            Component: niifTransactions,
+          },
+          {
+            path: "esfa_transations",
+            Component: esfaTransactions,
+          },
+        ],
       },
       {
         path: "inventory_reports",
@@ -661,7 +781,36 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "stock_warehouse",
+            Component: stockWarehouse,
+          },
+          {
+            path: "items_slock",
+            Component: itemsSlock,
+          },
+          {
+            path: "physical_shot_list",
+            Component: physicalShotList,
+          },
+          {
+            path: "auxiliary_kardex",
+            Component: auxiliaryKardex,
+          },
+          {
+            path: "movement_process",
+            Component: movementProcess,
+          },
+          {
+            path: "pending_purchase_orders",
+            Component: pendingPurchaseOrders,
+          },
+          {
+            path: "referrals_sent_to_branches",
+            Component: referralsSenttoBranches,
+          },
+        ],
       },
       {
         path: "sales_reports",
@@ -671,7 +820,40 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "price_list",
+            Component: priceList,
+          },
+          {
+            path: "printing_pending_orders",
+            Component: printingPendingOrders,
+          },
+          {
+            path: "sales_audit",
+            Component: salesAudit,
+          },
+          {
+            path: "referrals",
+            Component: referrals,
+          },
+          {
+            path: "bills",
+            Component: bills,
+          },
+          {
+            path: "items_without_movements",
+            Component: itemsWithoutMovements,
+          },
+          {
+            path: "consignment_merchandise",
+            Component: consignmentMerchandise,
+          },
+          {
+            path: "statistics",
+            Component: statistics,
+          },
+        ],
       },
       {
         path: "receivable_reports",
@@ -681,7 +863,32 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "statementssof_accounts",
+            Component: statementsofAccounts,
+          },
+          {
+            path: "expiration_analysis",
+            Component: expirationAnalysis,
+          },
+          {
+            path: "customer_movement_summary",
+            Component: customerMovementSummary,
+          },
+          {
+            path: "list_of_collection_commissions",
+            Component: listofCollectionCommissions,
+          },
+          {
+            path: "processed_porfolio_movement",
+            Component: processedPortfolioMovement,
+          },
+          {
+            path: "list_of_pay_days",
+            Component: listofPayDays,
+          },
+        ],
       },
       {
         path: "account_x_pay_reports",
@@ -691,7 +898,28 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "supplier_statement",
+            Component: supplierStatement,
+          },
+          {
+            path: "portfolio_maturity",
+            Component: portfolioMaturity,
+          },
+          {
+            path: "processed_supplier_movement",
+            Component: processedSupplierMovement,
+          },
+          {
+            path: "purchasing_summary_by_supplier",
+            Component: purchasingSummarybySupplier,
+          },
+          {
+            path: "check_of_printing",
+            Component: checkofPrinting,
+          },
+        ],
       },
       {
         path: "accounting_reports",
@@ -701,7 +929,60 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [],
+        children: [
+          {
+            path: "processed_movement",
+            Component: processedMovement,
+          },
+          {
+            path: "annexes",
+            Component: annexes,
+          },
+          {
+            path: "auxiliaries",
+            Component: auxiliaries,
+          },
+          {
+            path: "legal_journal_book",
+            Component: legalJournalBook,
+          },
+          {
+            path: "diary_box",
+            Component: diaryBox,
+          },
+          {
+            path: "inventory_and_balance_book",
+            Component: inventoryandBalanceBook,
+          },
+          {
+            path: "financial_statements",
+            Component: financialStatements,
+          },
+          {
+            path: "book_folios",
+            Component: bookFolios,
+          },
+          {
+            path: "check_print",
+            Component: checkPrinting,
+          },
+          {
+            path: "certificate_printing",
+            Component: certificatePrinting,
+          },
+          {
+            path: "proposed_vs_executed",
+            Component: proposedvsExecuted,
+          },
+          {
+            path: "legal_ledger",
+            Component: legalLedger,
+          },
+          {
+            path: "journal_vouchers",
+            Component: journalVouchers,
+          },
+        ],
       },
       {
         path: "license_agreement",

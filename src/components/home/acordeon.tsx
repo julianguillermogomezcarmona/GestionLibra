@@ -113,7 +113,7 @@ export function Acordeon() {
       "consignament",
       "ferrals_to_Clients",
       "billing",
-      "ferrals_to_Clients",
+      "consolidate",
       "automatic_invoices",
       "extractions",
       "external_movement",
@@ -216,6 +216,7 @@ export function Acordeon() {
     >
       {titulosMenus.map((titulo, index) => (
         <AccordionItem
+        key={index}
           className="mi-accordion-item"
           value={index}
           onClick={() => toggleMenu(index)}

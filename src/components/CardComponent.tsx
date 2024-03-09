@@ -18,8 +18,8 @@ const useStyles = makeStyles({
 export function cardComponentGeneralTables() {
   const styles = useStyles();
   return (
-    <section className="flex flex-col gap-[8px] w-full h-screen">
-      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+    <section className="flex flex-col gap-[10px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[10px]">
         <Card className="h-[100%] w-[100%]">
           <h2 className="font-semibold text-[]">Tablas generales</h2>
           <div className="w-full overflow-x-hidden snap-x">
@@ -173,7 +173,7 @@ export function cardComponentRevelations() {
 
 export function cardComponentCommodity() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
+    <section className="flex h-screen flex-col gap-[5px]">
       <Card className="h-[15%] ">
         <h2 className="font-semibold text-[]">Mercancias</h2>
         <div className="flex gap-[10px] ">
@@ -193,8 +193,8 @@ export function cardComponentCommodity() {
 }
 export function cardComponentOrderAndImport() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
-      <Card className="h-[15%]">
+    <section className="flex h-screen flex-col gap-[5px]">
+      <Card className=" h-[15%] ">
         <h2 className="font-semibold text-[]">
           Orden de compra e importaciones
         </h2>
@@ -215,7 +215,7 @@ export function cardComponentOrderAndImport() {
 }
 export function cardComponentBranchOffices() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
+    <section className="flex h-screen flex-col gap-[5px]">
       <Card className="h-[15%]">
         <h2 className="font-semibold text-[]">Sucursales</h2>
         <div className="flex gap-[10px] ">
@@ -235,7 +235,7 @@ export function cardComponentBranchOffices() {
 }
 export function cardComponentStore() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
+    <section className="flex h-screen flex-col gap-[5px]">
       <Card className="h-[15%] ">
         <h2 className="font-semibold text-[]">
           Ajustes y movimientos entre bodegas
@@ -263,7 +263,7 @@ export function cardComponentStore() {
 }
 export function cardComponentPhysicalInventory() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
+    <section className="flex h-screen flex-col gap-[5px]">
       <Card className=" h-[15%]">
         <h2 className="font-semibold text-[]">Toma fisica de inventario</h2>
         <div className="flex gap-[10px] pb-[10px]">
@@ -305,7 +305,7 @@ export function cardComponentMotionPanel() {
 }
 export function cardComponentInventoryDeterioration() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
+    <section className="flex h-screen flex-col gap-[5px]">
       <Card className=" h-[15%] ">
         <h2 className="font-semibold text-[]">Deterioro de Inventarios</h2>
         <div className="flex gap-[10px] pb-[10px]">
@@ -327,14 +327,14 @@ export function cardComponentInventoryDeterioration() {
 }
 export function cardComponentOrdersandPriceClient() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
-      <Card className=" 15%">
+    <section className="flex h-screen flex-col gap-[5px]">
+      <Card className=" h-[15%] ">
         <h2 className="font-semibold text-[]">Cotizaciones y Pedidos</h2>
         <div className="flex gap-[10px] pb-[10px]">
-          <Link to={"import"}>
+          <Link to={"quote_to_clients"}>
             <Button appearance="primary">Cotizaciones a clientes</Button>
           </Link>
-          <Link to={"import"}>
+          <Link to={"customer_orders"}>
             <Button appearance="primary">Pedidos a clientes</Button>
           </Link>
         </div>
@@ -348,14 +348,14 @@ export function cardComponentOrdersandPriceClient() {
 
 export function cardComponentConsignment() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
-      <Card className=" ">
+    <section className="flex h-screen flex-col gap-[5px]">
+      <Card className=" h-[15%] w-full">
         <h2 className="font-semibold text-[]">Mercancia en consignación</h2>
         <div className="flex gap-[10px] pb-[10px]">
-          <Link to={"import"}>
+          <Link to={"referrals_to_merchandise_customers"}>
             <Button appearance="primary">Remisiones a clientes</Button>
           </Link>
-          <Link to={"import"}>
+          <Link to={"returns_to_customers"}>
             <Button appearance="primary">Devoluciones de clientes</Button>
           </Link>
         </div>
@@ -366,52 +366,55 @@ export function cardComponentConsignment() {
     </section>
   );
 }
+// Inventarios
 export function cardComponentreFerralstoClients() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
-      <Card className=" ">
+    <section className="flex h-screen flex-col gap-[5px]">
+      <Card className=" h-[15%] w-full ">
         <h2 className="font-semibold text-[]">Remisiones y Devoluciones</h2>
         <div className="flex gap-[10px] pb-[10px]">
-          <Link to={"import"}>
+          <Link to={"referrals_to_customers"}>
             <Button appearance="primary">Remisiones a clientes</Button>
           </Link>
-          <Link to={"import"}>
+          <Link to={"returns_of_referrals_to_clients"}>
             <Button appearance="primary">
               Devoluciones de Remisiones a clientes
             </Button>
           </Link>
         </div>
       </Card>
-      <Outlet></Outlet>
+      <div className="h-[85%]">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
 export function cardComponentBilling() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
-      <Card className=" ">
+    <section className="flex h-screen flex-col gap-[5px]">
+      <Card className=" h-[15%] w-full">
         <h2 className="font-semibold text-[]">Facturación</h2>
         <div className="flex gap-[10px] pb-[10px]">
-          <Link to={"import"}>
+          <Link to={"credit_billing"}>
             <Button appearance="primary">Facturación Credito</Button>
           </Link>
-          <Link to={"import"}>
+          <Link to={"cash_billing"}>
             <Button appearance="primary">Facturación Contado</Button>
           </Link>
         </div>
       </Card>
-      <Outlet></Outlet>
+      <div className="h-[85%]">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
 export function cardComponentConsolidate() {
   return (
     <section className="flex h-[100%] flex-col gap-[5px]">
-      <Card className=" ">
-        <h2 className="font-semibold text-[]">Consolidar Remisiones</h2>
-        <div className="flex gap-[10px] pb-[10px]">
-          <Button appearance="primary">Prueba</Button>
-        </div>
+      <Card className="h-[100%] w-[100%] ">
+        <h2 className="font-semibold text-[]">Devoluciones</h2>
+        <div className="flex gap-[10px] pb-[10px]"></div>
       </Card>
       <Outlet></Outlet>
     </section>
@@ -460,24 +463,28 @@ export function cardComponentReturns() {
 }
 export function cardComponentExternalMovement() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
-      <Card className=" ">
+    <section className="flex h-screen flex-col gap-[5px]">
+      <Card className=" h-[15%] ">
         <h2 className="font-semibold text-[]">Movimiento Externo</h2>
         <div className="flex gap-[10px] pb-[10px]">
-          <Link to={"import"}>
+          <Link to={"pintacasa_billing_movement"}>
             <Button appearance="primary">
               Generar Movimiento de facturación Pintacasa
             </Button>
           </Link>
-          <Link to={"import"}>
+          <Link to={"petrobas_billing_movement"}>
             <Button appearance="primary">Generar Movimiento Petrobas</Button>
           </Link>
         </div>
       </Card>
-      <Outlet></Outlet>
+      <div className="h-[85%]">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
+
+// CuentaxCobrar
 export function cardComponentReceipts() {
   return (
     <section className="flex h-[100%] flex-col gap-[5px]">
@@ -524,22 +531,26 @@ export function cardComponentInterestSettlement() {
 }
 export function cardComponentportFolioDeterioration() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
+    <section className="flex h-screen flex-col gap-[5px]">
       <Card className="h-[15%] ">
         <h2 className="font-semibold text-[]">Deterioro de cartera</h2>
         <div className="flex gap-[10px] pb-[10px]">
-          <Link to={"import"}>
+          <Link to={"portfolio_deterioration"}>
             <Button appearance="primary">Deterioro de Cartera</Button>
           </Link>
-          <Link to={"import"}>
+          <Link to={"reverse_deterioration"}>
             <Button appearance="primary">Revertir deterioro de cartera</Button>
           </Link>
         </div>
       </Card>
-      <Outlet></Outlet>
+      <div className="h-[85%]">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
+
+// CuentaPagar
 export function cardComponentTransactions() {
   return (
     <section className="flex h-[100%] flex-col gap-[5px]">
@@ -562,6 +573,8 @@ export function cardComponentCheckIssuance() {
     </section>
   );
 }
+
+// Contabilidad
 export function cardComponentTransactionsAccounting() {
   return (
     <section className="flex h-[100%] flex-col gap-[5px]">
@@ -621,201 +634,225 @@ export function cardComponentAccountingExtraction() {
 }
 export function cardComponentExternalMovementAccounting() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
-      <Card className="h-[15%] ">
-        <h2 className="font-semibold text-[]">Movimiento Externo</h2>
+    <section className="flex h-screen flex-col gap-[5px]">
+      <Card className=" h-[15%] ">
+        <h2 className="font-semibold text-[]">Deterioro de Inventarios</h2>
         <div className="flex gap-[10px] pb-[10px]">
-          <Link to={"import"}>
-            <Button appearance="primary">
-              Generar Movimiento de facturación Pintacasa
-            </Button>
+          <Link to={"billing_movement"}>
+            <Button appearance="primary">Generar Movimiento de contable</Button>
           </Link>
-          <Link to={"import"}>
-            <Button appearance="primary">Generar Movimiento Petrobas</Button>
+          <Link to={"petrobas_movement"}>
+            <Button appearance="primary">Leer Movimiento externo</Button>
           </Link>
         </div>
       </Card>
-      <Outlet></Outlet>
+      <div className="h-[85%]">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
 export function cardComponentAccountingNiif() {
   return (
-    <section className="flex h-[100%] flex-col gap-[5px]">
+    <section className="flex h-screen flex-col gap-[5px]">
       <Card className="h-[15%] ">
         <h2 className="font-semibold text-[]">Contabilidad NIIF</h2>
         <div className="flex gap-[10px] pb-[10px]">
-          <Link to={"import"}>
+          <Link to={"niif_transations"}>
             <Button appearance="primary">Transacciones NIIIF</Button>
           </Link>
-          <Link to={"import"}>
+          <Link to={"esfa_transations"}>
             <Button appearance="primary">Transacciones ESFA</Button>
           </Link>
         </div>
       </Card>
-      <Outlet></Outlet>
+      <div className="h-[85%]">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
+
+// Informes
 export function cardComponentInventoryReports() {
   const styles = useStyles();
   return (
-    <section className="grid grid-cols-1 h-[100%]  gap-[5px]">
-      <Card className="h-[17%]">
-        <h2 className="font-semibold text-[]">Informes de inventarios</h2>
-        <div className="w-full overflow-x-hidden snap-x">
-          <div
-            className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
-          >
-            <Link to={"import"}>
-              <Button appearance="primary">Existencia enbodega</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Articulos en slock</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Listado para tomar fisica</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Kardex auxiliar</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Movimiento procesado</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Ordenes de compra pendientes</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">
-                Remisiones enviadas a sucursales
-              </Button>
-            </Link>
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%]">
+          <h2 className="font-semibold text-[]">Informes de inventarios</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"stock_warehouse"}>
+                <Button appearance="primary">Existencia en bodega</Button>
+              </Link>
+              <Link to={"items_slock"}>
+                <Button appearance="primary">Articulos en slock</Button>
+              </Link>
+              <Link to={"physical_shot_list"}>
+                <Button appearance="primary">Listado para toma fisica</Button>
+              </Link>
+              <Link to={"auxiliary_kardex"}>
+                <Button appearance="primary">Kardex auxiliar</Button>
+              </Link>
+              <Link to={"movement_process"}>
+                <Button appearance="primary">Movimiento procesado</Button>
+              </Link>
+              <Link to={"pending_purchase_orders"}>
+                <Button appearance="primary">
+                  Órdenes de compra pendientes
+                </Button>
+              </Link>
+              <Link to={"referrals_sent_to_branches"}>
+                <Button appearance="primary">
+                  Remisiones enviadas a sucursales
+                </Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      </Card>
-      <Outlet></Outlet>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
 export function cardComponentSalesReports() {
   const styles = useStyles();
   return (
-    <section className="grid grid-cols-1 h-[100%]  gap-[5px]">
-      <Card className="h-[17%]">
-        <h2 className="font-semibold text-[]">Informes de ventas</h2>
-        <div className="w-full overflow-x-hidden snap-x">
-          <div
-            className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
-          >
-            <Link to={"import"}>
-              <Button appearance="primary">Lista de precios</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">
-                Impresión de pedidos pendientes
-              </Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Auditoria de ventas</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Remisiones</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Facturas</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">
-                Items sin movimientos en N meses
-              </Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Mercancia en consignación</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Estadisticas</Button>
-            </Link>
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%]">
+          <h2 className="font-semibold text-[]">Informes de ventas</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"price_list"}>
+                <Button appearance="primary">Lista de precios</Button>
+              </Link>
+              <Link to={"printing_pending_orders"}>
+                <Button appearance="primary">
+                  Impresión de pedidos pendientes
+                </Button>
+              </Link>
+              <Link to={"sales_audit"}>
+                <Button appearance="primary">Auditoria de ventas</Button>
+              </Link>
+              <Link to={"referrals"}>
+                <Button appearance="primary">Remisiones</Button>
+              </Link>
+              <Link to={"bills"}>
+                <Button appearance="primary">Facturas</Button>
+              </Link>
+              <Link to={"items_without_movements"}>
+                <Button appearance="primary">
+                  Items sin movimientos en N meses
+                </Button>
+              </Link>
+              <Link to={"consignment_merchandise"}>
+                <Button appearance="primary">Mercancia en consignación</Button>
+              </Link>
+              <Link to={"statistics"}>
+                <Button appearance="primary">Estadisticas</Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      </Card>
-      <Outlet></Outlet>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
 export function cardComponentAccountxReceivableReports() {
   const styles = useStyles();
   return (
-    <section className="grid grid-cols-1 h-[100%]  gap-[5px]">
-      <Card className=" h-[17%]">
-        <h2 className="font-semibold text-[]">Informes de cuentas x cobrar</h2>
-        <div className="w-full overflow-x-hidden snap-x">
-          <div
-            className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
-          >
-            <Link to={"import"}>
-              <Button appearance="primary">Estado de cuentas</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Analisis de vencimiento</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">
-                Resumen de movimientos de Clientes
-              </Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">
-                Listado de comisiones conbradores
-              </Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">
-                Movimiento procesado de cartera
-              </Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Listado de Dias de pagos</Button>
-            </Link>
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className=" h-[100%] w-[100%]">
+          <h2 className="font-semibold text-[]">
+            Informes de cuentas x cobrar
+          </h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"statementssof_accounts"}>
+                <Button appearance="primary">Estado de cuentas</Button>
+              </Link>
+              <Link to={"expiration_analysis"}>
+                <Button appearance="primary">Analisis de vencimiento</Button>
+              </Link>
+              <Link to={"customer_movement_summary"}>
+                <Button appearance="primary">
+                  Resumen de movimientos de Clientes
+                </Button>
+              </Link>
+              <Link to={"list_of_collection_commissions"}>
+                <Button appearance="primary">
+                  Listado de comisiones conbradores
+                </Button>
+              </Link>
+              <Link to={"processed_porfolio_movement"}>
+                <Button appearance="primary">
+                  Movimiento procesado de cartera
+                </Button>
+              </Link>
+              <Link to={"list_of_pay_days"}>
+                <Button appearance="primary">Listado de Dias de pagos</Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      </Card>
-      <Outlet></Outlet>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
 export function cardComponentAccountxPayReports() {
   const styles = useStyles();
   return (
-    <section className="grid grid-cols-1 h-[100%]  gap-[5px]">
-      <Card className="h-[17%] ">
-        <h2 className="font-semibold text-[]">Informes de cuentas x pagar</h2>
-        <div className="w-full overflow-x-hidden snap-x">
-          <div
-            className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
-          >
-            <Link to={"import"}>
-              <Button appearance="primary">Extracto de proveedores</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Vencimiento de cartera</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">
-                Movimiento procesado de Proveedores
-              </Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">
-                Resumen de compras por proveedor
-              </Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Impresión de cheques</Button>
-            </Link>
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%] ">
+          <h2 className="font-semibold text-[]">Informes de cuentas x pagar</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"supplier_statement"}>
+                <Button appearance="primary">Extracto de proveedores</Button>
+              </Link>
+              <Link to={"portfolio_maturity"}>
+                <Button appearance="primary">Vencimiento de cartera</Button>
+              </Link>
+              <Link to={"processed_supplier_movement"}>
+                <Button appearance="primary">
+                  Movimiento procesado de Proveedores
+                </Button>
+              </Link>
+              <Link to={"purchasing_summary_by_supplier"}>
+                <Button appearance="primary">
+                  Resumen de compras por proveedor
+                </Button>
+              </Link>
+              <Link to={"check_of_printing"}>
+                <Button appearance="primary">Impresión de cheques</Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      </Card>
-      <Outlet></Outlet>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
@@ -823,58 +860,62 @@ export function cardComponentAccountingReports() {
   const styles = useStyles();
 
   return (
-    <section className="grid grid-cols-1 h-[100%]  gap-[5px]">
-      <Card className=" h-[17%]">
-        <h2 className="font-semibold text-[]">Informes de contabilidad</h2>
-        <div className="w-full overflow-x-hidden snap-x">
-          <div
-            className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
-          >
-            <Link to={"import"}>
-              <Button appearance="primary">Movimiento procesado</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Anexos</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Auxiliares</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Libro diario legal</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Libro mayor legal</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Comprobantes de diario</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Caja Diario</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">
-                Libro de Inventario y Balance
-              </Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Estados financieros</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Foliadores de libros</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Impresión de cheques</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Impresión certificados</Button>
-            </Link>
-            <Link to={"import"}>
-              <Button appearance="primary">Propuesto Vs. ejecutado</Button>
-            </Link>
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className=" h-[100%] w-[100%]">
+          <h2 className="font-semibold text-[]">Informes de contabilidad</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"processed_movement"}>
+                <Button appearance="primary">Movimiento procesado</Button>
+              </Link>
+              <Link to={"annexes"}>
+                <Button appearance="primary">Anexos</Button>
+              </Link>
+              <Link to={"auxiliaries"}>
+                <Button appearance="primary">Auxiliares</Button>
+              </Link>
+              <Link to={"legal_journal_book"}>
+                <Button appearance="primary">Libro diario legal</Button>
+              </Link>
+              <Link to={"legal_ledger"}>
+                <Button appearance="primary">Libro mayor legal</Button>
+              </Link>
+              <Link to={"journal_vouchers"}>
+                <Button appearance="primary">Comprobantes de diario</Button>
+              </Link>
+              <Link to={"diary_box"}>
+                <Button appearance="primary">Caja Diario</Button>
+              </Link>
+              <Link to={"inventory_and_balance_book"}>
+                <Button appearance="primary">
+                  Libro de Inventario y Balance
+                </Button>
+              </Link>
+              <Link to={"financial_statements"}>
+                <Button appearance="primary">Estados financieros</Button>
+              </Link>
+              <Link to={"book_folios"}>
+                <Button appearance="primary">Foliadores de libros</Button>
+              </Link>
+              <Link to={"check_print"}>
+                <Button appearance="primary">Impresión de cheques</Button>
+              </Link>
+              <Link to={"certificate_printing"}>
+                <Button appearance="primary">Impresión certificados</Button>
+              </Link>
+              <Link to={"proposed_vs_executed"}>
+                <Button appearance="primary">Propuesto Vs. ejecutado</Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      </Card>
-      <Outlet></Outlet>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
