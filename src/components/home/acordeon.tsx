@@ -16,12 +16,17 @@ import {
   faMoneyBillTrendUp,
   faReceipt,
   faCartFlatbed,
+  faScrewdriverWrench,
   faCircle,
+  faTools,
+  faGear,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./acordeon.css";
 import { Link } from "react-router-dom";
 import { LineHorizontal120Regular } from "@fluentui/react-icons";
+import { Settings20Regular } from "@fluentui/react-icons/lib/fonts";
+import "./acordeon.css";
+
 const useStyles = makeStyles({
   wrapper: {
     // columnGap: "15px",
@@ -35,6 +40,7 @@ const useStyles = makeStyles({
     margingLeft: "0px",
     margingRight: "0px",
   },
+
   opcion: {
     paddingTop: "7px",
   },
@@ -61,6 +67,7 @@ export function Acordeon() {
     "Informes",
     "Ventas",
     "Ayuda",
+    "Utilidades",
   ];
   const rutasMenus = [
     [
@@ -125,6 +132,18 @@ export function Acordeon() {
       "system_information",
       "register_software",
     ],
+    [
+      "file_management",
+      "consecutive",
+      "general_parameters",
+      "electronic_billing_parameters",
+      "closing_of_period",
+      "closing_processes",
+      "data_audit",
+      "accounting_update",
+      "recoverer_and_integrity",
+      "special_processes",
+    ],
   ];
   const iconos = [
     faComputer,
@@ -135,6 +154,7 @@ export function Acordeon() {
     faReceipt,
     faMoneyBillTrendUp,
     faCircleQuestion,
+    faScrewdriverWrench,
   ];
   const opcionesMenus = [
     [
@@ -197,6 +217,18 @@ export function Acordeon() {
       "Información del sistema",
       "Registrar Serial del Software",
     ],
+    [
+      "Manejo de archivos",
+      "Consecutivos",
+      "Parametros generales",
+      "Parametros de facturación electronica",
+      "Cierre de periodo",
+      "Procesos de cierres",
+      "Auditorias de datos",
+      "Actualización contable",
+      "Recuperadores de integridad",
+      "Procesos especiales",
+    ],
   ];
   const [menusAbiertos, setMenusAbiertos] = useState(
     Array(titulosMenus.length).fill(false)
@@ -216,7 +248,7 @@ export function Acordeon() {
     >
       {titulosMenus.map((titulo, index) => (
         <AccordionItem
-        key={index}
+          key={index}
           className="mi-accordion-item"
           value={index}
           onClick={() => toggleMenu(index)}
@@ -264,6 +296,20 @@ export function Acordeon() {
           </AccordionPanel>
         </AccordionItem>
       ))}
+      <Link className="w-full  " to={"config"}>
+        <Button
+          // icon={<Settings20Regular />}
+          className="buton2 w-full flex gap-[5px]"
+          size="medium"
+          appearance="subtle"
+        >
+          <FontAwesomeIcon
+            className="pl-[10px] text-1"
+            icon={faGear}
+          ></FontAwesomeIcon>
+          <p>Configuración</p>
+        </Button>
+      </Link>
     </Accordion>
   );
 }

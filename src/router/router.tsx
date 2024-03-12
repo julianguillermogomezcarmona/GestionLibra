@@ -11,6 +11,7 @@ import {
   cardComponentAccountingNiif,
   cardComponentAccountingPolicies,
   cardComponentAccountingReports,
+  cardComponentAccountingUpdate,
   cardComponentAccountPlan,
   cardComponentAccountxPayReports,
   cardComponentAccountxReceivableReports,
@@ -21,14 +22,21 @@ import {
   cardComponentCheckIssuance,
   cardComponentCheckIssuanceAccounting,
   cardComponentChecks,
+  cardComponentClosingofPeriod,
+  cardComponentClosingProcesses,
   cardComponentCommodity,
   cardComponentConciliationt,
+  cardComponentConsecutive,
   cardComponentConsignment,
   cardComponentConsolidate,
   cardComponentCustomers,
+  cardComponentDataAudit,
+  cardComponentElectronicBillingParameters,
   cardComponentExternalMovement,
   cardComponentExternalMovementAccounting,
   cardComponentExtractions,
+  cardComponentFileManagement,
+  cardComponentGeneralParameters,
   cardComponentGeneralTables,
   cardComponentHelpTopics,
   cardComponentInterestSettlement,
@@ -43,10 +51,12 @@ import {
   cardComponentportFolioDeterioration,
   cardComponentReceipts,
   cardComponentReclassifyThirdParties,
+  cardComponentRecoverersandIntegrity,
   cardComponentreFerralstoClients,
   cardComponentReturns,
   cardComponentRevelations,
   cardComponentSalesReports,
+  cardComponentSpecialProcesses,
   cardComponentStore,
   cardComponentSuppliers,
   cardComponentSystemBranchOffices,
@@ -142,6 +152,8 @@ import {
   supplierStatement,
 } from "../components/home/reports/reportsComponent";
 import { cashBilling, creditBilling, customerOrders, petrobasBillingMovement, pintacasaBillingMovement, quotetoClients, referralstoClients, referralstocustomers, referralstoMerchandiseCustomers, returnstoCustomers } from "../components/home/sales/salesComponent";
+import { accountingUpdate, annual, auditofAccountingReceipts, auditProcesses, changeofCompanyUser, changeofYear, closingEntries, consolidateCompanies, createDataDictionary, dataBackup, electronicBillingParameters, electronicBillingResolutions, ensureAccountingPeriod, fileViewer, fontOverride, generateElectronicBillingToken, monthly, monthlyInventorySummary, organizeFiles, purgeOldInformation, recoverCostCenters, recoverLargerBalances, recoverMovements, recoverThirdPartyBalances, resetBoxesShifts, sqlQueries, telephoneDirectory, TransferofAccountingBalances } from "../components/home/utilitis/utilitisComponet";
+import { config } from "../components/home/config/config";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -1033,6 +1045,463 @@ const router = createBrowserRouter([
           </div>
         ),
         children: [],
+      },
+      // utilidades
+      {
+        path: "file_management",
+        Component: cardComponentFileManagement,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [
+          {
+            path: "organizer_files",
+            Component: organizeFiles,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "data_backup",
+            Component: dataBackup,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+        ],
+      },
+      {
+        path: "consecutive",
+        Component: cardComponentConsecutive,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [],
+      },
+      {
+        path: "general_parameters",
+        Component: cardComponentGeneralParameters,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [],
+      },
+      {
+        path: "electronic_billing_parameters",
+        Component: cardComponentElectronicBillingParameters,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [
+          {
+            path: "electronic_billing_parameters",
+            Component: electronicBillingParameters,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "electronic_billing_resolutions",
+            Component: electronicBillingResolutions,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "generate_electronic_billingToken",
+            Component: generateElectronicBillingToken,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+        ],
+      },
+      {
+        path: "closing_of_period",
+        Component: cardComponentClosingofPeriod,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [
+          {
+            path: "monthly",
+            Component: monthly,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "annual",
+            Component: annual,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "closing_entries",
+            Component: closingEntries,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "Transfer_of_accounting_balances",
+            Component: TransferofAccountingBalances,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "ensure_accounting_period",
+            Component: ensureAccountingPeriod,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "purge_old_information",
+            Component: purgeOldInformation,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+        ],
+      },
+      {
+        path: "closing_processes",
+        Component: cardComponentClosingProcesses,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [
+          {
+            path: "change_of_year",
+            Component: changeofYear,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "change_of_companyUser",
+            Component: changeofCompanyUser,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+        ],
+      },
+      {
+        path: "data_audit",
+        Component: cardComponentDataAudit,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [
+          {
+            path: "monthly_inventory_summary",
+            Component: monthlyInventorySummary,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "audit_of_accounting_receipts",
+            Component: auditofAccountingReceipts,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+        ],
+      },
+      {
+        path: "accounting_update",
+        Component: cardComponentAccountingUpdate,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [
+          {
+            path: "font_override",
+            Component: fontOverride,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "accounting_update",
+            Component: accountingUpdate,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+        ],
+      },
+      {
+        path: "recoverer_and_integrity",
+        Component: cardComponentRecoverersandIntegrity,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [
+          {
+            path: "recover_movements",
+            Component: recoverMovements,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "recover_larger_balances",
+            Component: recoverLargerBalances,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "recover_third_party_balances",
+            Component: recoverThirdPartyBalances,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "recoverCostCenters",
+            Component: recoverCostCenters,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "audit_processes",
+            Component: auditProcesses,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+        ],
+      },
+      {
+        path: "special_processes",
+        Component: cardComponentSpecialProcesses,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [
+          {
+            path: "file_viewer",
+            Component: fileViewer,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "telephone_directory",
+            Component: telephoneDirectory,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "consolidate_companies",
+            Component: consolidateCompanies,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "reset_boxes_shifts",
+            Component: resetBoxesShifts,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "create_data_dictionary",
+            Component: createDataDictionary,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+          {
+            path: "sql_queries",
+            Component: sqlQueries,
+            errorElement: (
+              <div>
+                <h2>Esta ruta no existe</h2>
+              </div>
+            ),
+            children: [
+              
+            ],
+          },
+        ],
+      },
+      {
+        path: "config",
+        Component: config,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+        children: [
+          
+        ],
       },
     ],
   },

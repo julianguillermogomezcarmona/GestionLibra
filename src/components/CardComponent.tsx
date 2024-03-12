@@ -636,7 +636,7 @@ export function cardComponentExternalMovementAccounting() {
   return (
     <section className="flex h-screen flex-col gap-[5px]">
       <Card className=" h-[15%] ">
-        <h2 className="font-semibold text-[]">Deterioro de Inventarios</h2>
+        <h2 className="font-semibold text-[]">Movimiento Entero</h2>
         <div className="flex gap-[10px] pb-[10px]">
           <Link to={"billing_movement"}>
             <Button appearance="primary">Generar Movimiento de contable</Button>
@@ -920,45 +920,6 @@ export function cardComponentAccountingReports() {
   );
 }
 
-// export function cardComponent() {
-//   return (
-//     <section className="flex h-[100%] flex-col gap-[5px]">
-//       <Card className=" ">
-//         <h2 className="font-semibold text-[]">Manejo de archivos</h2>
-//         <div className="flex gap-[10px] pb-[10px]">
-//           <Button appearance="primary">Prueba</Button>
-//         </div>
-//       </Card>
-//       <Outlet></Outlet>
-//     </section>
-//   );
-// }
-// export function cardComponent() {
-//   return (
-//     <section className="flex h-[100%] flex-col gap-[5px]">
-//       <Card className=" ">
-//         <h2 className="font-semibold text-[]">Parametros</h2>
-//         <div className="flex gap-[10px] pb-[10px]">
-//           <Button appearance="primary">Prueba</Button>
-//         </div>
-//       </Card>
-//       <Outlet></Outlet>
-//     </section>
-//   );
-// }
-// export function cardComponent() {
-//   return (
-//     <section className="flex h-[100%] flex-col gap-[5px]">
-//       <Card className=" ">
-//         <h2 className="font-semibold text-[]">Procesos de cierres</h2>
-//         <div className="flex gap-[10px] pb-[10px]">
-//           <Button appearance="primary">Prueba</Button>
-//         </div>
-//       </Card>
-//       <Outlet></Outlet>
-//     </section>
-//   );
-// }
 export function cardComponentLicenseAgreement() {
   return (
     <section className="flex h-[100%] flex-col gap-[5px]">
@@ -1011,6 +972,303 @@ export function cardComponenttoRegister() {
         <div className="flex gap-[10px] pb-[10px]"></div>
       </Card>
       <Outlet></Outlet>
+    </section>
+  );
+}
+
+// Utilidades
+
+export function cardComponentFileManagement() {
+  const styles = useStyles();
+  return (
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%] ">
+          <h2 className="font-semibold text-[]">Manejo de archivos</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"organizer_files"}>
+                <Button appearance="primary">Organizar archivos</Button>
+              </Link>
+              <Link to={"data_backup"}>
+                <Button appearance="primary">Backup de datos</Button>
+              </Link>
+            </div>
+          </div>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
+    </section>
+  );
+}
+export function cardComponentConsecutive() {
+  return (
+    <section className="flex h-[100%] flex-col gap-[5px]">
+      <Card className=" h-[100%] w-full">
+        <h2 className="font-semibold text-[]">Consecutivos</h2>
+        <div className="flex gap-[10px] pb-[10px]"></div>
+      </Card>
+      <Outlet></Outlet>
+    </section>
+  );
+}
+export function cardComponentGeneralParameters() {
+  return (
+    <section className="flex h-[100%] flex-col gap-[5px]">
+      <Card className=" h-[100%] w-full">
+        <h2 className="font-semibold text-[]">Parámetros generales</h2>
+        <div className="flex gap-[10px] pb-[10px]"></div>
+      </Card>
+      <Outlet></Outlet>
+    </section>
+  );
+}
+export function cardComponentElectronicBillingParameters() {
+  const styles = useStyles();
+  return (
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%] ">
+          <h2 className="font-semibold text-[]">
+            Parámetros de facturación electronica
+          </h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"electronic_billing_parameters"}>
+                <Button appearance="primary">
+                  Parámetros de facturación electronica
+                </Button>
+              </Link>
+              <Link to={"electronic_billing_resolutions"}>
+                <Button appearance="primary">
+                  Resoluciones de Facturación electronica
+                </Button>
+              </Link>
+              <Link to={"generate_electronic_billingToken"}>
+                <Button appearance="primary">
+                  Generar Token de Facturación electronica
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
+    </section>
+  );
+}
+export function cardComponentClosingofPeriod() {
+  const styles = useStyles();
+  return (
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%] ">
+          <h2 className="font-semibold text-[]">Cierre de periodo</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"monthly"}>
+                <Button appearance="primary">Mensual</Button>
+              </Link>
+              <Link to={"annual"}>
+                <Button appearance="primary">Anual</Button>
+              </Link>
+              <Link to={"closing_entries"}>
+                <Button appearance="primary">Asientos de cierre</Button>
+              </Link>
+              <Link to={"Transfer_of_accounting_balances"}>
+                <Button appearance="primary">
+                  Traslado de saldos contables
+                </Button>
+              </Link>
+              <Link to={"ensure_accounting_period"}>
+                <Button appearance="primary">Asegurar periodo contable</Button>
+              </Link>
+              <Link to={"purge_old_information"}>
+                <Button appearance="primary">
+                  Depurar información antigua
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
+    </section>
+  );
+}
+export function cardComponentClosingProcesses() {
+  const styles = useStyles();
+  return (
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%] ">
+          <h2 className="font-semibold text-[]">Procesos de cierre</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"change_of_year"}>
+                <Button appearance="primary">Cambio de año</Button>
+              </Link>
+              <Link to={"change_of_companyUser"}>
+                <Button appearance="primary">
+                  Cambio de empresa y/o usuario
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
+    </section>
+  );
+}
+export function cardComponentDataAudit() {
+  const styles = useStyles();
+  return (
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%] ">
+          <h2 className="font-semibold text-[]">Auditoria de datos</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"monthly_inventory_summary"}>
+                <Button appearance="primary">
+                  Resumen mensual de inventario
+                </Button>
+              </Link>
+              <Link to={"audit_of_accounting_receipts"}>
+                <Button appearance="primary">
+                  Auditoria de comprobantes contables
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
+    </section>
+  );
+}
+export function cardComponentAccountingUpdate() {
+  const styles = useStyles();
+  return (
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%] ">
+          <h2 className="font-semibold text-[]">Actualización contable</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"font_override"}>
+                <Button appearance="primary">Anulación de fuentes</Button>
+              </Link>
+              <Link to={"accounting_update"}>
+                <Button appearance="primary">Actualización contabilidad</Button>
+              </Link>
+            </div>
+          </div>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
+    </section>
+  );
+}
+export function cardComponentRecoverersandIntegrity() {
+  const styles = useStyles();
+  return (
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%] ">
+          <h2 className="font-semibold text-[]">Recuperadores e Integridad</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"recover_movements"}>
+                <Button appearance="primary">Recuperar movimientos</Button>
+              </Link>
+              <Link to={"recover_larger_balances"}>
+                <Button appearance="primary">Recuperar saldos mayores</Button>
+              </Link>
+              <Link to={"recover_third_party_balances"}>
+                <Button appearance="primary">Recuperar saldos terceros</Button>
+              </Link>
+              <Link to={"recoverCostCenters"}>
+                <Button appearance="primary">
+                  Recuperar centros de costos
+                </Button>
+              </Link>
+              <Link to={"audit_processes"}>
+                <Button appearance="primary">Procesos de auditoria</Button>
+              </Link>
+            </div>
+          </div>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
+    </section>
+  );
+}
+export function cardComponentSpecialProcesses() {
+  const styles = useStyles();
+  return (
+    <section className="flex flex-col gap-[8px] w-full h-screen">
+      <div className="grid grid-flow-col h-[18%]  gap-[5px]">
+        <Card className="h-[100%] w-[100%] ">
+          <h2 className="font-semibold text-[]">Procesos especiales</h2>
+          <div className="w-full overflow-x-hidden snap-x">
+            <div
+              className={`snap-x w-full ${styles[".&width"]} overflow-x-scroll flex gap-[10px] pb-[10px] custom-scrollbar2`}
+            >
+              <Link to={"file_viewer"}>
+                <Button appearance="primary">Visor de archivos</Button>
+              </Link>
+              <Link to={"telephone_directory"}>
+                <Button appearance="primary">Directorio Telefónico</Button>
+              </Link>
+              <Link to={"consolidate_companies"}>
+                <Button appearance="primary">Consolidar empresas</Button>
+              </Link>
+              <Link to={"reset_boxes_shifts"}>
+                <Button appearance="primary">Reiniciar cajas/turnos</Button>
+              </Link>
+              <Link to={"create_data_dictionary"}>
+                <Button appearance="primary">Crear diccionario de datos</Button>
+              </Link>
+              <Link to={"sql_queries"}>
+                <Button appearance="primary">Consultas SQL</Button>
+              </Link>
+            </div>
+          </div>
+        </Card>
+      </div>
+      <div className="h-[100%] w-full">
+        <Outlet></Outlet>
+      </div>
     </section>
   );
 }
