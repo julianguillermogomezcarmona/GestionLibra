@@ -154,10 +154,20 @@ import {
 import { cashBilling, creditBilling, customerOrders, petrobasBillingMovement, pintacasaBillingMovement, quotetoClients, referralstoClients, referralstocustomers, referralstoMerchandiseCustomers, returnstoCustomers } from "../components/home/sales/salesComponent";
 import { accountingUpdate, annual, auditofAccountingReceipts, auditProcesses, changeofCompanyUser, changeofYear, closingEntries, consolidateCompanies, createDataDictionary, dataBackup, electronicBillingParameters, electronicBillingResolutions, ensureAccountingPeriod, fileViewer, fontOverride, generateElectronicBillingToken, monthly, monthlyInventorySummary, organizeFiles, purgeOldInformation, recoverCostCenters, recoverLargerBalances, recoverMovements, recoverThirdPartyBalances, resetBoxesShifts, sqlQueries, telephoneDirectory, TransferofAccountingBalances } from "../components/home/utilitis/utilitisComponet";
 import { config } from "../components/home/config/config";
+import lobby from "../components/home/lobby/lobby";
 const router = createBrowserRouter([
   {
     path: "/",
     Component: login,
+    errorElement: (
+      <div>
+        <h2>Esta ruta no existe</h2>
+      </div>
+    ),
+  },
+  {
+    path: "/lobby",
+    Component: lobby,
     errorElement: (
       <div>
         <h2>Esta ruta no existe</h2>
@@ -1064,9 +1074,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "data_backup",
@@ -1076,9 +1084,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
         ],
       },
@@ -1119,9 +1125,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "electronic_billing_resolutions",
@@ -1131,9 +1135,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "generate_electronic_billingToken",
@@ -1143,9 +1145,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
         ],
       },
@@ -1166,9 +1166,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "annual",
@@ -1178,9 +1176,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "closing_entries",
@@ -1190,9 +1186,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "Transfer_of_accounting_balances",
@@ -1202,9 +1196,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "ensure_accounting_period",
@@ -1214,9 +1206,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "purge_old_information",
@@ -1226,9 +1216,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
         ],
       },
@@ -1249,9 +1237,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "change_of_companyUser",
@@ -1261,9 +1247,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
         ],
       },
@@ -1284,9 +1268,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "audit_of_accounting_receipts",
@@ -1296,9 +1278,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
         ],
       },
@@ -1319,9 +1299,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "accounting_update",
@@ -1331,9 +1309,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
         ],
       },
@@ -1354,9 +1330,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "recover_larger_balances",
@@ -1366,9 +1340,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "recover_third_party_balances",
@@ -1378,9 +1350,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "recoverCostCenters",
@@ -1390,9 +1360,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "audit_processes",
@@ -1402,9 +1370,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
         ],
       },
@@ -1425,9 +1391,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "telephone_directory",
@@ -1437,9 +1401,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "consolidate_companies",
@@ -1449,9 +1411,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "reset_boxes_shifts",
@@ -1461,9 +1421,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "create_data_dictionary",
@@ -1473,9 +1431,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
           {
             path: "sql_queries",
@@ -1485,9 +1441,7 @@ const router = createBrowserRouter([
                 <h2>Esta ruta no existe</h2>
               </div>
             ),
-            children: [
-              
-            ],
+            children: [],
           },
         ],
       },
@@ -1499,9 +1453,7 @@ const router = createBrowserRouter([
             <h2>Esta ruta no existe</h2>
           </div>
         ),
-        children: [
-          
-        ],
+        children: [],
       },
     ],
   },

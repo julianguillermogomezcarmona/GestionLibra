@@ -54,3 +54,25 @@
 .borde .fui-FluentProviderr0 {
   background: #57909F
 }
+.but:hover {
+  background-color: var(--colorNeutralBackground1Hover);
+  color: var(--colorNeutralForeground2Hover);
+}
+
+
+
+.sidebar-container {
+  transition: transform 2s ease-in-out; /* Transición de 0.3 segundos con función de temporización ease-in-out */
+}
+
+.reduced-size {
+  transform: translateX(0%); /* Mueve el componente fuera de la pantalla cuando está reducido */
+}
+
+.original {
+  transform: translateX(0); /* Restaura la posición original cuando está en modo original */
+}
+
+.reduced {
+  transform: translateX(0%); /* Ajusta el desplazamiento cuando está en tamaño reducido */
+}

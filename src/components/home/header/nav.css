@@ -1,0 +1,12 @@
+#stich-r8{
+    width: 5px;
+}
+.switch input {
+    width: 100%;
+}
+
+.switch:hover {
+    background-color: var(--colorNeutralBackground1Hover);
+    color: var(--colorNeutralForeground2Hover);
+}
+/* <input id="switch-r4" role="switch" type="checkbox" class="fui-Switch__input rw4brat ___4qgl4q0_48m94v0 f1e31b4d f15twtuk"> */

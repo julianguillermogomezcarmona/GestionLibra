@@ -11,7 +11,7 @@ import {
 } from "@fluentui/react-components";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <FluentProvider>
+  <FluentProvider theme={webLightTheme}>
     <App />
   </FluentProvider>
 );

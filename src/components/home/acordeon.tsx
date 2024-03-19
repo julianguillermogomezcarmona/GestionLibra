@@ -242,7 +242,7 @@ export function Acordeon() {
   const styles = useStyles();
   return (
     <Accordion
-      className={`snap-y h-[80%] w-full overflow-y-scroll custom-scrollbar  ${styles.wrapper}`}
+      className={`snap-y h-[100%] w-full overflow-y-scroll custom-scrollbar  ${styles.wrapper}`}
       collapsible
       navigation="circular"
     >

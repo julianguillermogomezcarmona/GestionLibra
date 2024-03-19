@@ -14,10 +14,22 @@ import {
   webLightTheme,
   Switch,
 } from "@fluentui/react-components";
+import Header from "./header/header";
 export default function home() {
+  // const { setTheme, theme } = useThemeContext();
   const [isReduced, setIsReduced] = useState(false);
+
   // const { theme } = useThemeContext();
-  // const [currentTheme, setCurrentTheme] = useState(theme);
+  const [currentTheme, setCurrentTheme] = useState<any>(webLightTheme);
+  function cambiarTema() {
+    console.log(currentTheme);
+    setCurrentTheme((prevTexto: any) =>
+      prevTexto === webLightTheme ? webDarkTheme : webLightTheme
+    ),
+      console.log(currentTheme);
+    //  setCurrentTheme()
+    // setTheme((prevTheme)=> (prevTheme === "dark" ? "light" : "dark"));
+  }
   // const currentWebTheme =
   //   currentTheme === "light" ? webLightTheme : webDarkTheme;
   // useEffect(() => {
@@ -31,33 +43,47 @@ export default function home() {
   //   setTheme(newTheme);
   // };
   // const currentTheme = theme === "dark" ? webDarkTheme : webLightTheme;
+  // const toggleComponente = () => {
+  //   cambiarTema()
+  //   setCurrentTheme(!currentTheme);
+  // };
+
   return (
-    <FluentProvider theme={webDarkTheme}>
-      <main className="h-screen flex w-full p-[15px] gap-[15px] overflow-hidden items-center">
-        <section
-          className={` transition-all duration-1000 ${
-            isReduced ? "w-18" : "w-[270px]"
-          } ${isReduced ? "h-[]" : "h-[100%] " && ""}`}
-        >
-          <SideBar
-            isReduced={isReduced}
-            toggleSidebarSize={() => setIsReduced(!isReduced)}
-          />
-          <div className="flex absolute top-0">
-            {/* <Switch></Switch> */}
-            {/* <Button className="" onClick={toggleToDarkTheme}>
+    <FluentProvider theme={currentTheme} className="">
+      <section className="flex flex-col h-screen">
+        <div>
+          <Header showModal={cambiarTema}></Header>
+        </div>
+        <main className="h-screen my-[15px] flex w-full  gap-[15px] overflow-hidden">
+          <section
+            className={` transition-all duration-1000 ${
+              isReduced ? "w-18" : "w-[270px]"
+            } ${isReduced ? "h-[]" : "h-[100%] " && ""}`}
+          >
+            <SideBar
+              isReduced={isReduced}
+              toggleSidebarSize={() => setIsReduced(!isReduced)}
+            />
+            <div className="flex absolute top-0"></div>
+          </section>
+
+          <section className="w-full h-[100%] ">
+            <Outlet />
+          </section>
+        </main>
+      </section>
+    </FluentProvider>
+  );
+}
+
+{
+  /* <Switch></Switch> */
+}
+{
+  /* <Button className="" onClick={toggleToDarkTheme}>
               Alternar Tema
             </Button>
              <Button className="" onClick={toggleToLightTheme}>
               Alternar Tema
-           </Button> */}
-          </div>
-        </section>
-
-        <section className="w-full h-[100%] ">
-          <Outlet />
-        </section>
-      </main>
-    </FluentProvider>
-  );
+           </Button> */
 }

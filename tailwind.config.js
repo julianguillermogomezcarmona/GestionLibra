@@ -5,6 +5,11 @@ export default {
     extend: {
       backgroundImage: {
         login: "url(./public/Fondo_login.svg)",
+        inventario: "url(./public/inventario.jpg)",
+        client: "url(./public/clientes.jpg)",
+        contables: "url(./public/contable.jpg)",
+        ventas: "url(./public/ventas.jpg)",
+        bancos: "url(./public/bancos.jpg)"
       },
       colors: {
         1: "#57909F",

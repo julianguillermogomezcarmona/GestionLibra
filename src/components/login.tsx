@@ -3,11 +3,13 @@ import Inputs from "./input";
 import ChexBox from "./chexbox";
 import NavLogin from "./nav_login";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 // import { LockClosed16Filled, PersonRegular } from "@fluentui/react-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faLock, faUser } from "@fortawesome/free-solid-svg-icons";
 export default function login() {
   // const styles = mergeStyles({});
+  const [imageLoaded, setImageLoaded] = useState(false);
   return (
     <section className="grid bg-white grid-cols-2 h-screen w-full">
       <div className="bg-white">
@@ -50,7 +52,7 @@ export default function login() {
               </div>
             </div>
             <Link
-              to={"home"}
+              to={"lobby"}
               className=" bg-[#0C3B5E] text-white text-center w-full py-[5px] rounded-[5px]"
             >
               Iniciar sesión
@@ -62,8 +64,9 @@ export default function login() {
           </form>
         </div>
       </div>
-      <div className="bg-login flex flex-col  items-center justify-center">
-        <NavLogin></NavLogin>
+      <div className=" flex flex-col  items-center justify-center">
+        <NavLogin  ></NavLogin>
+        {/* <img src="ruta-de-tu-imagen.jpg" alt="Imagen" /> */}
       </div>
     </section>
   );

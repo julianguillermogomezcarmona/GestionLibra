@@ -1,0 +1,115 @@
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .card-container {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border: 2px dashed #aaa;
+    position: relative;
+  }
+  
+  .card {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+.text.fkfq4zb {
+    color: white;
+}
+.butom.r1alrhcs:hover{
+    color: #2e1c3d;
+}
+/* .option{
+    position: absolute;
+    top: 0;
+    left: -1200px;
+    height: 100px;
+} */
+  .card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card-title {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .card.dragging {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  .menu-container::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Negro con opacidad del 50% */
+    z-index: 5; /* Asegura que el fondo oscurecido esté detrás del menú */
+  }
+/* // <uniquifier>: Use a unique and descriptive class name */
+/* // <weight>: Use a value from 100 to 900 */
+
+.inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+}
+.text.r10zo65y{
+  color: white;
+}
+.text.fium13f:hover{
+  color: #ffffff;
+}
+.text.f3p8bqa:hover{
+  font-weight: 400;
+  color: white;
+}
+.text.fium13f{
+  color:#ffffff
+}
+.menu.fkfq4zb{
+  color: #ffffff;
+} 
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar {
+  padding-right: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #676969cb; /* Cambia el color según tus preferencias */
+  border-radius: 6px;
+}
+
+.custom-scrollbar:hover ::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background-color: #f1f1f1; /* Cambia el color según tus preferencias */
+}
