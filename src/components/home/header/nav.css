@@ -1,12 +1,22 @@
 #stich-r8{
     width: 5px;
 }
-.switch input {
-    width: 100%;
+.switchinput {
+    width: 4px;
 }
 
 .switch:hover {
     background-color: var(--colorNeutralBackground1Hover);
     color: var(--colorNeutralForeground2Hover);
 }
+.text {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0;
+  }
+.header.frsmuga{
+    --fui-Card--size :7px;
+  }
 /* <input id="switch-r4" role="switch" type="checkbox" class="fui-Switch__input rw4brat ___4qgl4q0_48m94v0 f1e31b4d f15twtuk"> */

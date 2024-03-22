@@ -52,7 +52,7 @@ export default function login() {
               </div>
             </div>
             <Link
-              to={"lobby"}
+              to={"/moduls"}
               className=" bg-[#0C3B5E] text-white text-center w-full py-[5px] rounded-[5px]"
             >
               Iniciar sesión

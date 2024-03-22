@@ -31,3 +31,32 @@
   border-radius: 6px;
   
 }
+.table {
+  overflow: scroll;
+}
+
+.table1.r1alrhcs:hover {
+  color: green;
+}
+
+.table2.r1alrhcs:hover {
+  color: red;
+}
+
+.table3.r1alrhcs:hover {
+  color: blue;
+}
+
+.tablet.f1f5gg8d {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.tab.f1f5gg8d {
+  /* padding-left: 0; */
+  padding-right: 0;
+}
+
+.f1f5gg8d {
+  padding-left: var(--spacingHorizontalS);
+}

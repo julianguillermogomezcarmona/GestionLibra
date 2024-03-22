@@ -97,10 +97,16 @@ import Header from "./header";
 function lobby() {
   const [people, setPeople] = useState([
     { id: 1, name: "Transacciones", image: 'bg-contables' },
-    { id: 2, name: "Emisión de cheques", image: 'bg-contables' },
+    { id: 2, name: "Extracción de movimientos", image: 'bg-contables' },
     { id: 3, name: "Reclasificar terceros", image: 'bg-contables' },
-    { id: 4, name: "Conciliación", image: 'bg-contables' },
-    { id: 5, name: "Gastos", image: 'bg-contables' },
+    { id: 4, name: "Movimiento externo", image: 'bg-contables' },
+    { id: 5, name: "Diseños de estodo financiero", image: 'bg-contables' },
+    { id: 6, name: "Plan de cuentas", image: 'bg-contables' },
+    { id: 7, name: "Fuentes", image: 'bg-contables' },
+    { id: 8, name: "Centro de costos", image: 'bg-contables' },
+
+
+
   ]);
   const [people2, setPeople2] = useState([
     { id: 1, name: "Contabilidad", image: 'bg-ventas' },

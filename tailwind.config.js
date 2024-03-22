@@ -11,6 +11,9 @@ export default {
         ventas: "url(./public/ventas.jpg)",
         bancos: "url(./public/bancos.jpg)"
       },
+      animation: {
+        'bounce-slow': 'bounce 2s infinite',
+      },
       colors: {
         1: "#57909F",
       },

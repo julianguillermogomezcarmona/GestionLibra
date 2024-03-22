@@ -1,0 +1,18 @@
+::-webkit-scrollbar {
+    width: 5px; /* Ancho de la barra de desplazamiento */
+  }
+  
+  ::-webkit-scrollbar-track {
+    /* background: #f1f1f1; Color de fondo de la pista de la barra de desplazamiento */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    /* background: #888; Color del "pulgar" de la barra de desplazamiento */
+    border-radius: 5px; 
+    background-color: var(--colorNeutralForeground3);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    color: var(--colorNeutralForeground3);/* Radio de borde del "pulgar" */
+    /* background: #555; Color del "pulgar" cuando se pasa el ratón por encima */
+  }

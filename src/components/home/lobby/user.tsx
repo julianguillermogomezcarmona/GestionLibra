@@ -6,9 +6,10 @@ type anyProps = {
     user: any,
 }
 const useStyles = makeStyles({
-    // wrapper: {
-    //     color: 'red',
-    // },
+    selected: {
+        backgroundColor: 'blue', // Cambia el color de fondo cuando está seleccionado
+        color: 'white', // Cambia el color del texto cuando está seleccionado
+    },
 });
 function User({ user }: anyProps) {
     const { attributes, listeners, setNodeRef, transform, transition } =
@@ -29,11 +30,12 @@ function User({ user }: anyProps) {
             ref={setNodeRef}
             {...attributes}
             {...listeners}
-            className={`${user.image} h-[50px] justify-center items-center text-center relative bg-cover bg-center m-[5px] p-4 w-[201px] flex  rounded-[5px] shadow-md`}
+            className={`${user.image} h-[50px] justify-center items-center text-center relative bg-cover bg-center m-[5px] p-4 w-[201px] flex  rounded-[5px] shadow-md ${isSelected ? styles.selected : ''}`}
         >
             <div className="bg-black absolute  top-0 left-0 h-[100%] opacity-35 w-full z-1 rounded-[5px]">
             </div>
-            <Checkbox id={user.id} className={`z-5 relative text truncate ...`} checked={isSelected} onClick={handleToggle} labelPosition="before" shape="circular" label={user.name} />;
+            <ToggleButton id={user.id} className={`z-5 relative text `} appearance="transparent" checked={isSelected} onClick={handleToggle} >{user.name}</ToggleButton>
+            {/* <Checkbox id={user.id} className={`z-5 relative text truncate ...`} checked={isSelected} onClick={handleToggle} labelPosition="before" shape="circular" label={user.name} />; */}
 
         </div>
     );

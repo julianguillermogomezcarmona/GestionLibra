@@ -1,0 +1,106 @@
+.num .rvp2gzh {
+    font-size: 12px;
+    /* text-align: center; */
+}
+.num2 .rvp2gzh {
+    padding-right: 11px;
+    /* text-align: center; */
+}
+.num.r1jtohuq{
+    height: 25px;
+    min-height: 15px;
+} 
+.num2.rywnvv2{
+    height: 30px;
+}
+.card.f1vx9l62{
+    flex-direction: row;
+}
+.num{
+    padding-right: 5px;
+}
+.table .fkhj508{
+    font-size: 12px;
+} 
+.label .fkhj508{
+    font-size: 12px;
+}
+.rows {
+    overflow: hidden;
+    height: 35px;
+}
+.input{
+    background-color: var(--colorNeutralShadowAmbientLighter);
+    /* border: 5px; */
+    border-color: var(--colorNeutralShadowAmbientLighter);
+}
+/* style.css */
+::-webkit-scrollbar {
+    width: 5px; 
+    height: 5px;/* Ancho de la barra de desplazamiento */
+  }
+  
+  ::-webkit-scrollbar-track {
+    /* background: #f1f1f1; Color de fondo de la pista de la barra de desplazamiento */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    /* background: #888; Color del "pulgar" de la barra de desplazamiento */
+    border-radius: 5px; 
+    background-color: var(--colorNeutralForeground3);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    color: var(--colorNeutralForeground3);/* Radio de borde del "pulgar" */
+    /* background: #555; Color del "pulgar" cuando se pasa el ratón por encima */
+  }
+.butom {
+    background-color: var(--colorPaletteSteelBorderActive)
+}
+.butom:hover {
+background-color: var(--colorPaletteSteelForeground2);
+}
+.butom2{
+    background-color: var(--colorPaletteLightGreenBackground3);
+}
+.butom2:hover{
+    background-color: var(--colorPaletteLightGreenForeground1);
+}
+.date{
+    background-color: var(--colorNeutralForegroundInverted);
+}
+.data {
+    color: var(--colorNeutralForeground1);
+}
+
+.data .anticon{
+    color: var(--colorNeutralForeground1);
+}
+.data .anticon:hover{
+    color: var(--colorNeutralForeground1);
+}
+.anticon{
+    color: var(--colorNeutralForeground1);
+}
+
+:where(.css-dev-only-do-not-override-djtmh8).ant-picker .ant-picker-input >input::placeholder {
+    color: var(--colorNeutralForeground1);
+}
+:where(.css-dev-only-do-not-override-djtmh8).ant-picker .ant-picker-input >input {
+    color: var(--colorNeutralForeground1);
+}
+:where(.css-dev-only-do-not-override-djtmh8).ant-picker .ant-picker-input >input::placeholder {
+    background-color: var(--colorNeutralForegroundInverted);
+}
+/* :where(.css-dev-only-do-not-override-djtmh8).ant-picker .ant-picker-input >input:hover {
+    color: var(--colorNeutralForegroundInverted);
+} */
+:where(.css-dev-only-do-not-override-djtmh8).ant-picker .ant-picker-input::placeholder{
+    color: var(--colorNeutralForeground1);
+}
+:where(.css-dev-only-do-not-override-djtmh8).ant-picker-outlined:hover {
+    background-color: var(--colorNeutralForegroundInverted);
+}
+/* :where(.css-dev-only-do-not-override-djtmh8).ant-picker-outlined {
+    background-color: var(--colorNeutralForegroundInverted);
+} */

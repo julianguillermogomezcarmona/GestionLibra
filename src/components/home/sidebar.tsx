@@ -5,6 +5,7 @@ import { SearchBox } from "@fluentui/react-search-preview";
 import { Acordeon } from "./acordeon";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavContable } from "./nav";
 import {
   faDoorOpen,
   faEye,
@@ -33,6 +34,7 @@ export default function sideBar({ isReduced, toggleSidebarSize }: prop) {
       ) : (
           <section className="flex flex-col items-center  w-full h-[100%] overflow-hidden">
             <div className=" flex flex-col h-[440px] w-full">
+              {/* <NavContable/> */}
             <Acordeon />
           </div>
           <span className="absolute bottom-4 text-center text-[10px] w-[90%]">

@@ -9,7 +9,8 @@ import {
   makeStyles,
   Switch,
 } from "@fluentui/react-components";
-import { Link } from "react-router-dom";
+import { Link, } from "react-router-dom";
+import { unstable_HistoryRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SearchBox } from "@fluentui/react-search-preview";
 import {
@@ -37,6 +38,7 @@ const useStyles = makeStyles({
 });
 type modalProp = {
   showModal?: () => void;
+
 };
 export default function Header({ showModal }: modalProp) {
   const styles = useStyles();
@@ -52,18 +54,11 @@ export default function Header({ showModal }: modalProp) {
   //   showModal();
   // }
   return (
-    <Card className="header">
+    <div className="header p-[12px]">
       <header className="w-full h-[8%] flex justify-between items-center ">
-        <div className="flex items-center">
-          <figure className="flex h-[100%] items-center gap-[10px] px-[15px] justify-between ">
-            <Link to={"/moduls"} className="relative font-semibold flex  text text-[19px]">
-              {/* <img className="h-[35px]" src="/public/logo.svg" alt="logo" /> */}
-              <img className="h-6" src="./public/escribiendo.svg" alt="icono" />
-
-              Contabilidad
-            </Link>
-          </figure>
-          <NavContable></NavContable>
+        <div className="flex font-bold items-center px-[10px]">
+          <Link to={'/moduls'}>Modulos</Link>
+          {/* <button onClick={handleClick}>h</button> */}
         </div>
         <div className="font-bold flex items-center gap-2">
           <h2 className="">Usuario02</h2>
@@ -104,7 +99,7 @@ export default function Header({ showModal }: modalProp) {
               <MenuList>
                 <MenuItem className="text-[15px]">Documentación</MenuItem>
                 <MenuItem>Soporte técnico</MenuItem>
-                <Switch
+                {/* <Switch
                   checked={darkMode} // Estado del modo oscuro
                   onChange={handleDarkModeToggle} // Manejador del cambio de estado del modo oscuro
                   onClick={showModal}
@@ -112,7 +107,7 @@ export default function Header({ showModal }: modalProp) {
                   labelPosition="before"
                   style={{ maxWidth: "400px" }}
                   label="Tema oscuro"
-                />
+                /> */}
                 <MenuItem>Preferencias</MenuItem>
                 <MenuItem>
                   <Link to={"/"}>
@@ -125,6 +120,6 @@ export default function Header({ showModal }: modalProp) {
           </Menu>
         </div>
       </header>
-    </Card>
+    </div>
   );
 }
