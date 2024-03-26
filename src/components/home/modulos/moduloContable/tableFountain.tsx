@@ -31,193 +31,117 @@ import {
     TableRowData as RowStateBase,
     Button,
 } from "@fluentui/react-components";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { height } from "@fortawesome/free-brands-svg-icons/fa42Group";
 // import './component.css'
-type Item = {
-    Code: {
-        label: string;
-    };
-    Name: {
-        label: string;
-        // ]timestamp: number;
-    };
-    // Actions: {
-    //     label: string;
-    //     // icon: JSX.Element;
-    // };
-};
-
-interface TableRowData extends RowStateBase<Item> {
-    onClick: (e: React.MouseEvent) => void;
-    onKeyDown: (e: React.KeyboardEvent) => void;
-    selected: boolean;
-    appearance: "brand" | "none";
-}
-
-interface ReactWindowRenderFnProps extends ListChildComponentProps {
-    data: TableRowData[];
-}
-
-const baseItems: Item[] = [
-    {
-        Code: { label: "01", },
-        Name: { label: "7h ago", },
-
-    },
-    {
-        Code: { label: "02", },
-        Name: { label: "Yesterday at 1:45 PM", },
-
-    },
-    {
-        Code: { label: "11", },
-        Name: { label: "Yesterday at 1:45 PM", },
-
-    },
-    {
-        Code: { label: "15", },
-        Name: { label: "Tue at 9:30 AM", },
-
-    },
-];
-
-const items = new Array(15)
-    .fill(0)
-    .map((_, i) => baseItems[i % baseItems.length]);
-
-const columns = [
-    createTableColumn<Item>({
-        columnId: "Codigo",
-    }),
-
-    createTableColumn<Item>({
-        columnId: "Name",
-    }),
-    createTableColumn<Item>({
-        columnId: "Actions",
-    }),
-];
-
-const RenderRow = ({ index, style, data }: ReactWindowRenderFnProps) => {
-    const { item, appearance, onKeyDown } = data[index];
-    return (
-        <TableRow
-            aria-rowindex={index + 2}
-            style={style}
-            key={item.Code.label}
-            onKeyDown={onKeyDown}
-            // onClick={onClick}
-            appearance={appearance}>
-            <TableCell className="tab rows">
-                {/* 07/12/2018 */}
-                {item.Code.label}
-            </TableCell>
-
-            <TableCell className="tablet truncate">{item.Name.label}</TableCell>
-            {/* <TableCell className="tablet truncate mr-[10px]">
-                <TableCellLayout >
-                    {item.lastUpdate.label}
-                </TableCellLayout>
-            </TableCell> */}
-            {/* <TableCell className="tablet">
-                <TableCellLayout >
-                    <p>$255.000</p>
-                   
-                </TableCellLayout>
-            </TableCell> */}
-            <TableCell className="tablet">
-                <div className="pl-[10px] flex justify-center w-full">
-                    <Button className="table1" icon={<Eye12Filled />}></Button>
-                    <Button className="table2" icon={<Delete12Filled />}></Button>
-                    <Button className="table3" icon={<Edit12Filled />}></Button>
-                </div>
-            </TableCell>
-        </TableRow>
-    );
-};
-
 export function TableFountain() {
-    const { targetDocument } = useFluent();
-    const scrollbarWidth = useScrollbarWidth({ targetDocument });
-
-    const {
-        getRows,
-        selection: {
-            allRowsSelected,
-            someRowsSelected,
-            toggleAllRows,
-            toggleRow,
-            // isRowSelected,
-        },
-    } = useTableFeatures(
+    // Array con más información para las filas
+    const [data, setData] = useState([
         {
-            columns,
-            items,
+            id: 1,
+            codigo: '0sd141',
+            numeroDocumento: '105475844',
+            fecha: '01/02/2024',
+            nombreFuente: 'Organización sin fines de lucro'
         },
-        [
-            useTableSelection({
-                selectionMode: "multiselect",
-                defaultSelectedItems: new Set([0, 1]),
-            }),
-        ]
-    );
-
-    const rows: TableRowData[] = getRows((row) => {
-        // const selected = isRowSelected(row.rowId);
-        return {
-            ...row,
-            onClick: (e: React.MouseEvent) => toggleRow(e, row.rowId),
-            onKeyDown: (e: React.KeyboardEvent) => {
-                if (e.key === " ") {
-                    e.preventDefault();
-                    toggleRow(e, row.rowId);
-                }
-            },
-            // selected,
-            // appearance: selected ? ("brand" as const) : ("none" as const),
-        };
-    });
-
-    const toggleAllKeydown = useCallback(
-        (e: React.KeyboardEvent<HTMLDivElement>) => {
-            if (e.key === " ") {
-                toggleAllRows(e);
-                e.preventDefault();
-            }
+        {
+            id: 2,
+            codigo: '0255sd31',
+            numeroDocumento: '202134567',
+            fecha: '15/03/2024',
+            nombreFuente: 'Empresa XYZ'
         },
-        [toggleAllRows]
-    );
-    const firstColumn = 50;
+        {
+            id: 3,
+            codigo: '03hgr48',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 4,
+            codigo: '04te258ds',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 5,
+            codigo: '0598ju85',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 6,
+            codigo: '06478ked5',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 7,
+            codigo: '0748ki8r',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 8,
+            codigo: '00s8w8sd8',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 9,
+            codigo: '09zh8698f',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        }
+        // Puedes agregar más objetos al array con más datos de filas
+    ]);
+
     return (
-        <Table
-            noNativeElements
-            aria-label="Table with selection"
-            aria-rowcount={rows.length}
-        >
-            <TableHeader style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
-                <TableRow aria-rowindex={1} className="" >
+        <section className="px-[px]">
+            <div style={{ overflowY: 'auto' }} className="px-[2px]">
+                <table className="w-full divide-y-[1px] divide-first text-center text-first">
+                    <thead className="px-[10px]" style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
+                        <tr style={{ color: 'var(--colorNeutralForeground1)' }} className="z-40 top-0 text-[14px] ">
+                            <th className="py-[7px] font-semibold text-center" style={{ width: '4%' }}>Codigo</th>
+                            <th className="font-semibold text-center" style={{ width: '25%' }}>Nombre de la fuente</th>
+                            <th className="font-semibold text-center" style={{ width: '15%' }}>Acciones</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div style={{ maxHeight: '270px', overflowY: 'auto' }}>
+                    <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first">
+                        <tbody>
+                            {data.map(row => (
+                                <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[25px] text-[12px] font-semibold border-b-[0.5px]">
+                                    <td className="text-center" style={{ width: '3%', maxWidth: '67px' }}>{row.codigo}</td>
+                                    <td className="text-start" style={{ width: '25%' }}>{row.nombreFuente}</td>
+                                    <td className="text-end" style={{ width: '8%' }}>
+                                        <div className=" py-[5px]  flex justify-evenly w-full">
+                                            <Button className="table1" icon={<Eye12Filled />}></Button>
+                                            <Button className="table2" icon={<Delete12Filled />}></Button>
+                                            <Button className="table3" icon={<Edit12Filled />}></Button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
-
-                    <TableHeaderCell style={{ width: firstColumn }} ><span className="text-center w-full font-semibold">Codigo</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Nombre de fuente</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Acciones</span></TableHeaderCell>
-                    {/** Scrollbar alignment for the header */}
-                    <div role="presentation" style={{ width: scrollbarWidth }} />
-                </TableRow>
-            </TableHeader>
-            <TableBody style={{ fontSize: '11px', fontWeight: '600' }}>
-                <List
-                    height={270}
-                    itemCount={items.length}
-                    itemSize={38}
-                    // fontSize={'11px'}
-                    width="100%"
-                    itemData={rows}
-                >
-                    {RenderRow}
-                </List>
-            </TableBody>
-        </Table>
+            </div>
+        </section>
     );
-};
+
+    // Función para manejar el clic en los botones de acción
+    // const handleButtonClick = (id, action) => {
+    //     // Aquí puedes implementar la lógica para manejar el clic en los botones, por ejemplo, abrir un modal, eliminar la fila, etc.
+    //     console.log(`Botón "${action}" clickeado para la fila con ID ${id}`);
+    // };
+}

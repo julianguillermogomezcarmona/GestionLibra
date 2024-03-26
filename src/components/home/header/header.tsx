@@ -7,6 +7,8 @@ import {
   MenuPopover,
   MenuTrigger,
   makeStyles,
+  Button,
+  ToggleButton,
   Switch,
 } from "@fluentui/react-components";
 import { Link } from "react-router-dom";
@@ -37,8 +39,11 @@ const useStyles = makeStyles({
 });
 type modalProp = {
   showModal?: () => void;
+  scrollTransaction?: () => void;
+  scrollTercero?: () => void;
+  scrollExtraction?: () => void;
 };
-export default function Header({ showModal }: modalProp) {
+export default function Header({ showModal, scrollTransaction, scrollTercero, scrollExtraction }: modalProp) {
   const styles = useStyles();
   const [darkMode, setDarkMode] = useState(false); // Estado del modo oscuro
 
@@ -51,8 +56,20 @@ export default function Header({ showModal }: modalProp) {
   // function handleCloset() {
   //   showModal();
   // }
+  const nav = [
+    { text: 'Transacciones', route: 'transacciones', function: scrollTransaction },
+    { text: 'Reclasificar terceros', route: 'transacciones', function: scrollTercero },
+    { text: 'Extracción de movimientos', route: 'transacciones', function: scrollExtraction },
+  ]
+  const nav2 = [
+    {
+      id: '1', text: 'Contabilidad NIIF', option: [{ name: 'Generar movimiento contable', route: 'ruta' }, { name: 'Leer movimiento externo', route: 'ruta' }]
+    },
+    { id: '2', text: 'Movimiento externo', option: [{ name: 'Transacciones NIIIF', route: 'ruta' }, { name: 'Transacciones ESFA', route: 'ruta' }] },
+    { id: '3', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'ruta' }, { name: 'Anexos', route: 'ruta' }, { name: 'Auxiliares', route: 'ruta' }, { name: 'Libro diario legal', route: 'ruta' }, { name: 'Libro mayor legal', route: 'ruta' }, { name: 'Comprobantes de diario', route: 'ruta' }, { name: 'Caja diario', route: 'ruta' }, { name: 'Libro de inventario y balance', route: 'ruta' }, { name: 'Estados financiero', route: 'ruta' }, { name: 'Foliadores de libro', route: 'ruta' }, { name: 'Impresión certificador', route: 'ruta' },] }
+  ]
   return (
-    <Card className="header">
+    <Card className="header top-0">
       <header className="w-full h-[8%] flex justify-between items-center ">
         <div className="flex items-center">
           <figure className="flex h-[100%] items-center gap-[10px] px-[15px] justify-between ">
@@ -63,7 +80,41 @@ export default function Header({ showModal }: modalProp) {
               Contabilidad
             </Link>
           </figure>
-          <NavContable></NavContable>
+          {/* <NavContable></NavContable> */}
+          <nav>
+            <div className="flex items-center">
+              {nav.map((item, index) => (
+                <Button onClick={item.function} appearance="subtle" size="small" className=" flex gap-1">
+                  {/* <FontAwesomeIcon icon={faMoneyBill} className="text-1"></FontAwesomeIcon> */}
+                  <span key={index} className="truncate font-semibold text-start">
+                    {item.text}
+                  </span>
+                </Button>
+              ))}
+              {nav2.map((item, index) => (
+                <Menu key={index}>
+                  <MenuTrigger>
+                    <MenuButton key={item.id} appearance="subtle" size="small" className="flex gap-1 font-bold text-start">
+                      <p className="font-semibold">
+                        {item.text}
+                      </p>
+                    </MenuButton>
+                  </MenuTrigger>
+                  <MenuPopover>
+                    <MenuList>
+                      {item.option.map((option, i) => (
+                        <Button size="small" appearance="subtle" key={i}>
+                          <Link to={`/${option.route}`} className="w-full text-start truncate font-semibold ">
+                            {option.name}
+                          </Link>
+                        </Button>
+                      ))}
+                    </MenuList>
+                  </MenuPopover>
+                </Menu>
+              ))}
+            </div>
+          </nav>
         </div>
         <div className="font-bold flex items-center gap-2">
           <h2 className="">Usuario02</h2>

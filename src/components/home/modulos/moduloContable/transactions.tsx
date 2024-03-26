@@ -9,10 +9,10 @@ type transactionProps ={
 }
 export function Transactions({newTransactions}:transactionProps) {
     return (
-        <section className="w-[56%] h-[100%] ">
+        <section className="w-[60%]  h-[100%] mt-[80px]">
             <Card className="h-[95%]  w-full py-[35px] flex flex-col items-start">
-                <h3 className="font-semibold">Transacciones</h3>
-                <div className="flex gap-[5px]  px-[10px]">
+                <h3 className="font-semibold absolute top-0 left-0 px-[15px] w-full py-[5px]" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Transacciones</h3>
+                <div className="flex gap-[5px] mt-[30px] px-[10px]">
                     <Field className="" >
                         <SearchBox className="w-[240px]" placeholder="Buscar por # de documento" appearance="underline" />
                     </Field>
@@ -20,7 +20,7 @@ export function Transactions({newTransactions}:transactionProps) {
                     <button className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Informes<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
                     {/* <button className="flex gap-[5px] items-center px-[7px] text-white bg-1 rounded-[2px] py-[2px] text-[12px]">Nueva transferencia<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button> */}
                 </div>
-                <div className="px-[24px] pb-[20px] h-[100%] overflow-hidden w-[100%] ">
+                <div className="px-[14px] pb-[20px] h-[100%] overflow-hidden w-[100%] ">
                     <TableComponent></TableComponent>
                 </div>
 

@@ -1,14 +1,14 @@
 import { Card, useId, Input, Label, Button } from "@fluentui/react-components";
 import './style.css'
-import { TableTercero } from "./tableTerceros";
+import { TableTercero } from "./tableTercero";
 import { Search12Regular } from "@fluentui/react-icons";
 export function ReclasificationThird() {
     const inputId = useId("input");
     return (
-        <section className="w-[57%] ">
+        <section className="w-[60%] mt-[40px]">
             <Card className=" w-[100%] py-[35px] flex flex-col items-start">
-                <h3 className="font-semibold">Reclasificar terceros</h3>
-                <div className="px-[20px] w-full py-[10px] flex flex-col gap-[5px]">
+                <h3 className="w-full    font-semibold absolute top-0 py-[5px] px-[15px] left-0" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Reclasificar terceros</h3>
+                <div className="px-[20px] w-full mt-[20px] py-[10px] flex flex-col gap-[5px]">
                     <div className="flex gap-[10px] w-[90%]  items-center ">
                         <div className="w-[100%] justify-between flex items-center">
                             <Label className="font-bold" htmlFor={inputId} style={{ paddingInlineEnd: "12px" }}>
@@ -94,7 +94,7 @@ export function ReclasificationThird() {
 
                 </div>
                 <div className="flex flex-col w-full">
-                    <div className="w-[98%] px-[20px] flex flex-col">
+                    <div className="w-[100%] px-[20px] flex flex-col">
                         <TableTercero></TableTercero>
                     </div>
                     <div className="flex mt-[15px] w-full justify-end gap-[10px]">

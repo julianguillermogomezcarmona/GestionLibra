@@ -34,15 +34,28 @@
 .table {
   overflow: scroll;
 }
+.table1.r1alrhcs {
+  height: 25px;
+  width: 15px;
+}
 
 .table1.r1alrhcs:hover {
   color: green;
+}
+
+.table2.r1alrhcs {
+  height: 25px;
+  width: 15px;
 }
 
 .table2.r1alrhcs:hover {
   color: red;
 }
 
+.table3.r1alrhcs {
+  height: 25px;
+  width: 15px;
+}
 .table3.r1alrhcs:hover {
   color: blue;
 }

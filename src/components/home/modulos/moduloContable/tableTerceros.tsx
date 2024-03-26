@@ -34,222 +34,116 @@ import {
 import { useCallback } from "react";
 import { height } from "@fortawesome/free-brands-svg-icons/fa42Group";
 // import './component.css'
-type Item = {
-    Fuente: {
-        label: string;
-    };
-    author: {
-        label: string;
-        status: PresenceBadgeStatus;
-    };
-    lastUpdated: {
-        label: string;
-        timestamp: number;
-    };
-    lastUpdate: {
-        label: string;
-        icon: JSX.Element;
-    };
-};
 
-interface TableRowData extends RowStateBase<Item> {
-    onClick: (e: React.MouseEvent) => void;
-    onKeyDown: (e: React.KeyboardEvent) => void;
-    selected: boolean;
-    appearance: "brand" | "none";
-}
+import { useState } from 'react';
 
-interface ReactWindowRenderFnProps extends ListChildComponentProps {
-    data: TableRowData[];
-}
-
-const baseItems: Item[] = [
-    {
-        Fuente: { label: "Meeting notes", },
-        author: { label: "Max Mustermann", status: "available" },
-        lastUpdated: { label: "7h ago", timestamp: 1 },
-        lastUpdate: {
-            label: "You edited this",
-            icon: <EditRegular />,
-        },
-    },
-    {
-        Fuente: { label: "Thursday presentation", },
-        author: { label: "Erika Mustermann", status: "busy" },
-        lastUpdated: { label: "Yesterday at 1:45 PM", timestamp: 2 },
-        lastUpdate: {
-            label: "You recently opened this",
-            icon: <OpenRegular />,
-        },
-    },
-    {
-        Fuente: { label: "Training recording", },
-        author: { label: "John Doe", status: "away" },
-        lastUpdated: { label: "Yesterday at 1:45 PM", timestamp: 2 },
-        lastUpdate: {
-            label: "You recently opened this",
-            icon: <OpenRegular />,
-        },
-    },
-    {
-        Fuente: { label: "Purchase order", },
-        author: { label: "Jane Doe", status: "offline" },
-        lastUpdated: { label: "Tue at 9:30 AM", timestamp: 3 },
-        lastUpdate: {
-            label: "You shared this in a Teams chat",
-            icon: <PeopleRegular />,
-        },
-    },
-];
-
-const items = new Array(15)
-    .fill(0)
-    .map((_, i) => baseItems[i % baseItems.length]);
-
-const columns = [
-    createTableColumn<Item>({
-        columnId: "Fuente",
-    }),
-    createTableColumn<Item>({
-        columnId: "author",
-    }),
-    createTableColumn<Item>({
-        columnId: "lastUpdated",
-    }),
-    createTableColumn<Item>({
-        columnId: "lastUpdate",
-    }),
-];
-
-const RenderRow = ({ index, style, data }: ReactWindowRenderFnProps) => {
-    const { item, appearance, onKeyDown } = data[index];
-    return (
-        <TableRow
-            aria-rowindex={index + 2}
-            style={style}
-            key={item.Fuente.label}
-            onKeyDown={onKeyDown}
-            // onClick={onClick}
-            appearance={appearance}>
-            <TableCell className="tab rows">
-                07/12/2018
-                {/* {index + 1} */}
-            </TableCell>
-            <TableCell className="tablet truncate mr-[5px]">
-                <TableCellLayout>
-                    {item.author.label}
-                </TableCellLayout>
-            </TableCell>
-            <TableCell className="tablet truncate">{item.lastUpdated.label}</TableCell>
-            <TableCell className="tablet truncate mr-[10px]">
-                <TableCellLayout >
-                    {item.lastUpdate.label}
-                </TableCellLayout>
-            </TableCell>
-            <TableCell className="tablet">
-                <TableCellLayout >
-                    <p>$255.000</p>
-                    {/* <div className="flex gap-[5px]">
-                       
-                    </div> */}
-                </TableCellLayout>
-            </TableCell>
-            <TableCell className="tablet">
-                <TableCellLayout >
-                    <p>$255.000</p>
-                    {/* <div className="flex gap-[5px]">
-                       
-                    </div> */}
-                </TableCellLayout>
-            </TableCell>
-        </TableRow>
-    );
-};
-
-export function TableTercero() {
-    const { targetDocument } = useFluent();
-    const scrollbarWidth = useScrollbarWidth({ targetDocument });
-
-    const {
-        getRows,
-        selection: {
-            allRowsSelected,
-            someRowsSelected,
-            toggleAllRows,
-            toggleRow,
-            // isRowSelected,
-        },
-    } = useTableFeatures(
+export function TableTerceros() {
+    // Array con más información para las filas
+    const [data, setData] = useState([
         {
-            columns,
-            items,
+            id: 1,
+            codigo: '01sd485',
+            documento: '105475844',
+            name: 'Luis Perez Sanches',
         },
-        [
-            useTableSelection({
-                selectionMode: "multiselect",
-                defaultSelectedItems: new Set([0, 1]),
-            }),
-        ]
-    );
-
-    const rows: TableRowData[] = getRows((row) => {
-        // const selected = isRowSelected(row.rowId);
-        return {
-            ...row,
-            onClick: (e: React.MouseEvent) => toggleRow(e, row.rowId),
-            onKeyDown: (e: React.KeyboardEvent) => {
-                if (e.key === " ") {
-                    e.preventDefault();
-                    toggleRow(e, row.rowId);
-                }
-            },
-            // selected,
-            // appearance: selected ? ("brand" as const) : ("none" as const),
-        };
-    });
-
-    const toggleAllKeydown = useCallback(
-        (e: React.KeyboardEvent<HTMLDivElement>) => {
-            if (e.key === " ") {
-                toggleAllRows(e);
-                e.preventDefault();
-            }
+        {
+            id: 2,
+            codigo: '01sd485',
+            documento: '202134567',
+            name: 'Alfredo Lopez Arco',
         },
-        [toggleAllRows]
-    );
-    const firstColumn = 50;
+        {
+            id: 3,
+            codigo: '01sd485',
+            documento: '305678912',
+            name: 'Juan Andrade Suares',
+        },
+        {
+            id: 4,
+            codigo: '01sd485',
+            documento: '305678912',
+            name: 'Felipe Cebolla Argumedo',
+        },
+        {
+            id: 5,
+            codigo: '01sd485',
+            documento: '305678912',
+            name: 'Pedro Diaz Mercado',
+        },
+        {
+            id: 6,
+            codigo: '01sd485',
+            documento: '305678912',
+            name: 'Jesús Toledo Arias',
+        },
+        {
+            id: 7,
+            codigo: '01sd485',
+            documento: '305678912',
+            name: 'Tomás Valle Rangel',
+        },
+        {
+            id: 8,
+            codigo: '01sd485',
+            documento: '305678912',
+            name: 'Carlos Castellón Castillo',
+        },
+        {
+            id: 9,
+            codigo: '01sd485',
+            documento: '305678912',
+            name: 'Sebastían Lopez Llanos',
+        },
+        {
+            id: 9,
+            codigo: '01sd485',
+            documento: '305678912',
+            name: 'Sofia Agamez Ramos',
+        }
+        // Puedes agregar más objetos al array con más datos de filas
+    ]);
+
     return (
-        <Table
-            noNativeElements
-            aria-label="Table with selection"
-            aria-rowcount={rows.length}
-        >
-            <TableHeader style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
-                <TableRow aria-rowindex={1} className="gird" >
+        <section className="px-[px]">
+            <div style={{ overflowY: 'auto' }} className="px-[2px]">
+                <table className="w-full divide-y-[1px] divide-first text-center text-first">
+                    <thead className="" style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
+                        <tr style={{ color: 'var(--colorNeutralForeground1)' }} className="z-40 top-0 text-[14px] ">
+                            <th className="py-[7px] font-semibold text-center" style={{ width: '8%' }}>Codigo</th>
+                            <th className="font-semibold text-center" style={{ width: '9%' }}>Documento</th>
+                            <th className="font-semibold text-center" style={{ width: '24%' }}>Nombre de tercero</th>
+                            <th className="font-semibold text-center" style={{ width: '20%' }}>Acciones</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div style={{ maxHeight: '320px', overflowY: 'auto' }}>
+                    <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first">
+                        <tbody>
+                            {data.map(row => (
+                                <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[35px] text-[12px] font-semibold border-b-[0.5px] w-full">
+                                    <td className="text-end" style={{ width: '10%' }}>{row.codigo}</td>
+                                    <td className="text-center" style={{ width: '15%' }}>{row.documento}</td>
+                                    <td className="text-start" style={{ width: '24%' }}>{row.name}</td>
+                                    <td className="text-end" style={{ width: '12%' }}>
+                                        <div className="flex justify-around w-full">
+                                            <Button className="table1" icon={<Eye12Filled />}></Button>
+                                            <Button className="table2" icon={<Delete12Filled />}></Button>
+                                            <Button className="table3" icon={<Edit12Filled />}></Button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
-
-                    <TableHeaderCell style={{ width: firstColumn }} ><span className="text-center w-full font-semibold">Fecha</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Fuente</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Documento</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Detalle del movimiento</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Movimiento Debito</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Movimiento Credito</span></TableHeaderCell>
-                    {/** Scrollbar alignment for the header */}
-                    <div role="presentation" style={{ width: scrollbarWidth }} />
-                </TableRow>
-            </TableHeader>
-            <TableBody style={{ fontSize: '11px', fontWeight: '600' }}>
-                <List
-                    height={200}
-                    itemCount={items.length}
-                    itemSize={38}
-                    // fontSize={'20px'}
-                    width="100%"
-                    itemData={rows}
-                >
-                    {RenderRow}
-                </List>
-            </TableBody>
-        </Table>
+            </div>
+        </section>
     );
-};
+
+    // Función para manejar el clic en los botones de acción
+    // const handleButtonClick = (id, action) => {
+    //     // Aquí puedes implementar la lógica para manejar el clic en los botones, por ejemplo, abrir un modal, eliminar la fila, etc.
+    //     console.log(`Botón "${action}" clickeado para la fila con ID ${id}`);
+    // };
+}

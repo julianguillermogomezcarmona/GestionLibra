@@ -2,14 +2,14 @@ import { Card, Field } from "@fluentui/react-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SearchBox } from "@fluentui/react-search-preview";
 import { faPlus, faPrint } from "@fortawesome/free-solid-svg-icons";
-import { TableTerceros } from "./tableTercero";
+import { TableTerceros } from "./tableTerceros";
 import './style.css'
 export function Terceros() {
     return (
-        <section className="w-[43%]">
+        <section className="w-[40%] mt-[40px]">
             <Card className="w-full flex flex-col items-start">
-                <h3 className="font-semibold">Terceros</h3>
-                <div className="flex gap-[5px] px-[30px]">
+                <h3 className="font-semibold absolute top-0 left-0 px-[15px] py-[5px] w-full" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Terceros</h3>
+                <div className="flex gap-[5px] mt-[35px] mb-[10px]  px-[5px]">
                     <Field className="" >
                         <SearchBox className="w-[200px]" placeholder="Buscar tercero" appearance="underline" />
                     </Field>

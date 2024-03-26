@@ -7,15 +7,15 @@ import './style.css'
 import { TableFountain } from "./tableFountain";
 export function Fountain() {
     return (
-        <section className="w-[43%]">
+        <section className="w-[40%] mt-[80px]">
             <Card className="w-full flex flex-col items-start">
-                <h3 className="font-semibold">Fuentes</h3>
-                <div className="flex gap-[5px] px-[30px]">
+                <h3 className="font-semibold absolute top-0 py-[5px] px-[15px] left-0 w-full" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Fuentes</h3>
+                <div className="flex gap-[5px] mt-[30px] px-[5px]">
                     <Field className="" >
                         <SearchBox className="w-[200px]" placeholder="Buscar fuente" appearance="underline" />
                     </Field>
                 </div>
-                <div className="px-[20px] w-[100%]">
+                <div className="px-[10px] w-[100%]">
                     <TableFountain></TableFountain>
                     {/* <TableTerceros></TableTerceros> */}
                 </div>

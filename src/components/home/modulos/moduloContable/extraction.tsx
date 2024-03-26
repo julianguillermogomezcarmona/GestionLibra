@@ -9,10 +9,10 @@ import { faPlus, faPrint } from "@fortawesome/free-solid-svg-icons";
 export function Extraction() {
     const inputId = useId("input");
     return (
-        <section className="w-full">
+        <section className="w-full mt-[30px]">
             <Card className="w-full">
-                <h3 className="font-semibold">Extracción de movimientos</h3>
-                <div className="flex flex-col gap-[5px] px-[20px] w-[100%]">
+                <h3 className="font-semibold w-full py-[5px] absolute top-0 left-0 px-[15px]" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Extracción de movimientos</h3>
+                <div className="flex flex-col gap-[5px] px-[20px] w-[100%] mt-[30px]">
                     <div className="grid grid-cols-3 justify-between w-[100%]">
                         <div className="flex items-center justify-between w-[62%]">
                             <Label className="font-bold" htmlFor={inputId} style={{ paddingInlineEnd: "12px" }}>
@@ -72,7 +72,7 @@ export function Extraction() {
                 <div className="flex w-full justify-end gap-[10px]">
                     <button className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom rounded-[2px] py-[2px] text-[12px]">Leer Movimiento</button>
                     <button className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Enviar a Excel<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
-                    <button className=" bg-red-500 hover:bg-[#ff6060]flex gap-[5px] font-semibold items-center px-[7px] text-white  rounded-[2px] py-[2px] text-[12px]">Limpiar campos</button>
+                    <button className=" bg-red-500 hover:bg-[#ff6060] flex gap-[5px] font-semibold items-center px-[7px] text-white  rounded-[2px] py-[5px] text-[12px]">Limpiar campos</button>
                 </div>
             </Card>
         </section>

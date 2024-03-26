@@ -32,214 +32,123 @@ import {
 } from "@fluentui/react-components";
 import { useCallback } from "react";
 import './component.css'
-type Item = {
-    Fuente: {
-        label: string;
-    };
-    author: {
-        label: string;
-        status: PresenceBadgeStatus;
-    };
-    lastUpdated: {
-        label: string;
-        timestamp: number;
-    };
-    lastUpdate: {
-        label: string;
-        icon: JSX.Element;
-    };
-};
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-interface TableRowData extends RowStateBase<Item> {
-    onClick: (e: React.MouseEvent) => void;
-    onKeyDown: (e: React.KeyboardEvent) => void;
-    selected: boolean;
-    appearance: "brand" | "none";
-}
-
-interface ReactWindowRenderFnProps extends ListChildComponentProps {
-    data: TableRowData[];
-}
-
-const baseItems: Item[] = [
-    {
-        Fuente: { label: "Meeting notes", },
-        author: { label: "Max Mustermann", status: "available" },
-        lastUpdated: { label: "7h ago", timestamp: 1 },
-        lastUpdate: {
-            label: "You edited this",
-            icon: <EditRegular />,
-        },
-    },
-    {
-        Fuente: { label: "Thursday presentation", },
-        author: { label: "Erika Mustermann", status: "busy" },
-        lastUpdated: { label: "Yesterday at 1:45 PM", timestamp: 2 },
-        lastUpdate: {
-            label: "You recently opened this",
-            icon: <OpenRegular />,
-        },
-    },
-    {
-        Fuente: { label: "Training recording", },
-        author: { label: "John Doe", status: "away" },
-        lastUpdated: { label: "Yesterday at 1:45 PM", timestamp: 2 },
-        lastUpdate: {
-            label: "You recently opened this",
-            icon: <OpenRegular />,
-        },
-    },
-    {
-        Fuente: { label: "Purchase order", },
-        author: { label: "Jane Doe", status: "offline" },
-        lastUpdated: { label: "Tue at 9:30 AM", timestamp: 3 },
-        lastUpdate: {
-            label: "You shared this in a Teams chat",
-            icon: <PeopleRegular />,
-        },
-    },
-];
-
-const items = new Array(12)
-    .fill(0)
-    .map((_, i) => baseItems[i % baseItems.length]);
-
-const columns = [
-    createTableColumn<Item>({
-        columnId: "Fuente",
-    }),
-    createTableColumn<Item>({
-        columnId: "author",
-    }),
-    createTableColumn<Item>({
-        columnId: "lastUpdated",
-    }),
-    createTableColumn<Item>({
-        columnId: "lastUpdate",
-    }),
-];
-
-const RenderRow = ({ index, style, data }: ReactWindowRenderFnProps) => {
-    const { item, appearance, onKeyDown } = data[index];
-    return (
-        <TableRow
-            aria-rowindex={index + 2}
-            style={style}
-            key={item.Fuente.label}
-            onKeyDown={onKeyDown}
-            // onClick={onClick}
-            appearance={appearance}>
-            <TableCell className="tab   ">
-                {index + 1}
-            </TableCell>
-            <TableCell className="tablet">
-                <TableCellLayout>
-                    {item.author.label}
-                </TableCellLayout>
-            </TableCell>
-            <TableCell className="tablet truncate mr-[7px]">{item.lastUpdated.label}</TableCell>
-            <TableCell className="tablet ">
-                <TableCellLayout className="truncate">
-                    <span className="">
-                        {item.lastUpdate.label}
-                    </span>
-                </TableCellLayout>
-            </TableCell>
-            <TableCell className="tablet">
-                <TableCellLayout >
-                    <div className="flex ml-[10px] gap-[5px]">
-                        <Button className="table1" icon={<Eye12Filled />}></Button>
-                        <Button className="table2" icon={<Delete12Filled />}></Button>
-                        <Button className="table3" icon={<Edit12Filled />}></Button>
-                    </div>
-                </TableCellLayout>
-            </TableCell>
-        </TableRow>
-    );
-};
+import { useState } from 'react';
 
 export function TableComponent() {
-    const { targetDocument } = useFluent();
-    const scrollbarWidth = useScrollbarWidth({ targetDocument });
-
-    const {
-        getRows,
-        selection: {
-            allRowsSelected,
-            someRowsSelected,
-            toggleAllRows,
-            toggleRow,
-            // isRowSelected,
-        },
-    } = useTableFeatures(
+    // Array con más información para las filas
+    const [data, setData] = useState([
         {
-            columns,
-            items,
+            id: 1,
+            fuente: '01',
+            numeroDocumento: '105475844',
+            fecha: '01/02/2024',
+            nombreFuente: 'Organización sin fines de lucro'
         },
-        [
-            useTableSelection({
-                selectionMode: "multiselect",
-                defaultSelectedItems: new Set([0, 1]),
-            }),
-        ]
-    );
-
-    const rows: TableRowData[] = getRows((row) => {
-        // const selected = isRowSelected(row.rowId);
-        return {
-            ...row,
-            onClick: (e: React.MouseEvent) => toggleRow(e, row.rowId),
-            onKeyDown: (e: React.KeyboardEvent) => {
-                if (e.key === " ") {
-                    e.preventDefault();
-                    toggleRow(e, row.rowId);
-                }
-            },
-            // selected,
-            // appearance: selected ? ("brand" as const) : ("none" as const),
-        };
-    });
-
-    const toggleAllKeydown = useCallback(
-        (e: React.KeyboardEvent<HTMLDivElement>) => {
-            if (e.key === " ") {
-                toggleAllRows(e);
-                e.preventDefault();
-            }
+        {
+            id: 2,
+            fuente: '02',
+            numeroDocumento: '202134567',
+            fecha: '15/03/2024',
+            nombreFuente: 'Empresa XYZ'
         },
-        [toggleAllRows]
-    );
+        {
+            id: 3,
+            fuente: '03',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 4,
+            fuente: '04',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 5,
+            fuente: '05',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 6,
+            fuente: '06',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 7,
+            fuente: '07',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 8,
+            fuente: '08',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        },
+        {
+            id: 9,
+            fuente: '09',
+            numeroDocumento: '305678912',
+            fecha: '28/04/2024',
+            nombreFuente: 'Asociación de Voluntarios'
+        }
+        // Puedes agregar más objetos al array con más datos de filas
+    ]);
 
     return (
-        <Table
-            noNativeElements
-            aria-label="Table with selection"
-            aria-rowcount={rows.length}
-        >
-            <TableHeader style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
-                <TableRow aria-rowindex={1} >
+        <section className="px-[px]">
+            <div style={{ overflowY: 'auto' }} className="px-[2px]">
+                <table className="w-full divide-y-[1px] divide-first text-center text-first">
+                    <thead className="" style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
+                        <tr style={{ color: 'var(--colorNeutralForeground1)' }} className="z-40 top-0 text-[14px] ">
+                            <th className="py-[7px] font-semibold text-center" style={{ width: '8%' }}>Fuente</th>
+                            <th className="font-semibold text-center" style={{ width: '21%' }}>Numero de documento</th>
+                            <th className="font-semibold text-center" style={{ width: '12%' }}>Fecha</th>
+                            <th className="font-semibold text-center" style={{ width: '25%' }}>Nombre de la fuente</th>
+                            <th className="font-semibold text-center" style={{ width: '17%' }}>Acciones</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div style={{ maxHeight: '290px', overflowY: 'auto' }}>
+                    <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first">
+                        <tbody>
+                            {data.map(row => (
+                                <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[35px] text-[12px] font-semibold border-b-[0.5px] w-full">
+                                    <td className="text-end" style={{ width: '8%' }}>{row.fuente}</td>
+                                    <td className="text-center" style={{ width: '21%' }}>{row.numeroDocumento}</td>
+                                    <td className="text-start" style={{ width: '12%' }}>{row.fecha}</td>
+                                    <td className="text-start" style={{ width: '25%' }}>{row.nombreFuente}</td>
+                                    <td className="text-end" style={{ width: '15%' }}>
+                                        <div className="gap-[5px] flex justify-around w-full">
+                                            <Button className="table1" icon={<Eye12Filled />}></Button>
+                                            <Button className="table2" icon={<Delete12Filled />}></Button>
+                                            <Button className="table3" icon={<Edit12Filled />}></Button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
-
-                    <TableHeaderCell ><span className="text-center w-full font-semibold">Fuente</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Numero de documento</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Fecha</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Nombre de la fuente</span></TableHeaderCell>
-                    <TableHeaderCell><span className="text-center w-full font-semibold">Acciones</span></TableHeaderCell>
-                    {/** Scrollbar alignment for the header */}
-                    <div role="presentation" style={{ width: scrollbarWidth }} />
-                </TableRow>
-            </TableHeader>
-            <TableBody style={{ fontSize: '11px', fontWeight: '600' }}>
-                <List
-                    height={360}
-                    itemCount={items.length}
-                    itemSize={40}
-                    width="100%"
-                    itemData={rows}
-                >
-                    {RenderRow}
-                </List>
-            </TableBody>
-        </Table>
+            </div>
+        </section>
     );
-};
+
+    // Función para manejar el clic en los botones de acción
+    // const handleButtonClick = (id, action) => {
+    //     // Aquí puedes implementar la lógica para manejar el clic en los botones, por ejemplo, abrir un modal, eliminar la fila, etc.
+    //     console.log(`Botón "${action}" clickeado para la fila con ID ${id}`);
+    // };
+}

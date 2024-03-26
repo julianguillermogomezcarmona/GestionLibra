@@ -2,7 +2,7 @@ import { Card, Field, Textarea, Input, Button, Checkbox, Label, useId } from "@f
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './style.css'
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Search12Regular } from "@fluentui/react-icons";
 import { DatePicker, Space } from "antd";
 import { TableNewTransation } from "./tableNewTransation";
@@ -30,9 +30,9 @@ export function NewTransations({ showModal }: modalProps) {
     return (
         <section className="fixed z-50 top-0 h-screen flex items-center w-full left-0 justify-center px-[220px] before:content-[''] before:bg-black before:absolute before:w-full before:h-screen before:top-0 before:left-0 before:opacity-20 before:z-0">
             <Card className="p-[10px] w-[90%]">
-                <div className="flex justify-between">
-                    <h3 className="font-bold">Nueva transacción</h3>
-                    <button onClick={handleCloset}><FontAwesomeIcon icon={faX}></FontAwesomeIcon></button>
+                <div className="flex justify-between h-5 " style={{ color: 'var(--colorNeutralForegroundInverted)' }}>
+                    <h3 className="px-[15px] py-[5px] top-0 absolute font-bold w-full left-0" style={{ backgroundColor: 'var(--colorNeutralForeground1)', }} >Nueva transacción</h3>
+                    <button className="absolute right-4 top-0 py-[5px]" onClick={handleCloset}><FontAwesomeIcon icon={faX}></FontAwesomeIcon></button>
                 </div>
                 <div className="flex flex-col">
 

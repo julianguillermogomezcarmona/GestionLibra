@@ -47,6 +47,18 @@ export default function Header({ showModal }: modalProp) {
   const handleDarkModeToggle = () => {
     setDarkMode(!darkMode); // Cambiar el estado del modo oscuro
   };
+  const nav = [
+    { text: 'Transacciones', route: 'transacciones' },
+    { text: 'Extracción de movimientos', route: 'transacciones' },
+    { text: 'Movimiento externo', route: 'transacciones' },
+  ]
+  const nav2 = [
+    {
+      id: '1', text: 'Contabilidad NIIF', option: [{ name: 'Generar movimiento contable', route: 'ruta' }, { name: 'Leer movimiento externo', route: 'ruta' }]
+    },
+    { id: '2', text: 'Reclasificar terceros', option: [{ name: 'Transacciones NIIIF', route: 'ruta' }, { name: 'Transacciones ESFA', route: 'ruta' }] },
+    { id: '3', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'ruta' }, { name: 'Anexos', route: 'ruta' }, { name: 'Auxiliares', route: 'ruta' }, { name: 'Libro diario legal', route: 'ruta' }, { name: 'Libro mayor legal', route: 'ruta' }, { name: 'Comprobantes de diario', route: 'ruta' }, { name: 'Caja diario', route: 'ruta' }, { name: 'Libro de inventario y balance', route: 'ruta' }, { name: 'Estados financiero', route: 'ruta' }, { name: 'Foliadores de libro', route: 'ruta' }, { name: 'Impresión certificador', route: 'ruta' },] }
+  ]
   // const { theme } = useThemeContext();
   // const { setTheme, theme } = useThemeContext();
   //
