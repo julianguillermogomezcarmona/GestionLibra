@@ -119,11 +119,11 @@ export function TableFountain() {
                     <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first">
                         <tbody>
                             {data.map(row => (
-                                <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[25px] text-[12px] font-semibold border-b-[0.5px]">
+                                <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[35px] text-[12px] font-semibold border-b-[0.5px]">
                                     <td className="text-center" style={{ width: '3%', maxWidth: '67px' }}>{row.codigo}</td>
                                     <td className="text-start" style={{ width: '25%' }}>{row.nombreFuente}</td>
                                     <td className="text-end" style={{ width: '8%' }}>
-                                        <div className=" py-[5px]  flex justify-evenly w-full">
+                                        <div className="  flex justify-evenly w-full">
                                             <Button className="table1" icon={<Eye12Filled />}></Button>
                                             <Button className="table2" icon={<Delete12Filled />}></Button>
                                             <Button className="table3" icon={<Edit12Filled />}></Button>

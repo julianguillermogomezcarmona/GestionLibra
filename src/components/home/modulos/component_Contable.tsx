@@ -22,6 +22,8 @@ import { Fountain } from "./moduloContable/fountain";
 import { Extraction } from "./moduloContable/extraction";
 import { NewTransations } from "./moduloContable/newTransactions";
 import './style.css'
+import { NewFountain } from "./moduloContable/newFountain";
+import { NewTerceros } from "./moduloContable/terceros/newTercero";
 export default function home() {
   // const { setTheme, theme } = useThemeContext();
   const [isReduced, setIsReduced] = useState(false);
@@ -48,6 +50,30 @@ export default function home() {
     // console.log(showModal);
     document.body.style.overflow = 'auto';
   };
+  // newFountain
+  const [showModal2, setShowModal2] = useState(false);
+  const toggleComponente2 = () => {
+    setShowModal2(!showModal2);
+    document.body.style.overflow = 'hidden';
+  };
+  const handleCloseModal2 = () => {
+    // console.log(showModal);
+    setShowModal2(!showModal2);
+    // console.log(showModal);
+    document.body.style.overflow = 'auto';
+  };
+
+  const [showModal3, setShowModal3] = useState(false);
+  const toggleComponente3 = () => {
+    setShowModal3(!showModal3);
+    document.body.style.overflow = 'hidden';
+  };
+  const handleCloseModal3 = () => {
+    // console.log(showModal);
+    setShowModal3(!showModal3);
+    // console.log(showModal);
+    document.body.style.overflow = 'auto';
+  };
   // Función para hacer scroll automático al componente Transactions
   const scrollToTransactions = () => {
     const transactionsComponent = document.getElementById('transactions');
@@ -55,16 +81,6 @@ export default function home() {
       transactionsComponent.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-
-  // Función para hacer scroll automático al componente ReclasificationThird
-  // const scrollToReclasificationThird = () => {
-  //   const reclasificationThirdComponent = document.getElementById('terceros');
-  //   if (reclasificationThirdComponent) {
-  //     const offset = 60; // Puedes ajustar este valor según tus necesidades
-  //     const topPosition = reclasificationThirdComponent.getBoundingClientRect().top + window.pageYOffset - offset;
-  //     reclasificationThirdComponent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  //   }
-  // };
   const scrollToReclasificationThird = () => {
     const reclasificationThirdComponent = document.getElementById('terceros');
     const headerHeight = document.getElementById('header').offsetHeight; // Obtener la altura del encabezado
@@ -74,14 +90,6 @@ export default function home() {
       window.scrollTo({ top: topPosition, behavior: 'smooth' });
     }
   };
-
-  // Función para hacer scroll automático al componente Extraction
-  // const scrollToExtraction = () => {
-  //   const extractionComponent = document.getElementById('extraction');
-  //   if (extractionComponent) {
-  //     extractionComponent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  //   }
-  // };
   const scrollToExtraction = () => {
     const scrollToExtraction = document.getElementById('extraction');
     const headerHeight = document.getElementById('header').offsetHeight; // Obtener la altura del encabezado
@@ -101,16 +109,17 @@ export default function home() {
         <main className=" mb-[20px] flex flex-wrap w-full px-[40px] flex-col ">
           <div id="transactions" className="flex w-full gap-[10px]">
             <Transactions newTransactions={toggleComponente}></Transactions>
-            <Fountain></Fountain>
+            <Fountain newFountain={toggleComponente2}></Fountain>
           </div>
           <div id="terceros" className="flex  gap-[10px] w-full">
             <ReclasificationThird></ReclasificationThird>
-            <Terceros></Terceros>
+            <Terceros newTercero={toggleComponente3}></Terceros>
           </div>
           <div id="extraction" className="w-full">
             <Extraction></Extraction>
-
           </div>
+          {showModal3 ? <NewTerceros showModal={handleCloseModal3}></NewTerceros> : ""}
+          {showModal2 ? <NewFountain showModal={handleCloseModal2}></NewFountain> : ""}
           {/* <SideBar></SideBar> */}
           {showModal ? <NewTransations showModal={handleCloseModal}></NewTransations> : ""}
         </main>

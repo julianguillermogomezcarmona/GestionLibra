@@ -101,6 +101,30 @@ background-color: var(--colorPaletteSteelForeground2);
 :where(.css-dev-only-do-not-override-djtmh8).ant-picker-outlined:hover {
     background-color: var(--colorNeutralForegroundInverted);
 }
+/* CSS para ocultar las flechas de los inputs tipo number */
+input[type='number'] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+  
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* WebKit (Safari, Chrome) */
+    appearance: none;
+  }
 /* :where(.css-dev-only-do-not-override-djtmh8).ant-picker-outlined {
     background-color: var(--colorNeutralForegroundInverted);
 } */
+.radio.f13qh94s {
+    display: block;
+}
+
+.tab.fx3omr {
+    padding-bottom: 0;
+}
+
+.tab.f5yzyt {
+    padding-top: 0;
+}
+.card2.fcvsdzp {
+    row-gap: 0;
+}

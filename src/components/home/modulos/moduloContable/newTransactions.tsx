@@ -11,8 +11,8 @@ type modalProps = {
     showModal: () => void
 }
 export function NewTransations({ showModal }: modalProps) {
-    const [checked, setChecked] = useState<CheckboxProps["checked"]>(true);
-    const [checked2, setChecked2] = useState<CheckboxProps["checked2"]>(true);
+    const [checked, setChecked] = useState<CheckboxProps["checked"]>(false);
+    const [checked2, setChecked2] = useState<CheckboxProps["checked2"]>(false);
     // const [checked2, setChecked2] = useState<CheckboxProps2["checked2"]>(true);
     function handleCloset() {
         showModal();
@@ -174,7 +174,7 @@ export function NewTransations({ showModal }: modalProps) {
                         </div>
                         <div className="flex justify-end mt-[20px] w-full gap-[10px]">
                             <button className="flex gap-[5px] font-semibold items-center px-[15px] text-white butom rounded-[2px] py-[5px] text-[12px]">Grabar</button>
-                            <button style={{ backgroundColor: 'var(--colorPaletteRedForeground1)' }} className="flex gap-[5px] font-semibold items-center px-[7px] text-white rounded-[2px] py-[2px] text-[12px]">Cancelar</button>
+                            <button onClick={handleCloset} style={{ backgroundColor: 'var(--colorPaletteRedForeground1)' }} className="flex gap-[5px] font-semibold items-center px-[7px] text-white rounded-[2px] py-[2px] text-[12px]">Cancelar</button>
                         </div>
                     </div>
 

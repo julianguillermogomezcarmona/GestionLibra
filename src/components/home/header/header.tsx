@@ -63,9 +63,9 @@ export default function Header({ showModal, scrollTransaction, scrollTercero, sc
   ]
   const nav2 = [
     {
-      id: '1', text: 'Contabilidad NIIF', option: [{ name: 'Generar movimiento contable', route: 'ruta' }, { name: 'Leer movimiento externo', route: 'ruta' }]
+      id: '1', text: 'Movimiento externo', option: [{ name: 'Generar movimiento contable', route: 'ruta' }, { name: 'Leer movimiento externo', route: 'ruta' }]
     },
-    { id: '2', text: 'Movimiento externo', option: [{ name: 'Transacciones NIIIF', route: 'ruta' }, { name: 'Transacciones ESFA', route: 'ruta' }] },
+    { id: '2', text: 'Contabilidad NIIF', option: [{ name: 'Transacciones NIIIF', route: 'ruta' }, { name: 'Transacciones ESFA', route: 'ruta' }] },
     { id: '3', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'ruta' }, { name: 'Anexos', route: 'ruta' }, { name: 'Auxiliares', route: 'ruta' }, { name: 'Libro diario legal', route: 'ruta' }, { name: 'Libro mayor legal', route: 'ruta' }, { name: 'Comprobantes de diario', route: 'ruta' }, { name: 'Caja diario', route: 'ruta' }, { name: 'Libro de inventario y balance', route: 'ruta' }, { name: 'Estados financiero', route: 'ruta' }, { name: 'Foliadores de libro', route: 'ruta' }, { name: 'Impresión certificador', route: 'ruta' },] }
   ]
   return (

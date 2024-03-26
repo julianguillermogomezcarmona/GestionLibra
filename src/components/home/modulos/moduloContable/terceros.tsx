@@ -4,7 +4,12 @@ import { SearchBox } from "@fluentui/react-search-preview";
 import { faPlus, faPrint } from "@fortawesome/free-solid-svg-icons";
 import { TableTerceros } from "./tableTerceros";
 import './style.css'
-export function Terceros() {
+
+type tercerProps = {
+    newTercero: () => void
+}
+export function Terceros({newTercero}:tercerProps) {
+    
     return (
         <section className="w-[40%] mt-[40px]">
             <Card className="w-full flex flex-col items-start">
@@ -18,7 +23,7 @@ export function Terceros() {
                     <TableTerceros></TableTerceros>
                 </div>
                 <div className="flex justify-end w-full gap-[10px]">
-                    <button className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom rounded-[2px] py-[5px] text-[12px]">Nuevo tercero<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                    <button onClick={newTercero} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom rounded-[2px] py-[5px] text-[12px]">Nuevo tercero<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
                     <button className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Informes<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
 
                 </div>
