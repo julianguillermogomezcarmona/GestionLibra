@@ -26,11 +26,11 @@ export function TableExtraction() {
 
     return (
         <section className="px-[15px]">
-            <div style={{}} className="relative px-[2px]">
+            <div style={{ overflowX: 'scroll' }} className="relative px-[2px]">
                 {/* <table className="text-center text-first" style={{ tableLayout: 'fixed' }}>
                     
                 </table> */}
-                <table style={{ overflowX: 'scroll' }} className=" top-0 z-50 w-full divide-y-[1px] divide-first text-center text-first">
+                <table style={{}} className=" top-0 z-50 w-full divide-y-[1px] divide-first text-center text-first">
                     <thead className='w-full px-[10px]' style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)', top: 0, zIndex: 10, color: 'var(--colorNeutralForeground1)' }}>
                         <tr className="z-40 top-0 text-[14px] " style={{}} >
                             {columnNames.map((columnName, index) => (
@@ -39,7 +39,7 @@ export function TableExtraction() {
                         </tr>
                     </thead>
                 </table>
-                <div style={{ maxHeight: '320px' }} className='pr-[50px]'>
+                <div style={{ maxHeight: '275px', }} className='pr-[50px]'>
                     <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first ">
                         <tbody>
                             {data.map((item, index) => (

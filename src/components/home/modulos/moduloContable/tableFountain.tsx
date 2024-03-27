@@ -127,7 +127,7 @@ export function TableFountain() {
                 <table className="w-full divide-y-[1px] divide-first text-center text-first">
                     <thead className="px-[10px]" style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
                         <tr style={{ color: 'var(--colorNeutralForeground1)' }} className="z-40 top-0 text-[14px] ">
-                            <th className="py-[7px] font-semibold text-center" style={{ width: '4%' }} onClick={() => handleSort('codigo')}>Codigo</th>
+                            <th className="py-[7px] font-semibold text-center cursor-pointer" style={{ width: '4%' }} onClick={() => handleSort('codigo')}>Codigo</th>
                             <th className="font-semibold text-center" style={{ width: '25%' }}>Nombre de la fuente</th>
                             <th className="font-semibold text-center" style={{ width: '15%' }}>Acciones</th>
                         </tr>

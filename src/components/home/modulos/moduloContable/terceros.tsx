@@ -8,12 +8,12 @@ import './style.css'
 type tercerProps = {
     newTercero: () => void
 }
-export function Terceros({newTercero}:tercerProps) {
-    
+export function Terceros({ newTercero }: tercerProps) {
+
     return (
-        <section className="w-[40%] mt-[40px]">
+        <section className="w-[40%]">
             <Card className="w-full flex flex-col items-start">
-                <h3 className="font-semibold absolute top-0 left-0 px-[15px] py-[5px] w-full" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Terceros</h3>
+                <h3 className="font-semibold absolute top-0 left-0 px-[15px] py-[5px] w-full" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Terceros Registrados</h3>
                 <div className="flex gap-[5px] mt-[35px] mb-[10px]  px-[5px]">
                     <Field className="" >
                         <SearchBox className="w-[200px]" placeholder="Buscar tercero" appearance="underline" />
@@ -27,6 +27,7 @@ export function Terceros({newTercero}:tercerProps) {
                     <button className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Informes<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
 
                 </div>
+                
             </Card>
         </section>
     )

@@ -40,41 +40,11 @@ export default function home() {
     //  setCurrentTheme()
     // setTheme((prevTheme)=> (prevTheme === "dark" ? "light" : "dark"));
   }
-  const [showModal, setShowModal] = useState(false);
-  const toggleComponente = () => {
-    setShowModal(!showModal);
-    document.body.style.overflow = 'hidden';
-  };
-  const handleCloseModal = () => {
-    // console.log(showModal);
-    setShowModal(!showModal);
-    // console.log(showModal);
-    document.body.style.overflow = 'auto';
-  };
-  // newFountain
-  const [showModal2, setShowModal2] = useState(false);
-  const toggleComponente2 = () => {
-    setShowModal2(!showModal2);
-    document.body.style.overflow = 'hidden';
-  };
-  const handleCloseModal2 = () => {
-    // console.log(showModal);
-    setShowModal2(!showModal2);
-    // console.log(showModal);
-    document.body.style.overflow = 'auto';
-  };
 
-  const [showModal3, setShowModal3] = useState(false);
-  const toggleComponente3 = () => {
-    setShowModal3(!showModal3);
-    document.body.style.overflow = 'hidden';
-  };
-  const handleCloseModal3 = () => {
-    // console.log(showModal);
-    setShowModal3(!showModal3);
-    // console.log(showModal);
-    document.body.style.overflow = 'auto';
-  };
+  // newFountain
+
+
+
   const [showModalDelete, setShowModalDelete] = useState(false);
   const toggleComponenteDelete = () => {
     setShowModalDelete(!showModalDelete);
@@ -120,23 +90,8 @@ export default function home() {
         <div id="header" className="fixed z-50 w-full">
           <Header scrollTransaction={scrollToTransactions} scrollTercero={scrollToReclasificationThird} scrollExtraction={scrollToExtraction} showModal={cambiarTema}></Header>
         </div>
-        <main className=" mb-[20px] flex flex-wrap w-full px-[40px] flex-col ">
-          <div id="transactions" className="flex w-full gap-[10px]">
-            <Transactions Delete={toggleComponenteDelete} newTransactions={toggleComponente}></Transactions>
-            <Fountain newFountain={toggleComponente2}></Fountain>
-          </div>
-          <div id="terceros" className="flex  gap-[10px] w-full">
-            <ReclasificationThird></ReclasificationThird>
-            <Terceros newTercero={toggleComponente3}></Terceros>
-          </div>
-          <div id="extraction" className="w-full">
-            <Extraction></Extraction>
-          </div>
-          {showModal3 ? <NewTerceros showModal={handleCloseModal3}></NewTerceros> : ""}
-          {showModal2 ? <NewFountain showModal={handleCloseModal2}></NewFountain> : ""}
-          {/* <SideBar></SideBar> */}
-          {showModal ? <NewTransations showModal={handleCloseModal}></NewTransations> : ""}
-          {showModalDelete ? <Delete showModal={handleCloseDelete}></Delete>: ""}
+        <main className="flex flex-wrap w-full px-[40px] flex-col h-screen">
+          <Outlet></Outlet>
         </main>
       </section>
     </FluentProvider>

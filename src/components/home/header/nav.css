@@ -4,7 +4,9 @@
 .switchinput {
     width: 4px;
 }
-
+.tab.fkhj508 {
+    font-size: 12px;
+}
 .switch:hover {
     background-color: var(--colorNeutralBackground1Hover);
     color: var(--colorNeutralForeground2Hover);

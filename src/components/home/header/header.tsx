@@ -8,6 +8,8 @@ import {
   MenuTrigger,
   makeStyles,
   Button,
+  TabList,
+  Tab,
   ToggleButton,
   Switch,
 } from "@fluentui/react-components";
@@ -36,6 +38,13 @@ const useStyles = makeStyles({
   ".&width": {
     textWrap: "nowrap",
   },
+  root: {
+    // alignItems: "flex-start",
+    display: "flex",
+    // justifyContent: "flex-start",
+    // ...shorthands.padding("50px", "20px"),
+    rowGap: "5px",
+  },
 });
 type modalProp = {
   showModal?: () => void;
@@ -57,44 +66,57 @@ export default function Header({ showModal, scrollTransaction, scrollTercero, sc
   //   showModal();
   // }
   const nav = [
-    { text: 'Transacciones', route: 'transacciones', function: scrollTransaction },
-    { text: 'Reclasificar terceros', route: 'transacciones', function: scrollTercero },
-    { text: 'Extracción de movimientos', route: 'transacciones', function: scrollExtraction },
+    { text: 'Transacciones', route: 'transation', function: scrollTransaction },
+    { text: 'Fuentes', route: 'fountain' },
+    { text: 'Reclasificar terceros', route: 'third_party_reclassification', function: scrollTercero },
+    { text: 'Extracción de movimientos', route: 'extraction', function: scrollExtraction },
   ]
   const nav2 = [
     {
       id: '1', text: 'Movimiento externo', option: [{ name: 'Generar movimiento contable', route: 'ruta' }, { name: 'Leer movimiento externo', route: 'ruta' }]
     },
     { id: '2', text: 'Contabilidad NIIF', option: [{ name: 'Transacciones NIIIF', route: 'ruta' }, { name: 'Transacciones ESFA', route: 'ruta' }] },
-    { id: '3', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'ruta' }, { name: 'Anexos', route: 'ruta' }, { name: 'Auxiliares', route: 'ruta' }, { name: 'Libro diario legal', route: 'ruta' }, { name: 'Libro mayor legal', route: 'ruta' }, { name: 'Comprobantes de diario', route: 'ruta' }, { name: 'Caja diario', route: 'ruta' }, { name: 'Libro de inventario y balance', route: 'ruta' }, { name: 'Estados financiero', route: 'ruta' }, { name: 'Foliadores de libro', route: 'ruta' }, { name: 'Impresión certificador', route: 'ruta' },] }
+    { id: '3', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'processed_movement' }, { name: 'Anexos', route: 'ruta' }, { name: 'Auxiliares', route: 'ruta' }, { name: 'Libro diario legal', route: 'ruta' }, { name: 'Libro mayor legal', route: 'ruta' }, { name: 'Comprobantes de diario', route: 'ruta' }, { name: 'Caja diario', route: 'ruta' }, { name: 'Libro de inventario y balance', route: 'ruta' }, { name: 'Estados financiero', route: 'ruta' }, { name: 'Foliadores de libro', route: 'ruta' }, { name: 'Impresión certificador', route: 'ruta' },] }
   ]
   return (
-    <Card className="header top-0">
-      <header className="w-full h-[8%] flex justify-between items-center ">
-        <div className="flex items-center">
+    <Card className="header top-0 w-full">
+      <header className="w-full h-[8%] flex  items-center ">
+        <div className="flex items-center w-full">
           <figure className="flex h-[100%] items-center gap-[10px] px-[15px] justify-between ">
             <Link to={"/moduls"} className="relative font-semibold flex  text text-[19px]">
               {/* <img className="h-[35px]" src="/public/logo.svg" alt="logo" /> */}
-              <img className="h-6" src="./public/escribiendo.svg" alt="icono" />
+              <img className="h-6" src="/public/escribiendo.svg" alt="icono" />
 
               Contabilidad
             </Link>
           </figure>
           {/* <NavContable></NavContable> */}
-          <nav>
-            <div className="flex items-center">
-              {nav.map((item, index) => (
-                <Button key={index} onClick={item.function} appearance="subtle" size="small" className=" flex gap-1">
-                  {/* <FontAwesomeIcon icon={faMoneyBill} className="text-1"></FontAwesomeIcon> */}
-                  <span key={index} className="truncate font-semibold text-start">
-                    {item.text}
-                  </span>
-                </Button>
-              ))}
+          <nav className="flex items-center">
+            <div className={`  ${styles.root}`}>
+
+              <TabList defaultSelectedValue="">
+                {nav.map((item, index) => (
+                  <Link to={item.route} key={index} onClick={item.function} className=" flex  text-[11px]">
+                    <Tab className="font-simbold tab" value={item.text}>
+
+                      {/* <FontAwesomeIcon icon={faMoneyBill} className="text-1"></FontAwesomeIcon> */}
+
+                      <span key={index} className="truncate font-semibold text-start text-[12px]">
+                        {item.text}
+                      </span>
+                    </Tab>
+                  </Link>
+
+                ))}
+                {/* <Tab onClick={() => setActiveTab("Datos_basicos")} className="font-simbold tab" value="Datos_basicos">Datos Básicos</Tab>
+                  <Tab onClick={() => setActiveTab("Modulos")} className="font-simbold tab" value="Modulos">Módulos</Tab> */}
+              </TabList>
+
+
               {nav2.map((item, index) => (
                 <Menu key={index}>
                   <MenuTrigger>
-                    <MenuButton key={item.id} appearance="subtle" size="small" className="flex gap-1 font-bold text-start">
+                    <MenuButton key={item.id} appearance="subtle" style={{ fontSize: '12px', fontWeight: '600' }} className="flex gap-1  text-start">
                       <p className="font-semibold">
                         {item.text}
                       </p>
@@ -104,7 +126,7 @@ export default function Header({ showModal, scrollTransaction, scrollTercero, sc
                     <MenuList>
                       {item.option.map((option, i) => (
                         <Button size="small" appearance="subtle" key={i}>
-                          <Link to={`/${option.route}`} className="w-full text-start truncate font-semibold ">
+                          <Link to={`${option.route}`} className="w-full text-start truncate font-semibold ">
                             {option.name}
                           </Link>
                         </Button>

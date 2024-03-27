@@ -9,7 +9,7 @@ import { faPlus, faPrint } from "@fortawesome/free-solid-svg-icons";
 export function Extraction() {
     const inputId = useId("input");
     return (
-        <section className="w-full mt-[30px]">
+        <section className="w-full h-screen flex items-center">
             <Card className="w-full">
                 <h3 className="font-semibold w-full py-[5px] absolute top-0 left-0 px-[15px]" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Extracción de movimientos</h3>
                 <div className="flex flex-col gap-[5px] px-[20px] w-[100%] mt-[30px]">

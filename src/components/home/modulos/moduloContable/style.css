@@ -66,6 +66,12 @@ background-color: var(--colorPaletteSteelForeground2);
 .butom2:hover{
     background-color: var(--colorPaletteLightGreenForeground1);
 }
+.butom3{
+    background-color: var(--colorStatusDangerBackground3Hover);
+}
+.butom3:hover{
+    background-color: var(--colorStatusDangerBackground3Pressed);
+}
 .date{
     background-color: var(--colorNeutralForegroundInverted);
 }
@@ -127,4 +133,7 @@ input[type='number'] {
 }
 .card2.fcvsdzp {
     row-gap: 0;
+}
+.check.fkhj508 {
+    font-size: 12px;
 }

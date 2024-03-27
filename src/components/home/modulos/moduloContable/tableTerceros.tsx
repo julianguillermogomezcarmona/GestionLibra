@@ -116,7 +116,7 @@ export function TableTerceros() {
                         </tr>
                     </thead>
                 </table>
-                <div style={{ maxHeight: '320px', overflowY: 'auto' }}>
+                <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
                     <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first">
                         <tbody>
                             {data.map(row => (

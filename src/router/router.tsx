@@ -2,155 +2,18 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import login from "../components/login";
 import componentContable from "../components/home/modulos/component_Contable";
 import {
-  portfolioDeterioration,
-  reverseDeterioration,
-} from "../components/home/cuenta_cobrar/cuentaCobraComponent";
-import {
-  cardComponentAbout,
-  cardComponentAccountingExtraction,
-  cardComponentAccountingNiif,
-  cardComponentAccountingPolicies,
-  cardComponentAccountingReports,
-  cardComponentAccountingUpdate,
-  cardComponentAccountPlan,
-  cardComponentAccountxPayReports,
-  cardComponentAccountxReceivableReports,
-  cardComponentArticle,
-  cardComponentAutomaticInvoices,
-  cardComponentBilling,
-  cardComponentBranchOffices,
-  cardComponentCheckIssuance,
-  cardComponentCheckIssuanceAccounting,
-  cardComponentChecks,
-  cardComponentClosingofPeriod,
-  cardComponentClosingProcesses,
-  cardComponentCommodity,
-  cardComponentConciliationt,
-  cardComponentConsecutive,
-  cardComponentConsignment,
-  cardComponentConsolidate,
-  cardComponentCustomers,
-  cardComponentDataAudit,
-  cardComponentElectronicBillingParameters,
-  cardComponentExternalMovement,
-  cardComponentExternalMovementAccounting,
-  cardComponentExtractions,
-  cardComponentFileManagement,
-  cardComponentGeneralParameters,
-  cardComponentGeneralTables,
-  cardComponentHelpTopics,
-  cardComponentInterestSettlement,
-  cardComponentInventoryDeterioration,
-  cardComponentInventoryReports,
-  cardComponentLicenseAgreement,
-  cardComponentMotionPanel,
-  cardComponentNotesWallet,
-  cardComponentOrderAndImport,
-  cardComponentOrdersandPriceClient,
-  cardComponentPhysicalInventory,
-  cardComponentportFolioDeterioration,
-  cardComponentReceipts,
-  cardComponentReclassifyThirdParties,
-  cardComponentRecoverersandIntegrity,
-  cardComponentreFerralstoClients,
-  cardComponentReturns,
-  cardComponentRevelations,
-  cardComponentSalesReports,
-  cardComponentSpecialProcesses,
-  cardComponentStore,
-  cardComponentSuppliers,
-  cardComponentSystemBranchOffices,
-  cardComponentSystemInformation,
-  cardComponenttoRegister,
-  cardComponentTransactions,
-  cardComponentTransactionsAccounting,
-} from "../components/CardComponent";
-import {
-  assingBoxes,
-  collectors,
-  concepts,
-  conveyors,
-  costCenter,
-  financialDesing,
-  identification,
-  interfaceComponet,
-  items,
-  iva,
-  lawyers,
-  lines,
-  location,
-  paymentMethods,
-  sellers,
-  sources,
-  users,
-} from "../components/home/system/systemCompont";
-import {
-  createCommodity,
-  returnCommodity,
-  // importCompras,
-  orderCompras,
-  branchReferral,
-  branchEntrance,
-  inventoryTweaks,
-  transfersBetweenWarehousess,
-  internalConsumption,
-  InternalConsumptionRefund,
-  importLiquidation,
-  shotList,
-  defineCount,
-  includePhysicalShot,
-  comparative,
-  automaticAdjustment,
-  inventoryDeterioration,
-  inventoryImpairmentReversal,
-} from "../components/home/inventario/inventoryComponent";
-import {
   billingMovement,
   esfaTransactions,
   niifTransactions,
   petrobasMovement,
 } from "../components/home/accounting/accountingComponent";
-import {
-  annexes,
-  auxiliaries,
-  auxiliaryKardex,
-  bills,
-  bookFolios,
-  certificatePrinting,
-  checkofPrinting,
-  checkPrinting,
-  consignmentMerchandise,
-  customerMovementSummary,
-  diaryBox,
-  expirationAnalysis,
-  financialStatements,
-  inventoryandBalanceBook,
-  itemsSlock,
-  itemsWithoutMovements,
-  journalVouchers,
-  legalJournalBook,
-  legalLedger,
-  listofCollectionCommissions,
-  listofPayDays,
-  movementProcess,
-  pendingPurchaseOrders,
-  physicalShotList,
-  portfolioMaturity,
-  priceList,
-  printingPendingOrders,
-  processedMovement,
-  processedPortfolioMovement,
-  processedSupplierMovement,
-  proposedvsExecuted,
-  purchasingSummarybySupplier,
-  referrals,
-  referralsSenttoBranches,
-  salesAudit,
-  statementsofAccounts,
-  statistics,
-  stockWarehouse,
-  supplierStatement,
-} from "../components/home/reports/reportsComponent";
+import { ProcessedMovement } from "../components/home/modulos/moduloContable/processedMovement";
+import { Fountain } from "../components/home/modulos/moduloContable/fountain";
+import { Extraction } from "../components/home/modulos/moduloContable/extraction";
+import { GruopTercero } from "../components/home/modulos/moduloContable/terceros/Tercero";
+import { Terceros } from "../components/home/modulos/moduloContable/terceros";
+import { ReclasificationThird } from "../components/home/modulos/moduloContable/reclasificartionThird";
+import { Transactions } from "../components/home/modulos/moduloContable/transactions";
 import { cashBilling, creditBilling, customerOrders, petrobasBillingMovement, pintacasaBillingMovement, quotetoClients, referralstoClients, referralstocustomers, referralstoMerchandiseCustomers, returnstoCustomers } from "../components/home/sales/salesComponent";
 import { accountingUpdate, annual, auditofAccountingReceipts, auditProcesses, changeofCompanyUser, changeofYear, closingEntries, consolidateCompanies, createDataDictionary, dataBackup, electronicBillingParameters, electronicBillingResolutions, ensureAccountingPeriod, fileViewer, fontOverride, generateElectronicBillingToken, monthly, monthlyInventorySummary, organizeFiles, purgeOldInformation, recoverCostCenters, recoverLargerBalances, recoverMovements, recoverThirdPartyBalances, resetBoxesShifts, sqlQueries, telephoneDirectory, TransferofAccountingBalances } from "../components/home/utilitis/utilitisComponet";
 import { config } from "../components/home/config/config";
@@ -183,6 +46,53 @@ const router = createBrowserRouter([
         <h2>Esta ruta no existe</h2>
       </div>
     ),
+    children: [
+      {
+        path: "transation",
+        Component: Transactions,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+      },
+      {
+        path: "third_party_reclassification",
+        Component: GruopTercero,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+      },
+      {
+        path: "fountain",
+        Component: Fountain,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+      },
+      {
+        path: "extraction",
+        Component: Extraction,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+      },
+      {
+        path: "processed_movement",
+        Component: ProcessedMovement,
+        errorElement: (
+          <div>
+            <h2>Esta ruta no existe</h2>
+          </div>
+        ),
+      },
+    ],
     // children: [
     //   {
     //     path: "general_tables",

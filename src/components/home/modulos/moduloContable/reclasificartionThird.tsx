@@ -5,7 +5,7 @@ import { Search12Regular } from "@fluentui/react-icons";
 export function ReclasificationThird() {
     const inputId = useId("input");
     return (
-        <section className="w-[60%] mt-[40px]">
+        <section className="w-[60%]  flex items-center h-screen">
             <Card className=" w-[100%] py-[35px] flex flex-col items-start">
                 <h3 className="w-full    font-semibold absolute top-0 py-[5px] px-[15px] left-0" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Reclasificar terceros</h3>
                 <div className="px-[20px] w-full mt-[20px] py-[10px] flex flex-col gap-[5px]">
@@ -23,35 +23,9 @@ export function ReclasificationThird() {
                                 <Input disabled className="w-[270px] num px-[2px]"></Input>
                             </div>
                         </div>
-                        {/* <div className="flex gap-[5px]">
-                            <div className="flex items-center">
-                                <Label className="font-semibold" htmlFor={inputId} style={{ paddingInlineEnd: "2px" }}>
-                                    <span className="font-bold text-[11px]">Dirección</span>
-                                </Label>
-                                <div>
-                                    <Input disabled placeholder="kr 58 A #2630" className="w-[100px] num" id={inputId} />
-                                </div>
-                            </div>
-                            <div className="flex items-center ">
-                                <Label className="" htmlFor={inputId} style={{ paddingInlineEnd: "2px" }}>
-                                    <span className="font-bold text-[11px]">Telefono</span>
-                                </Label>
-                                <div>
-                                    <Input disabled placeholder="3245896478" className="w-[120px] num" id={inputId} />
-                                </div>
-                            </div>
-                            <div className="flex items-center ">
-                                <Label className="font-semibold" htmlFor={inputId} style={{ paddingInlineEnd: "2px" }}>
-                                    <span className="font-bold text-[11px]">Ciudad</span>
-                                </Label>
-                                <div>
-                                    <Input disabled placeholder="Bogota" className="w-[120px] num" id={inputId} />
-                                </div>
-                            </div>
-                        </div> */}
                     </div>
                     <div className="flex flex-col gap-[5px] w-[90%]  ">
-                        <div className="flex items-center w-[100%] justify-between ">
+                        <div className="flex items-center w-full justify-between ">
                             <Label className="font-bold" htmlFor={inputId} style={{ paddingInlineEnd: "12px" }}>
                                 <span className="text-[11px]">Numero codigo</span>
                             </Label>
@@ -64,7 +38,7 @@ export function ReclasificationThird() {
                                 <Input className="w-[270px] num px-[2px]"></Input>
                             </div>
                         </div>
-                        <div className="flex items-center gap-[14px]">
+                        <div className="flex w-full justify-between items-center gap-[14px]">
                             <div className="flex items-center">
                                 <Label className="" htmlFor={inputId} style={{ paddingInlineEnd: "6px" }}>
                                     <span className="text-[11px] font-bold">Dirección</span>

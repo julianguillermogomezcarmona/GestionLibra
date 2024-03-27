@@ -3,15 +3,29 @@ import { SearchBox } from "@fluentui/react-search-preview";
 import { TableComponent } from "../../../table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faPrint } from "@fortawesome/free-solid-svg-icons";
+import { NewTransations } from "./newTransactions";
 import './style.css'
+import { useState } from "react";
 type transactionProps = {
-    newTransactions: () => void;
-    Delete: () => void;
+    newTransactions?: () => void;
+    Delete?: () => void;
 }
+
 export function Transactions({ Delete, newTransactions }: transactionProps) {
+    const [showModal, setShowModal] = useState(false);
+    const toggleComponente = () => {
+        setShowModal(!showModal);
+        document.body.style.overflow = 'hidden';
+    };
+    const handleCloseModal = () => {
+        // console.log(showModal);
+        setShowModal(!showModal);
+        // console.log(showModal);
+        document.body.style.overflow = 'auto';
+    };
     return (
-        <section className="w-[60%]  h-[100%] mt-[80px]">
-            <Card className="h-[95%]  w-full py-[35px] flex flex-col items-start">
+        <section className="w-full overflow-hidden h-screen flex justify-center items-center">
+            <Card className="h-[75%] w-[80%] py-[35px] flex flex-col items-start">
                 <h3 className="font-semibold absolute top-0 left-0 px-[15px] w-full py-[5px]" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Transacciones</h3>
                 <div className="flex gap-[5px] mt-[30px] px-[10px]">
                     <Field className="" >
@@ -21,13 +35,14 @@ export function Transactions({ Delete, newTransactions }: transactionProps) {
                     {/* <button className="flex gap-[5px] items-center px-[7px] text-white bg-1 rounded-[2px] py-[2px] text-[12px]">Nueva transferencia<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button> */}
                 </div>
                 <div className="px-[14px] h-[100%] overflow-hidden w-[100%] ">
-                    <TableComponent Delete={Delete}></TableComponent>
+                    <TableComponent></TableComponent>
                 </div>
                 <div className="w-full flex justify-end gap-[5px]">
-                    <button onClick={newTransactions} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom rounded-[2px] py-[5px] text-[12px]">Nueva transacción<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
-                    <button onClick={Delete} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Informes<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
+                    <button onClick={toggleComponente} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom rounded-[2px] py-[5px] text-[12px]">Nueva transacción<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
+                    <button className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Informes<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
                 </div>
             </Card>
+            {showModal ? <NewTransations showModal={handleCloseModal}></NewTransations> : ""}
         </section>
     )
 }
