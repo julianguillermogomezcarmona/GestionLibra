@@ -73,3 +73,9 @@
 .f1f5gg8d {
   padding-left: var(--spacingHorizontalS);
 }
+.butom {
+  background-color: var(--colorPaletteSteelBorderActive)
+}
+.butom:hover {
+background-color: var(--colorPaletteSteelForeground2);
+}

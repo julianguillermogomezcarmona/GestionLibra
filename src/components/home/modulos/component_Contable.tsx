@@ -24,6 +24,7 @@ import { NewTransations } from "./moduloContable/newTransactions";
 import './style.css'
 import { NewFountain } from "./moduloContable/newFountain";
 import { NewTerceros } from "./moduloContable/terceros/newTercero";
+import { Delete } from "../../delete";
 export default function home() {
   // const { setTheme, theme } = useThemeContext();
   const [isReduced, setIsReduced] = useState(false);
@@ -74,6 +75,19 @@ export default function home() {
     // console.log(showModal);
     document.body.style.overflow = 'auto';
   };
+  const [showModalDelete, setShowModalDelete] = useState(false);
+  const toggleComponenteDelete = () => {
+    setShowModalDelete(!showModalDelete);
+    document.body.style.overflow = 'hidden';
+    console.log(showModalDelete);
+    
+  };
+  const handleCloseDelete = () => {
+    // console.log(showModal);
+    setShowModalDelete(!showModalDelete);
+    // console.log(showModal);
+    document.body.style.overflow = 'auto';
+  };
   // Función para hacer scroll automático al componente Transactions
   const scrollToTransactions = () => {
     const transactionsComponent = document.getElementById('transactions');
@@ -108,7 +122,7 @@ export default function home() {
         </div>
         <main className=" mb-[20px] flex flex-wrap w-full px-[40px] flex-col ">
           <div id="transactions" className="flex w-full gap-[10px]">
-            <Transactions newTransactions={toggleComponente}></Transactions>
+            <Transactions Delete={toggleComponenteDelete} newTransactions={toggleComponente}></Transactions>
             <Fountain newFountain={toggleComponente2}></Fountain>
           </div>
           <div id="terceros" className="flex  gap-[10px] w-full">
@@ -122,6 +136,7 @@ export default function home() {
           {showModal2 ? <NewFountain showModal={handleCloseModal2}></NewFountain> : ""}
           {/* <SideBar></SideBar> */}
           {showModal ? <NewTransations showModal={handleCloseModal}></NewTransations> : ""}
+          {showModalDelete ? <Delete showModal={handleCloseDelete}></Delete>: ""}
         </main>
       </section>
     </FluentProvider>

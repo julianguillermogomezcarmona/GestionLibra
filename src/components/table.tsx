@@ -36,8 +36,10 @@ import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useState } from 'react';
-
-export function TableComponent() {
+type tableProps = {
+    Delete: () => void;
+}
+export function TableComponent({ Delete }: tableProps) {
     // Array con más información para las filas
     const [data, setData] = useState([
         {
@@ -103,8 +105,26 @@ export function TableComponent() {
             fecha: '28/04/2024',
             nombreFuente: 'Asociación de Voluntarios'
         }
+
         // Puedes agregar más objetos al array con más datos de filas
     ]);
+    const [sortConfig, setSortConfig] = useState<{ key: string, direction: 'ascending' | 'descending' }>({ key: '', direction: 'ascending' });
+
+    const handleSort = (key: string) => {
+        let direction: 'ascending' | 'descending' = 'ascending';
+        if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+            direction = 'descending';
+        }
+        setSortConfig({ key, direction });
+    };
+
+    const sortedData = [...data].sort((a, b) => {
+        if (sortConfig.direction === 'ascending') {
+            return a.fuente.localeCompare(b.fuente);
+        } else {
+            return b.fuente.localeCompare(a.fuente);
+        }
+    });
 
     return (
         <section className="px-[px]">
@@ -112,7 +132,7 @@ export function TableComponent() {
                 <table className="w-full divide-y-[1px] divide-first text-center text-first">
                     <thead className="" style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
                         <tr style={{ color: 'var(--colorNeutralForeground1)' }} className="z-40 top-0 text-[14px] ">
-                            <th className="py-[7px] font-semibold text-center" style={{ width: '8%' }}>Fuente</th>
+                            <th className="py-[7px] font-semibold text-center cursor-pointer" style={{ width: '8%' }} onClick={() => handleSort('fuente')}>Fuente</th>
                             <th className="font-semibold text-center" style={{ width: '21%' }}>Numero de documento</th>
                             <th className="font-semibold text-center" style={{ width: '12%' }}>Fecha</th>
                             <th className="font-semibold text-center" style={{ width: '25%' }}>Nombre de la fuente</th>
@@ -123,7 +143,7 @@ export function TableComponent() {
                 <div style={{ maxHeight: '270px', overflowY: 'auto' }}>
                     <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first">
                         <tbody>
-                            {data.map(row => (
+                        {sortedData.map(row => (
                                 <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[35px] text-[12px] font-semibold border-b-[0.5px] w-full">
                                     <td className="text-end" style={{ width: '8%' }}>{row.fuente}</td>
                                     <td className="text-center" style={{ width: '21%' }}>{row.numeroDocumento}</td>
@@ -132,7 +152,7 @@ export function TableComponent() {
                                     <td className="text-end" style={{ width: '15%' }}>
                                         <div className="gap-[5px] flex justify-around w-full">
                                             <Button className="table1" icon={<Eye12Filled />}></Button>
-                                            <Button className="table2" icon={<Delete12Filled />}></Button>
+                                            <Button onClick={Delete} className="table2" icon={<Delete12Filled />}></Button>
                                             <Button className="table3" icon={<Edit12Filled />}></Button>
                                         </div>
                                     </td>

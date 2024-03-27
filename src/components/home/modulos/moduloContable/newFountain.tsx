@@ -7,6 +7,7 @@ import { Search12Regular } from "@fluentui/react-icons";
 import { DatePicker, Space } from "antd";
 import { TableNewTransation } from "./tableNewTransation";
 import { DateBasic } from "./fountain/dateBasic";
+import { Moduls } from "./fountain/moduls";
 // import { mount } from "sortablejs";
 // import { } from "antd";
 type modalProps = {
@@ -64,6 +65,7 @@ export function NewFountain({ showModal }: modalProps) {
                         </TabList>
                     </div>
                     {activeTab === "Datos_basicos" && <DateBasic />}
+                    {activeTab === "Modulos" && <Moduls/> }
                     <div className="flex justify-end w-full gap-[10px] mt-[10px]">
                         <button className="flex gap-[5px] font-semibold items-center px-[15px] text-white butom rounded-[2px] py-[5px] text-[12px]">Aceptar</button>
                         <button onClick={handleCloset2} style={{ backgroundColor: 'var(--colorPaletteRedForeground1)' }} className="flex gap-[5px] font-semibold items-center px-[7px] text-white rounded-[2px] py-[2px] text-[12px]">Cancelar</button>

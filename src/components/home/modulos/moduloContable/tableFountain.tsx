@@ -1,4 +1,4 @@
-import { FixedSizeList as List, ListChildComponentProps } from "react-window";
+// import { FixedSizeList as List, ListChildComponentProps } from "react-window";
 import {
     FolderRegular,
     EditRegular,
@@ -39,69 +39,87 @@ export function TableFountain() {
     const [data, setData] = useState([
         {
             id: 1,
-            codigo: '0sd141',
+            codigo: '04',
             numeroDocumento: '105475844',
             fecha: '01/02/2024',
             nombreFuente: 'Organización sin fines de lucro'
         },
         {
             id: 2,
-            codigo: '0255sd31',
+            codigo: '02',
             numeroDocumento: '202134567',
             fecha: '15/03/2024',
             nombreFuente: 'Empresa XYZ'
         },
         {
             id: 3,
-            codigo: '03hgr48',
+            codigo: '03',
             numeroDocumento: '305678912',
             fecha: '28/04/2024',
             nombreFuente: 'Asociación de Voluntarios'
         },
         {
             id: 4,
-            codigo: '04te258ds',
+            codigo: '04',
             numeroDocumento: '305678912',
             fecha: '28/04/2024',
             nombreFuente: 'Asociación de Voluntarios'
         },
         {
             id: 5,
-            codigo: '0598ju85',
+            codigo: '05',
             numeroDocumento: '305678912',
             fecha: '28/04/2024',
             nombreFuente: 'Asociación de Voluntarios'
         },
         {
             id: 6,
-            codigo: '06478ked5',
+            codigo: '04',
             numeroDocumento: '305678912',
             fecha: '28/04/2024',
             nombreFuente: 'Asociación de Voluntarios'
         },
         {
             id: 7,
-            codigo: '0748ki8r',
+            codigo: '08',
             numeroDocumento: '305678912',
             fecha: '28/04/2024',
             nombreFuente: 'Asociación de Voluntarios'
         },
         {
             id: 8,
-            codigo: '00s8w8sd8',
+            codigo: '06',
             numeroDocumento: '305678912',
             fecha: '28/04/2024',
             nombreFuente: 'Asociación de Voluntarios'
         },
         {
             id: 9,
-            codigo: '09zh8698f',
+            codigo: '09',
             numeroDocumento: '305678912',
             fecha: '28/04/2024',
             nombreFuente: 'Asociación de Voluntarios'
         }
         // Puedes agregar más objetos al array con más datos de filas
     ]);
+    const [sortConfig, setSortConfig] = useState<{ key: string, direction: 'ascending' | 'descending' }>({ key: '', direction: 'ascending' });
+
+    const handleSort = (key: string) => {
+        let direction: 'ascending' | 'descending' = 'ascending';
+        if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+            direction = 'descending';
+        }
+        setSortConfig({ key, direction });
+    };
+
+    const sortedData = [...data].sort((a, b) => {
+        if (sortConfig.direction === 'ascending') {
+            return a.codigo.localeCompare(b.codigo);
+        } else {
+            return b.codigo.localeCompare(a.codigo);
+        }
+    });
+
 
     return (
         <section className="px-[px]">
@@ -109,7 +127,7 @@ export function TableFountain() {
                 <table className="w-full divide-y-[1px] divide-first text-center text-first">
                     <thead className="px-[10px]" style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
                         <tr style={{ color: 'var(--colorNeutralForeground1)' }} className="z-40 top-0 text-[14px] ">
-                            <th className="py-[7px] font-semibold text-center" style={{ width: '4%' }}>Codigo</th>
+                            <th className="py-[7px] font-semibold text-center" style={{ width: '4%' }} onClick={() => handleSort('codigo')}>Codigo</th>
                             <th className="font-semibold text-center" style={{ width: '25%' }}>Nombre de la fuente</th>
                             <th className="font-semibold text-center" style={{ width: '15%' }}>Acciones</th>
                         </tr>
@@ -118,9 +136,9 @@ export function TableFountain() {
                 <div style={{ maxHeight: '270px', overflowY: 'auto' }}>
                     <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first">
                         <tbody>
-                            {data.map(row => (
+                            {sortedData.map(row => (
                                 <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[35px] text-[12px] font-semibold border-b-[0.5px]">
-                                    <td className="text-center" style={{ width: '3%', maxWidth: '67px' }}>{row.codigo}</td>
+                                    <td className="text-center" style={{ width: '7%', maxWidth: '67px' }}>{row.codigo}</td>
                                     <td className="text-start" style={{ width: '25%' }}>{row.nombreFuente}</td>
                                     <td className="text-end" style={{ width: '8%' }}>
                                         <div className="  flex justify-evenly w-full">

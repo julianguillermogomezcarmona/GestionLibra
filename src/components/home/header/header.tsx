@@ -84,7 +84,7 @@ export default function Header({ showModal, scrollTransaction, scrollTercero, sc
           <nav>
             <div className="flex items-center">
               {nav.map((item, index) => (
-                <Button onClick={item.function} appearance="subtle" size="small" className=" flex gap-1">
+                <Button key={index} onClick={item.function} appearance="subtle" size="small" className=" flex gap-1">
                   {/* <FontAwesomeIcon icon={faMoneyBill} className="text-1"></FontAwesomeIcon> */}
                   <span key={index} className="truncate font-semibold text-start">
                     {item.text}

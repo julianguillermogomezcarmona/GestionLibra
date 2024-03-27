@@ -5,10 +5,10 @@ import '../style.css'
 import { useState, useEffect } from "react";
 import { Search12Regular } from "@fluentui/react-icons";
 import { DatePicker, Space } from "antd";
-
+import type { CheckboxProps } from "@fluentui/react-components";
 export function DateBasic() {
     const [checked, setChecked] = useState<CheckboxProps["checked"]>(false);
-    const [checked2, setChecked2] = useState<CheckboxProps2["checked2"]>(false);
+    const [checked2, setChecked2] = useState<CheckboxProps["checked"]>(false);
     const inputId = useId("input");
     const name = useId("name");
     const only = useId("only");

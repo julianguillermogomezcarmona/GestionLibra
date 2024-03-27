@@ -34,8 +34,7 @@ export function NewTransations({ showModal }: modalProps) {
                     <h3 className="px-[15px] py-[5px] top-0 absolute font-bold w-full left-0" style={{ backgroundColor: 'var(--colorNeutralForeground1)', }} >Nueva transacción</h3>
                     <button className="absolute right-4 top-0 py-[5px]" onClick={handleCloset}><FontAwesomeIcon icon={faX}></FontAwesomeIcon></button>
                 </div>
-                <div className="flex flex-col">
-
+                <div className="flex flex-col gap-[10px]">
                     <Card className="flex h-[70%] w-full ">
                         <h3 className="font-semibold">Comprobantes</h3>
                         <div className="flex gap-[5px]">
@@ -73,50 +72,9 @@ export function NewTransations({ showModal }: modalProps) {
                             </div>
                         </div>
                     </Card>
-                    {/* <div className="w-full flex gap-4">
-                        <Card className="flex w-[50%]">
-                            <h3 className="font-semibold">Comprobantes</h3>
-                            <div className="flex">
-                                <Checkbox
-                                    checked={checked}
-                                    onChange={(ev, data) => setChecked(data.checked)}
-                                    label="Automatico"
-                                    className="label font-bold"
-                                />
-                                <Checkbox
-                                    checked={checked2}
-                                    onChange={(ev, data) => setChecked2(data.checked)}
-                                    label="Manual"
-                                    className="label font-bold"
-                                />
-                                <div className="flex gap-[3px] ml-[25px] items-center">
-                                    <label htmlFor="" className="text-[12px] font-bold">Numero</label>
-                                    <input disabled type="text" className="input border-[1px] w-[100px] rounded-[2px] px-[5px] py-[4px] hover:outline-none outline-none " />
-                                </div>
-
-                            </div>
-
-                        </Card>
-                        <Card className="w-[50%] ">
-                            <Space className="w-[60%] flex justify-between  text-[12px] date">
-                                <label htmlFor="finish_date" className="font-bold">Fecha final</label>
-                                <DatePicker style={{ backgroundColor: 'var(--colorNeutralForegroundInverted)' }} className="date" id="finish_date" />
-                            </Space> <div className="flex items-center">
-                                <Label className="font-bold" htmlFor={inputId} style={{ paddingInlineEnd: "3px" }}>
-                                    <span className="text-[12px]">Fuente</span>
-                                </Label>
-                                <div className="flex relative mr-[5px]">
-                                    <Input className="w-[120px] num2 num" id={inputId} />
-                                    <Button className="absolute right-0 " appearance="transparent" icon={<Search12Regular />}></Button>
-                                </div>
-                            </div>
-                        </Card>
-                    </div> */}
-                    {/* <div className="w-[40%]">
-                        <Field className="font-semibold" label='Concepto:'>
-                            <Textarea className="h-[100px]" resize="none" />
-                        </Field>
-                    </div> */}
+                    <Field className="font-semibold px-[15px]" label='Concepto'>
+                        <Textarea resize="none" />
+                    </Field>
                 </div>
                 <div className="flex px-[15px] w-full gap-[10px]">
                     <button className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom rounded-[2px] py-[5px] text-[12px]">Trasacción Local</button>

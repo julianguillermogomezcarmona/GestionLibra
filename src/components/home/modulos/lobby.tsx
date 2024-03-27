@@ -1,6 +1,6 @@
 import { DndContext, closestCenter } from "@dnd-kit/core";
 import { SortableContext, arrayMove, horizontalListSortingStrategy, rectSortingStrategy, rectSwappingStrategy, verticalListSortingStrategy } from "@dnd-kit/sortable";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import MenuButton from "./menuButon";
 import User from "./user";
 import Header from "./header";
@@ -16,7 +16,13 @@ function lobby() {
     { id: 7, name: "Cuentas", image: 'cuentas.svg', route: '/contable' },
     // { id: 8, name: "Centro de costos", image: 'bg-contables' },
   ]);
-
+  useEffect(() => {
+    // Recuperar las posiciones guardadas desde el almacenamiento local
+    const savedPositions = localStorage.getItem("savedPositions");
+    if (savedPositions) {
+      setPeople(JSON.parse(savedPositions));
+    }
+  }, []);
 
   const handleDragEnd = (event: any) => {
     const { active, over } = event;
@@ -27,9 +33,13 @@ function lobby() {
       setPeople((people) => {
         const oldIndex = people.findIndex((person) => person.id === active.id);
         const newIndex = people.findIndex((person) => person.id === over.id);
+        const newPeople = arrayMove(people, oldIndex, newIndex);
 
-        console.log(arrayMove(people, oldIndex, newIndex));
-        return arrayMove(people, oldIndex, newIndex);
+        console.log(arrayMove(people, oldIndex, newIndex))
+        localStorage.setItem("savedPositions", JSON.stringify(newPeople));
+
+        return newPeople;;
+        // return arrayMove(people, oldIndex, newIndex);
       });
     }
   }
@@ -39,7 +49,7 @@ function lobby() {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <div className="flex flex-col h-screen custom-scrollbar overflow-scroll relative z-50">
+    <div className="flex flex-col h-screen custom-scrollbar  relative z-50">
       <div className="w-full h-[90%]  flex flex-col gap-[20px] ">
         <div className="flex w-full flex-col h-[800px] gap-[20px] ">
           <div className="flex flex-col px-[150px] items-center ">
