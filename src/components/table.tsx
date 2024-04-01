@@ -145,7 +145,7 @@ export function TableComponent({ Delete }: tableProps) {
                         <tbody>
                         {sortedData.map(row => (
                                 <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[35px] text-[12px] font-semibold border-b-[0.5px] w-full">
-                                    <td className="text-end" style={{ width: '8%' }}>{row.fuente}</td>
+                                <td className="" style={{ width: '8%' }}>{row.fuente}</td>
                                     <td className="text-center" style={{ width: '21%' }}>{row.numeroDocumento}</td>
                                     <td className="text-start" style={{ width: '12%' }}>{row.fecha}</td>
                                     <td className="text-start" style={{ width: '25%' }}>{row.nombreFuente}</td>

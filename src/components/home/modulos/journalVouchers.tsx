@@ -8,11 +8,12 @@ import './style.css'
 type modalProps = {
     showModal: () => void
 }
-export function ProcessedMovement({ showModal }: modalProps) {
+export function JournalVouchers({ showModal }: modalProps) {
     const selectId = useId("select");
     const selectId2 = useId("select");
     const [checked, setChecked] = useState<CheckboxProps["checked"]>(false);
     const [checked2, setChecked2] = useState<CheckboxProps["checked"]>(false);
+    const [FontWeight, setFontWeight] = useState<'normal' | '500'>('normal');
     const [radioFontWeight, setRadioFontWeight] = useState<'normal' | '500'>('normal'); // Estado para controlar el fontWeight del radio seleccionado
     function handleCloset() {
         showModal();
@@ -27,11 +28,10 @@ export function ProcessedMovement({ showModal }: modalProps) {
         };
     }, []);
     return (
-
         <section className="fixed z-[50] top-0 h-screen flex items-center w-full left-0 justify-center  before:content-[''] before:bg-black before:absolute before:w-full before:h-screen before:top-0 before:left-0 before:opacity-20 before:z-0">
             <Card className="w-[50%] flex flex-col items-start">
                 <div className="flex justify-between h-5 " style={{ color: 'var(--colorNeutralForegroundInverted)' }}>
-                    <h3 className="px-[15px] py-[5px] top-0 absolute font-bold w-full left-0" style={{ backgroundColor: 'var(--colorNeutralForeground1)', }} >Movimiento procesado</h3>
+                    <h3 className="px-[15px] py-[5px] top-0 absolute font-bold w-full left-0" style={{ backgroundColor: 'var(--colorNeutralForeground1)', }} >Comprobantes de diario</h3>
                     <button className="absolute right-4 top-0 py-[5px]" onClick={handleCloset}><FontAwesomeIcon icon={faX}></FontAwesomeIcon></button>
                 </div>
                 <div className="w-full">
@@ -46,33 +46,34 @@ export function ProcessedMovement({ showModal }: modalProps) {
 
                 </div>
                 <Card className="w-full">
-                    <div className="w-full flex flex-col gap-[3px]">
-                        <h3 className="font-semibold">Definir fechas a visualizar</h3>
-                        <div className="flex gap-[15px]">
-                            <div className="w-[37%] flex justify-between text-[12px] items-center ">
-                                <label htmlFor="init_date" className="font-bold">Fecha inicial</label>
-                                <DatePicker style={{ backgroundColor: 'var(--colorNeutralForegroundInverted)' }} className="date" id="init_date" />
+                    <div>
+                        <h3 className="font-semibold">Escoga un periodo</h3>
+                        <RadioGroup layout="horizontal" className="grid grid-cols-3" defaultValue={''}>
+                            <div className="grid grid-cols-4 w-full">
+                                <Radio className="radio" value="enero" label="Enero" style={{ fontWeight: FontWeight === 'enero' ? '500' : 'normal' }} onChange={() => setFontWeight('enero')} />
+                                <Radio className="radio" value="febrero" label="Febrero" style={{ fontWeight: FontWeight === 'febrero' ? '500' : 'normal' }} onChange={() => setFontWeight('febrero')} />
+                                <Radio className="radio" value="marzo" label="Marzo" style={{ fontWeight: FontWeight === 'marzo' ? '500' : 'normal' }} onChange={() => setFontWeight('marzo')} />
+                                <Radio className="radio" value="abril" label="Abril" style={{ fontWeight: FontWeight === 'abril' ? '500' : 'normal' }} onChange={() => setFontWeight('abril')} />
+                                <Radio className="radio" value="mayo" label="Mayo" style={{ fontWeight: FontWeight === 'mayo' ? '500' : 'normal' }} onChange={() => setFontWeight('mayo')} />
+                                <Radio className="radio" value="junio" label="Junio" style={{ fontWeight: FontWeight === 'junio' ? '500' : 'normal' }} onChange={() => setFontWeight('junio')} />
+                                <Radio className="radio" value="julio" label="Julio" style={{ fontWeight: FontWeight === 'julio' ? '500' : 'normal' }} onChange={() => setFontWeight('julio')} />
+                                <Radio className="radio" value="agosto" label="Agosto" style={{ fontWeight: FontWeight === 'agosto' ? '500' : 'normal' }} onChange={() => setFontWeight('agosto')} />
+                                <Radio className="radio" value="septiembre" label="Septiembre" style={{ fontWeight: FontWeight === 'septiembre' ? '500' : 'normal' }} onChange={() => setFontWeight('septiembre')} />
+                                <Radio className="radio" value="octubre" label="Octubre" style={{ fontWeight: FontWeight === 'octubre' ? '500' : 'normal' }} onChange={() => setFontWeight('octubre')} />
+                                <Radio className="radio" value="noviembre" label="Noviembre" style={{ fontWeight: FontWeight === 'noviembre' ? '500' : 'normal' }} onChange={() => setFontWeight('noviembre')} />
+                                <Radio className="radio" value="diciembre" label="Diciembre" style={{ fontWeight: FontWeight === 'diciembre' ? '500' : 'normal' }} onChange={() => setFontWeight('diciembre')} />
                             </div>
-                            <div className="w-[37%] flex justify-between text-[12px] items-center ">
-                                <label htmlFor="finish_date" className="font-bold">Fecha final</label>
-                                <DatePicker style={{ backgroundColor: 'var(--colorNeutralForegroundInverted)' }} className="date" id="finish_date" />
-                            </div>
-                        </div>
+                        </RadioGroup>
                     </div>
                     <div className="flex flex-col items-start gap-[5px] w-full">
                         <label className="font-semibold" htmlFor={selectId2}>Fuente a filtrar</label>
-                        <div className="flex w-full justify-between">
+                        <div className="flex w-full gap-[10px]">
                             <Select className="w-[48%]" id={selectId2}>
                                 <option>Natural</option>
                                 <option>Juridico</option>
                             </Select>
-                            <Checkbox
-                                checked={checked}
-                                onChange={(ev, data) => setChecked(data.checked)}
-                                label="Asientos de cierre"
-                                className="label font-bold"
-                            />
-                            <div className="flex items-center justify-between w-[27%]">
+
+                            <div className="flex items-center ">
                                 <Label htmlFor="copias" className="font-bold check" style={{ paddingInlineEnd: "5px" }}>
                                     Numero de copias
                                 </Label>
@@ -80,12 +81,7 @@ export function ProcessedMovement({ showModal }: modalProps) {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <RadioGroup layout="horizontal" className="flex w-[20%] items-center justify-between" defaultValue={''}>
-                            <Radio value="unico_anual" label="Local" style={{ fontWeight: radioFontWeight === 'unico_anual' ? '500' : 'normal' }} onChange={() => setRadioFontWeight('unico_anual')} />
-                            <Radio value="mensual" label="NIIF" style={{ fontWeight: radioFontWeight === 'mensual' ? '500' : 'normal' }} onChange={() => setRadioFontWeight('mensual')} />
-                        </RadioGroup>
-                    </div>
+
                 </Card>
                 <div className="flex  w-full justify-between gap-[10px] mt-[10px]">
                     <div className="flex gap-[10px]">

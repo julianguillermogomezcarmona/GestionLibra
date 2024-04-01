@@ -21,7 +21,7 @@ export function TableNewTransation() {
                     <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first">
                         <tbody >
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -29,7 +29,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -37,7 +37,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -45,7 +45,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -53,7 +53,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -61,7 +61,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -69,7 +69,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -77,7 +77,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -85,7 +85,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -93,7 +93,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -101,7 +101,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>
@@ -109,7 +109,7 @@ export function TableNewTransation() {
                                 <td className="text-end" style={{ width: '15%' }}>$562.455</td>
                             </tr>
                             <tr style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[30px] text-[11px] font-semibold border-b-[0.5px] w-full">
-                                <td className="text-end" style={{ width: '3%' }}>01</td>
+                                <td className="" style={{ width: '3%' }}>01</td>
                                 <td className="text-center" style={{ width: '15%' }}>105475844 </td>
                                 <td className="text-start" style={{ width: '23%' }}>Conceptoasda asdad </td>
                                 <td className="text-end" style={{ width: '16%' }}>$472.256</td>

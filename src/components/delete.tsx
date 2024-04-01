@@ -25,7 +25,7 @@ export function Delete({ showModal }: modalProps) {
                     {/* <!--modal header--> */}
                     <div className="w-full flex justify-center">
                         {/* <!-- <fa className="text-red-500 text-[90px] text-center w-full animate-pulse-slow" icon="triangle-exclamation"></fa> --> */}
-                        <img className="h-[130px]" src="./warning.gif" alt="warning" />
+                        <img className="h-[130px]" src="/public/warning.gif" alt="warning" />
                     </div>
 
                     {/* <!--modal body--> */}
@@ -33,7 +33,7 @@ export function Delete({ showModal }: modalProps) {
                         <h4 className="text-[25px] font-bold text-center">¿Estás seguro?</h4>
                         <p className="z-10 text-gray-600 text-center px-[20px]">
                             ¿Estás seguro de que deseas eliminarlo? Esta acción es
-                            irreversible y se perderán todos los datos asociados".
+                            irreversible y se perderán todos los datos asociados.
                         </p>
                     </div>
 

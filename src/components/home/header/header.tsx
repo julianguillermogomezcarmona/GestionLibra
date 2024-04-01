@@ -47,12 +47,14 @@ const useStyles = makeStyles({
   },
 });
 type modalProp = {
+  showProcessed?: () => void;
   showModal?: () => void;
-  scrollTransaction?: () => void;
-  scrollTercero?: () => void;
-  scrollExtraction?: () => void;
+  showDiaryBook?: () => void;
+  showDiaryBox?: () => void;
+  showJournalVouchers?: () => void;
+  showLedger?: () => void;
 };
-export default function Header({ showModal, scrollTransaction, scrollTercero, scrollExtraction }: modalProp) {
+export default function Header({ showLedger, showProcessed, showDiaryBox, showModal, showDiaryBook, showJournalVouchers }: modalProp) {
   const styles = useStyles();
   const [darkMode, setDarkMode] = useState(false); // Estado del modo oscuro
 
@@ -66,17 +68,19 @@ export default function Header({ showModal, scrollTransaction, scrollTercero, sc
   //   showModal();
   // }
   const nav = [
-    { text: 'Transacciones', route: 'transation', function: scrollTransaction },
+    { text: 'Transacciones', route: 'transation', },
     { text: 'Fuentes', route: 'fountain' },
-    { text: 'Reclasificar terceros', route: 'third_party_reclassification', function: scrollTercero },
-    { text: 'Extracción de movimientos', route: 'extraction', function: scrollExtraction },
+    { text: 'Reclasificar terceros', route: 'third_party_reclassification', },
+    { text: 'Extracción de movimientos', route: 'extraction', },
   ]
   const nav2 = [
     {
       id: '1', text: 'Movimiento externo', option: [{ name: 'Generar movimiento contable', route: 'ruta' }, { name: 'Leer movimiento externo', route: 'ruta' }]
     },
     { id: '2', text: 'Contabilidad NIIF', option: [{ name: 'Transacciones NIIIF', route: 'ruta' }, { name: 'Transacciones ESFA', route: 'ruta' }] },
-    { id: '3', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'processed_movement' }, { name: 'Anexos', route: 'ruta' }, { name: 'Auxiliares', route: 'ruta' }, { name: 'Libro diario legal', route: 'ruta' }, { name: 'Libro mayor legal', route: 'ruta' }, { name: 'Comprobantes de diario', route: 'ruta' }, { name: 'Caja diario', route: 'ruta' }, { name: 'Libro de inventario y balance', route: 'ruta' }, { name: 'Estados financiero', route: 'ruta' }, { name: 'Foliadores de libro', route: 'ruta' }, { name: 'Impresión certificador', route: 'ruta' },] }
+  ]
+  const nav3 = [
+    { id: '1', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'processed_movement', funtion: showProcessed }, { name: 'Anexos', route: 'ruta', funtion: showProcessed }, { name: 'Auxiliares', route: 'ruta', funtion: showProcessed }, { name: 'Libro diario legal', route: 'ruta', funtion: showDiaryBook }, { name: 'Libro mayor legal', route: 'ruta', funtion: showLedger }, { name: 'Comprobantes de diario', route: 'ruta', funtion: showJournalVouchers }, { name: 'Caja diario', route: 'ruta', funtion: showDiaryBox }, { name: 'Libro de inventario y balance', route: 'ruta', funtion: showProcessed }, { name: 'Estados financiero', route: 'ruta', funtion: showProcessed }, { name: 'Foliadores de libro', route: 'ruta', funtion: showProcessed }, { name: 'Impresión certificador', route: 'ruta', funtion: showProcessed },] }
   ]
   return (
     <Card className="header top-0 w-full">
@@ -96,7 +100,7 @@ export default function Header({ showModal, scrollTransaction, scrollTercero, sc
 
               <TabList defaultSelectedValue="">
                 {nav.map((item, index) => (
-                  <Link to={item.route} key={index} onClick={item.function} className=" flex  text-[11px]">
+                  <Link to={item.route} key={index} className=" flex  text-[11px]">
                     <Tab className="font-simbold tab" value={item.text}>
 
                       {/* <FontAwesomeIcon icon={faMoneyBill} className="text-1"></FontAwesomeIcon> */}
@@ -134,6 +138,31 @@ export default function Header({ showModal, scrollTransaction, scrollTercero, sc
                     </MenuList>
                   </MenuPopover>
                 </Menu>
+
+              ))}
+              {/* nav3 */}
+              {nav3.map((item, index) => (
+                <Menu key={index}>
+                  <MenuTrigger>
+                    <MenuButton key={item.id} appearance="subtle" style={{ fontSize: '12px', fontWeight: '600' }} className="flex gap-1  text-start">
+                      <p className="font-semibold">
+                        {item.text}
+                      </p>
+                    </MenuButton>
+                  </MenuTrigger>
+                  <MenuPopover>
+                    <MenuList>
+                      {item.option.map((option, i) => (
+                        <Button onClick={option.funtion} size="small" appearance="subtle" key={i}>
+                          <span className="w-full text-start truncate font-semibold  ">
+                            {option.name}
+                          </span>
+                        </Button>
+                      ))}
+                    </MenuList>
+                  </MenuPopover>
+                </Menu>
+
               ))}
             </div>
           </nav>

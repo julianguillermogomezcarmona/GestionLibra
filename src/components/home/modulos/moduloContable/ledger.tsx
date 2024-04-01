@@ -8,7 +8,7 @@ import './style.css'
 type modalProps = {
     showModal: () => void
 }
-export function ProcessedMovement({ showModal }: modalProps) {
+export function Ledger({ showModal }: modalProps) {
     const selectId = useId("select");
     const selectId2 = useId("select");
     const [checked, setChecked] = useState<CheckboxProps["checked"]>(false);
@@ -31,7 +31,7 @@ export function ProcessedMovement({ showModal }: modalProps) {
         <section className="fixed z-[50] top-0 h-screen flex items-center w-full left-0 justify-center  before:content-[''] before:bg-black before:absolute before:w-full before:h-screen before:top-0 before:left-0 before:opacity-20 before:z-0">
             <Card className="w-[50%] flex flex-col items-start">
                 <div className="flex justify-between h-5 " style={{ color: 'var(--colorNeutralForegroundInverted)' }}>
-                    <h3 className="px-[15px] py-[5px] top-0 absolute font-bold w-full left-0" style={{ backgroundColor: 'var(--colorNeutralForeground1)', }} >Movimiento procesado</h3>
+                    <h3 className="px-[15px] py-[5px] top-0 absolute font-bold w-full left-0" style={{ backgroundColor: 'var(--colorNeutralForeground1)', }} >Libro mayor legal</h3>
                     <button className="absolute right-4 top-0 py-[5px]" onClick={handleCloset}><FontAwesomeIcon icon={faX}></FontAwesomeIcon></button>
                 </div>
                 <div className="w-full">
@@ -46,52 +46,31 @@ export function ProcessedMovement({ showModal }: modalProps) {
 
                 </div>
                 <Card className="w-full">
-                    <div className="w-full flex flex-col gap-[3px]">
-                        <h3 className="font-semibold">Definir fechas a visualizar</h3>
-                        <div className="flex gap-[15px]">
-                            <div className="w-[37%] flex justify-between text-[12px] items-center ">
-                                <label htmlFor="init_date" className="font-bold">Fecha inicial</label>
-                                <DatePicker style={{ backgroundColor: 'var(--colorNeutralForegroundInverted)' }} className="date" id="init_date" />
-                            </div>
-                            <div className="w-[37%] flex justify-between text-[12px] items-center ">
-                                <label htmlFor="finish_date" className="font-bold">Fecha final</label>
-                                <DatePicker style={{ backgroundColor: 'var(--colorNeutralForegroundInverted)' }} className="date" id="finish_date" />
-                            </div>
+
+                    <div className="flex justify-between gap-[5px] w-full">
+                        <div className="w-[37%] flex justify-between text-[12px] items-center ">
+                            <label htmlFor="date" className="font-bold">Fecha de corte</label>
+                            <DatePicker style={{ backgroundColor: 'var(--colorNeutralForegroundInverted)' }} className="date" id="date" />
+                        </div>
+                        <div className="flex items-center">
+                            <Label htmlFor="level" className="font-bold check" style={{ paddingInlineEnd: "5px" }}>
+                                Hasta el nivel
+                            </Label>
+                            <Input className="max-w-[40px] num" type="number" id="level" />
+                        </div>
+                        <div className="flex items-center ">
+                            <Label htmlFor="copias" className="font-bold check" style={{ paddingInlineEnd: "5px" }}>
+                                Numero de copias
+                            </Label>
+                            <Input className="max-w-[40px] num" type="number" id="copias" />
                         </div>
                     </div>
-                    <div className="flex flex-col items-start gap-[5px] w-full">
-                        <label className="font-semibold" htmlFor={selectId2}>Fuente a filtrar</label>
-                        <div className="flex w-full justify-between">
-                            <Select className="w-[48%]" id={selectId2}>
-                                <option>Natural</option>
-                                <option>Juridico</option>
-                            </Select>
-                            <Checkbox
-                                checked={checked}
-                                onChange={(ev, data) => setChecked(data.checked)}
-                                label="Asientos de cierre"
-                                className="label font-bold"
-                            />
-                            <div className="flex items-center justify-between w-[27%]">
-                                <Label htmlFor="copias" className="font-bold check" style={{ paddingInlineEnd: "5px" }}>
-                                    Numero de copias
-                                </Label>
-                                <Input className="max-w-[40px] num" type="number" id="copias" />
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <RadioGroup layout="horizontal" className="flex w-[20%] items-center justify-between" defaultValue={''}>
-                            <Radio value="unico_anual" label="Local" style={{ fontWeight: radioFontWeight === 'unico_anual' ? '500' : 'normal' }} onChange={() => setRadioFontWeight('unico_anual')} />
-                            <Radio value="mensual" label="NIIF" style={{ fontWeight: radioFontWeight === 'mensual' ? '500' : 'normal' }} onChange={() => setRadioFontWeight('mensual')} />
-                        </RadioGroup>
-                    </div>
+
                 </Card>
                 <div className="flex  w-full justify-between gap-[10px] mt-[10px]">
                     <div className="flex gap-[10px]">
                         <button className="flex gap-[5px] font-semibold items-center px-[15px] text-white butom rounded-[2px] py-[5px] text-[12px]">Visualizar en pantalla</button>
                         <button className="flex butom2 gap-[5px] font-semibold items-center px-[7px] text-white rounded-[2px] py-[2px] text-[12px]">Enviar a impresora <FontAwesomeIcon icon={faPrint} /> </button>
-                        <button className="flex gap-[5px] font-semibold items-center px-[15px] text-white butom3 rounded-[2px] py-[5px] text-[12px]">Enviar a excel <FontAwesomeIcon icon={faPaperPlane} /> </button>
                     </div>
                     <button onClick={handleCloset} style={{ backgroundColor: 'var(--colorPaletteRedForeground1)' }} className="flex gap-[5px] font-semibold items-center px-[7px] text-white rounded-[2px] py-[2px] text-[12px]">Cancelar</button>
                 </div>

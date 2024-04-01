@@ -127,21 +127,21 @@ export function TableFountain() {
                 <table className="w-full divide-y-[1px] divide-first text-center text-first">
                     <thead className="px-[10px]" style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
                         <tr style={{ color: 'var(--colorNeutralForeground1)' }} className="z-40 top-0 text-[14px] ">
-                            <th className="py-[7px] font-semibold text-center cursor-pointer" style={{ width: '4%' }} onClick={() => handleSort('codigo')}>Codigo</th>
+                            <th className="py-[7px] font-semibold text-center cursor-pointer" style={{ width: '8%' }} onClick={() => handleSort('codigo')}>Codigo</th>
                             <th className="font-semibold text-center" style={{ width: '25%' }}>Nombre de la fuente</th>
                             <th className="font-semibold text-center" style={{ width: '15%' }}>Acciones</th>
                         </tr>
                     </thead>
                 </table>
-                <div style={{ maxHeight: '270px', overflowY: 'auto' }}>
+                <div style={{ maxHeight: '320px', overflowY: 'auto' }}>
                     <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first">
                         <tbody>
                             {sortedData.map(row => (
                                 <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[35px] text-[12px] font-semibold border-b-[0.5px]">
-                                    <td className="text-center" style={{ width: '7%', maxWidth: '67px' }}>{row.codigo}</td>
-                                    <td className="text-start" style={{ width: '25%' }}>{row.nombreFuente}</td>
-                                    <td className="text-end" style={{ width: '8%' }}>
-                                        <div className="  flex justify-evenly w-full">
+                                    <td className="text-center" style={{ width: '8%' }}>{row.codigo}</td>
+                                    <td className="text-start" style={{ width: '24%' }}>{row.nombreFuente}</td>
+                                    <td className="text-end" style={{ width: '15%' }}>
+                                        <div className="flex justify-around w-[100%]">
                                             <Button className="table1" icon={<Eye12Filled />}></Button>
                                             <Button className="table2" icon={<Delete12Filled />}></Button>
                                             <Button className="table3" icon={<Edit12Filled />}></Button>

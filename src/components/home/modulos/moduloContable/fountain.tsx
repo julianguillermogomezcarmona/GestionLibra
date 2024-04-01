@@ -7,10 +7,10 @@ import './style.css'
 import { NewFountain } from "./newFountain";
 import { useState } from "react";
 import { TableFountain } from "./tableFountain";
-type fountainProps = {
-    newFountain: () => void
-}
-export function Fountain({ newFountain }: fountainProps) {
+
+
+
+export function Fountain() {
     const [showModal3, setShowModal3] = useState(false);
     const toggleComponente3 = () => {
       setShowModal3(!showModal3);
@@ -23,8 +23,8 @@ export function Fountain({ newFountain }: fountainProps) {
       document.body.style.overflow = 'auto';
     };
     return (
-        <section className="w-[40%] mt-[80px]">
-            <Card className="w-full flex flex-col items-start">
+        <section className="w-full flex justify-center mt-[80px]">
+            <Card className="w-[60%] flex flex-col items-start">
                 <h3 className="font-semibold absolute top-0 py-[5px] px-[15px] left-0 w-full" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Fuentes</h3>
                 <div className="flex gap-[5px] mt-[30px] px-[5px]">
                     <Field className="" >

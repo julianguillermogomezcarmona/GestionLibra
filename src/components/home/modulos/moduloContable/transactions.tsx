@@ -6,12 +6,12 @@ import { faPlus, faPrint } from "@fortawesome/free-solid-svg-icons";
 import { NewTransations } from "./newTransactions";
 import './style.css'
 import { useState } from "react";
+import { Delete } from "../../../delete";
 type transactionProps = {
     newTransactions?: () => void;
-    Delete?: () => void;
 }
 
-export function Transactions({ Delete, newTransactions }: transactionProps) {
+export function Transactions({ newTransactions }: transactionProps) {
     const [showModal, setShowModal] = useState(false);
     const toggleComponente = () => {
         setShowModal(!showModal);
@@ -20,6 +20,17 @@ export function Transactions({ Delete, newTransactions }: transactionProps) {
     const handleCloseModal = () => {
         // console.log(showModal);
         setShowModal(!showModal);
+        // console.log(showModal);
+        document.body.style.overflow = 'auto';
+    };
+    const [showDelete, setShowDelete] = useState(false);
+    const toggleComponenteDelete = () => {
+        setShowDelete(!showDelete);
+        document.body.style.overflow = 'hidden';
+    };
+    const handleCloseDelete = () => {
+        // console.log(showModal);
+        setShowDelete(!showDelete);
         // console.log(showModal);
         document.body.style.overflow = 'auto';
     };
@@ -35,14 +46,16 @@ export function Transactions({ Delete, newTransactions }: transactionProps) {
                     {/* <button className="flex gap-[5px] items-center px-[7px] text-white bg-1 rounded-[2px] py-[2px] text-[12px]">Nueva transferencia<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button> */}
                 </div>
                 <div className="px-[14px] h-[100%] overflow-hidden w-[100%] ">
-                    <TableComponent></TableComponent>
+                    <TableComponent Delete={toggleComponenteDelete}></TableComponent>
                 </div>
                 <div className="w-full flex justify-end gap-[5px]">
+
                     <button onClick={toggleComponente} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom rounded-[2px] py-[5px] text-[12px]">Nueva transacción<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
                     <button className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Informes<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
                 </div>
             </Card>
             {showModal ? <NewTransations showModal={handleCloseModal}></NewTransations> : ""}
+            {showDelete ? <Delete showModal={handleCloseDelete}></Delete> : ""}
         </section>
     )
 }

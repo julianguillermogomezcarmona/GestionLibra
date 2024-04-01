@@ -67,10 +67,10 @@ background-color: var(--colorPaletteSteelForeground2);
     background-color: var(--colorPaletteLightGreenForeground1);
 }
 .butom3{
-    background-color: var(--colorStatusDangerBackground3Hover);
+    background-color: var(--colorBrandForeground2Hover);
 }
 .butom3:hover{
-    background-color: var(--colorStatusDangerBackground3Pressed);
+    background-color: var(--colorBrandForeground2);
 }
 .date{
     background-color: var(--colorNeutralForegroundInverted);
@@ -88,7 +88,9 @@ background-color: var(--colorPaletteSteelForeground2);
 .anticon{
     color: var(--colorNeutralForeground1);
 }
-
+.radio .fkhj508 {
+    font-size: 13px;
+}
 :where(.css-dev-only-do-not-override-djtmh8).ant-picker .ant-picker-input >input::placeholder {
     color: var(--colorNeutralForeground1);
 }
@@ -117,9 +119,7 @@ input[type='number'] {
     -webkit-appearance: none; /* WebKit (Safari, Chrome) */
     appearance: none;
   }
-/* :where(.css-dev-only-do-not-override-djtmh8).ant-picker-outlined {
-    background-color: var(--colorNeutralForegroundInverted);
-} */
+
 .radio.f13qh94s {
     display: block;
 }

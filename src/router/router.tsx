@@ -83,15 +83,7 @@ const router = createBrowserRouter([
           </div>
         ),
       },
-      {
-        path: "processed_movement",
-        Component: ProcessedMovement,
-        errorElement: (
-          <div>
-            <h2>Esta ruta no existe</h2>
-          </div>
-        ),
-      },
+
     ],
     // children: [
     //   {

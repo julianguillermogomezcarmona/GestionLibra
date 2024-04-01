@@ -25,6 +25,11 @@ import './style.css'
 import { NewFountain } from "./moduloContable/newFountain";
 import { NewTerceros } from "./moduloContable/terceros/newTercero";
 import { Delete } from "../../delete";
+import { ProcessedMovement } from "./moduloContable/processedMovement";
+import { DiaryBook } from "./moduloContable/diaryBook";
+import { DiaryBox } from "./moduloContable/diaryBox";
+import { JournalVouchers } from "./journalVouchers";
+import { Ledger } from "./moduloContable/ledger";
 export default function home() {
   // const { setTheme, theme } = useThemeContext();
   const [isReduced, setIsReduced] = useState(false);
@@ -41,58 +46,80 @@ export default function home() {
     // setTheme((prevTheme)=> (prevTheme === "dark" ? "light" : "dark"));
   }
 
-  // newFountain
-
-
-
-  const [showModalDelete, setShowModalDelete] = useState(false);
-  const toggleComponenteDelete = () => {
-    setShowModalDelete(!showModalDelete);
+  // Movimiento procesado
+  const [showProcessedMovement, setShowProcessedMovement] = useState(false);
+  const toggleComponenteProcessed = () => {
+    setShowProcessedMovement(!showProcessedMovement);
     document.body.style.overflow = 'hidden';
-    console.log(showModalDelete);
-    
   };
-  const handleCloseDelete = () => {
+  const handleCloseProcessed = () => {
     // console.log(showModal);
-    setShowModalDelete(!showModalDelete);
+    setShowProcessedMovement(!showProcessedMovement);
     // console.log(showModal);
     document.body.style.overflow = 'auto';
   };
-  // Función para hacer scroll automático al componente Transactions
-  const scrollToTransactions = () => {
-    const transactionsComponent = document.getElementById('transactions');
-    if (transactionsComponent) {
-      transactionsComponent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  //Libro diario
+  const [showDiaryBook, setShowDiaryBook] = useState(false);
+  const toggleComponenteDiary = () => {
+    setShowDiaryBook(!showDiaryBook);
+    document.body.style.overflow = 'hidden';
   };
-  const scrollToReclasificationThird = () => {
-    const reclasificationThirdComponent = document.getElementById('terceros');
-    const headerHeight = document.getElementById('header').offsetHeight; // Obtener la altura del encabezado
-    if (reclasificationThirdComponent && headerHeight) {
-      const offset = -10; // Puedes ajustar este valor según tus necesidades
-      const topPosition = reclasificationThirdComponent.getBoundingClientRect().top + window.pageYOffset - offset - headerHeight;
-      window.scrollTo({ top: topPosition, behavior: 'smooth' });
-    }
+  const handleCloseDiary = () => {
+    // console.log(showModal);
+    setShowDiaryBook(!showDiaryBook);
+    // console.log(showModal);
+    document.body.style.overflow = 'auto';
   };
-  const scrollToExtraction = () => {
-    const scrollToExtraction = document.getElementById('extraction');
-    const headerHeight = document.getElementById('header').offsetHeight; // Obtener la altura del encabezado
-    if (scrollToExtraction && headerHeight) {
-      const offset = -10; // Puedes ajustar este valor según tus necesidades
-      const topPosition = scrollToExtraction.getBoundingClientRect().top + window.pageYOffset - offset - headerHeight;
-      window.scrollTo({ top: topPosition, behavior: 'smooth' });
-    }
+  //Diario caja
+  const [showDiaryBox, setShowDiaryBox] = useState(false);
+  const toggleComponenteDiaryBox = () => {
+    setShowDiaryBox(!showDiaryBox);
+    document.body.style.overflow = 'hidden';
   };
-
+  const handleCloseDiaryBox = () => {
+    // console.log(showModal);
+    setShowDiaryBox(!showDiaryBox);
+    // console.log(showModal);
+    document.body.style.overflow = 'auto';
+  };
+  //Comprobantes de diario
+  const [showJournalVouchers, setShowJournalVouchers] = useState(false);
+  const toggleComponenteJournalVouchers = () => {
+    setShowJournalVouchers(!showJournalVouchers);
+    document.body.style.overflow = 'hidden';
+  };
+  const handleCloseJournalVouchers = () => {
+    // console.log(showModal);
+    setShowJournalVouchers(!showJournalVouchers);
+    // console.log(showModal);
+    document.body.style.overflow = 'auto';
+  };
+  //Diario mayor
+  const [showLedger, setShowLedger] = useState(false);
+  const toggleComponenteLedger = () => {
+    setShowLedger(!showLedger);
+    document.body.style.overflow = 'hidden';
+  };
+  const handleCloseLedger = () => {
+    // console.log(showModal);
+    setShowLedger(!showLedger);
+    // console.log(showModal);
+    document.body.style.overflow = 'auto';
+  };
   return (
     <FluentProvider theme={currentTheme} className="">
       <section className="relative flex flex-col overflow-x-hidden overflow-y-scroll">
         <div id="header" className="fixed z-50 w-full">
-          <Header scrollTransaction={scrollToTransactions} scrollTercero={scrollToReclasificationThird} scrollExtraction={scrollToExtraction} showModal={cambiarTema}></Header>
+          <Header showLedger={toggleComponenteLedger} showJournalVouchers={toggleComponenteJournalVouchers} showDiaryBox={toggleComponenteDiaryBox} showDiaryBook={toggleComponenteDiary} showProcessed={toggleComponenteProcessed} showModal={cambiarTema} ></Header>
         </div>
         <main className="flex flex-wrap w-full px-[40px] flex-col h-screen">
           <Outlet></Outlet>
         </main>
+        {showLedger ? <Ledger showModal={handleCloseLedger}></Ledger> : ""}
+        {showJournalVouchers ? <JournalVouchers showModal={handleCloseJournalVouchers}></JournalVouchers> : ""}
+        {showDiaryBox ? <DiaryBox showModal={handleCloseDiaryBox}></DiaryBox> : ""}
+        {showProcessedMovement ? <ProcessedMovement showModal={handleCloseProcessed}></ProcessedMovement> : ""}
+        {showDiaryBook ? <DiaryBook showModal={handleCloseDiary}></DiaryBook> : ""}
       </section>
     </FluentProvider>
   );

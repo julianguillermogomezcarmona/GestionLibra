@@ -121,7 +121,7 @@ export function TableTerceros() {
                         <tbody>
                             {data.map(row => (
                                 <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[35px] text-[12px] font-semibold border-b-[0.5px] w-full">
-                                    <td className="text-end" style={{ width: '10%' }}>{row.codigo}</td>
+                                    <td className="" style={{ width: '10%' }}>{row.codigo}</td>
                                     <td className="text-center" style={{ width: '15%' }}>{row.documento}</td>
                                     <td className="text-start" style={{ width: '24%' }}>{row.name}</td>
                                     <td className="text-end" style={{ width: '12%' }}>
