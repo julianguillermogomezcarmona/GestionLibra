@@ -4,12 +4,25 @@ import { SearchBox } from "@fluentui/react-search-preview";
 import { faPlus, faPrint } from "@fortawesome/free-solid-svg-icons";
 import { TableTerceros } from "./tableTerceros";
 import './style.css'
+import { useState } from "react";
+import { Delete } from "../../../delete";
 
 type tercerProps = {
-    newTercero: () => void
+    newTercero: () => void;
+    visualization: () => void;
 }
-export function Terceros({ newTercero }: tercerProps) {
-
+export function Terceros({ visualization, newTercero }: tercerProps) {
+    const [showDelete, setShowDelete] = useState(false);
+    const toggleComponenteDelete = () => {
+        setShowDelete(!showDelete);
+        document.body.style.overflow = 'hidden';
+    };
+    const handleCloseDelete = () => {
+        // console.log(showModal);
+        setShowDelete(!showDelete);
+        // console.log(showModal);
+        document.body.style.overflow = 'auto';
+    };
     return (
         <section className="w-[40%]">
             <Card className="w-full flex flex-col items-start">
@@ -20,15 +33,16 @@ export function Terceros({ newTercero }: tercerProps) {
                     </Field>
                 </div>
                 <div className="px-[20px] w-[100%]">
-                    <TableTerceros></TableTerceros>
+                    <TableTerceros Delete={toggleComponenteDelete}></TableTerceros>
                 </div>
                 <div className="flex justify-end w-full gap-[10px]">
                     <button onClick={newTercero} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom rounded-[2px] py-[5px] text-[12px]">Nuevo tercero<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
-                    <button className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Informes<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
+                    <button onClick={visualization} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Informes<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
 
                 </div>
-                
+
             </Card>
+            {showDelete ? <Delete showModal={handleCloseDelete}></Delete> : ""}
         </section>
     )
 }

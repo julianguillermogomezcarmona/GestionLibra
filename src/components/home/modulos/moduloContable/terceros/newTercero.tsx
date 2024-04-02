@@ -7,6 +7,8 @@ import { Search12Regular } from "@fluentui/react-icons";
 import { DatePicker, Space } from "antd";
 
 import type { SelectProps } from "@fluentui/react-components";
+import { Department } from "./department";
+import { City } from "./city";
 type modalProps = {
     showModal: () => void
 }
@@ -23,6 +25,31 @@ export function NewTerceros({ showModal }: modalProps) {
             document.body.style.overflow = 'auto';
         };
     }, []);
+
+    const [showDepartment, setShowDepartment] = useState(false);
+    const toggleComponenteDepartment = () => {
+        setShowDepartment(!showDepartment);
+        document.body.style.overflow = 'hidden';
+    };
+    const handleCloseDepartment = () => {
+        // console.log(showModal);
+        setShowDepartment(!showDepartment);
+        // console.log(showModal);
+        document.body.style.overflow = 'auto';
+    };
+
+    const [showCity, setShowCity] = useState(false);
+    const toggleComponenteCity = () => {
+        setShowCity(!showCity);
+        document.body.style.overflow = 'hidden';
+    };
+    const handleCloseCity = () => {
+        // console.log(showModal);
+        setShowCity(!showCity);
+        // console.log(showModal);
+        document.body.style.overflow = 'auto';
+    };
+
     const departament = useId("input");
     const direction = useId("direction");
     const code = useId("code");
@@ -88,7 +115,7 @@ export function NewTerceros({ showModal }: modalProps) {
                         <div className="flex">
                             <div className="flex relative mr-[5px]">
                                 <Input className="w-[70px] " id={departament} />
-                                <Button className="absolute right-0 h-8" appearance="transparent" icon={<Search12Regular />}></Button>
+                                <Button onClick={toggleComponenteDepartment} className="absolute right-0 h-8" appearance="transparent" icon={<Search12Regular />}></Button>
                             </div>
                             <Input disabled className="w-[270px] px-[2px]"></Input>
                         </div>
@@ -100,7 +127,7 @@ export function NewTerceros({ showModal }: modalProps) {
                         <div className="flex">
                             <div className="flex relative mr-[5px]">
                                 <Input className="w-[70px] " id={city} />
-                                <Button className="absolute right-0 h-8" appearance="transparent" icon={<Search12Regular />}></Button>
+                                <Button onClick={toggleComponenteCity} className="absolute right-0 h-8" appearance="transparent" icon={<Search12Regular />}></Button>
                             </div>
                             <Input disabled className="w-[270px] px-[2px]"></Input>
                         </div>
@@ -111,6 +138,8 @@ export function NewTerceros({ showModal }: modalProps) {
                     <button onClick={handleCloset3} style={{ backgroundColor: 'var(--colorPaletteRedForeground1)' }} className="flex gap-[5px] font-semibold items-center px-[7px] text-white rounded-[2px] py-[2px] text-[12px]">Cancelar</button>
                 </div>
             </Card>
+            {showCity ? <City showModal={handleCloseCity}></City>: ""}
+            {showDepartment ? <Department showModal={handleCloseDepartment}></Department> : ""}
         </section>
     )
 }

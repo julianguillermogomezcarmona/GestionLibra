@@ -4,7 +4,7 @@ import {
     Delete12Filled,
     Edit12Filled,
 } from "@fluentui/react-icons";
-import './style.css'
+import '../style.css'
 import {
     TableRowData as RowStateBase,
     Button,
@@ -16,70 +16,45 @@ import { useState } from 'react';
 type tableProps = {
     Delete?: () => void;
 }
-export function TableTerceros({ Delete }: tableProps) {
+export function TableDepartment({ Delete }: tableProps) {
     // Array con más información para las filas
-   
+
     const [data, setData] = useState([
         {
             id: 1,
-            codigo: '01sd485',
-            documento: '105475844',
-            name: 'Luis Perez Sanches',
+            codigo: '01',
+            name: 'Bolivar',
         },
         {
             id: 2,
-            codigo: '01sd485',
-            documento: '202134567',
-            name: 'Alfredo Lopez Arco',
+            codigo: '02',
+            name: 'Antioquia',
         },
         {
             id: 3,
-            codigo: '01sd485',
-            documento: '305678912',
-            name: 'Juan Andrade Suares',
+            codigo: '04',
+            name: 'Cundinamarca',
         },
         {
             id: 4,
-            codigo: '01sd485',
-            documento: '305678912',
-            name: 'Felipe Cebolla Argumedo',
+            codigo: '07',
+            name: 'Tolima',
         },
         {
             id: 5,
-            codigo: '01sd485',
-            documento: '305678912',
-            name: 'Pedro Diaz Mercado',
+            codigo: '05',
+            name: 'Nariño',
         },
         {
             id: 6,
-            codigo: '01sd485',
-            documento: '305678912',
-            name: 'Jesús Toledo Arias',
+            codigo: '15',
+            name: 'Santander',
         },
         {
             id: 7,
-            codigo: '01sd485',
-            documento: '305678912',
-            name: 'Tomás Valle Rangel',
+            codigo: '12',
+            name: 'Huila',
         },
-        {
-            id: 8,
-            codigo: '01sd485',
-            documento: '305678912',
-            name: 'Carlos Castellón Castillo',
-        },
-        {
-            id: 9,
-            codigo: '01sd485',
-            documento: '305678912',
-            name: 'Sebastían Lopez Llanos',
-        },
-        {
-            id: 9,
-            codigo: '01sd485',
-            documento: '305678912',
-            name: 'Sofia Agamez Ramos',
-        }
         // Puedes agregar más objetos al array con más datos de filas
     ]);
 
@@ -90,19 +65,17 @@ export function TableTerceros({ Delete }: tableProps) {
                     <thead className="" style={{ backgroundColor: 'var(--colorNeutralStencil1Alpha)' }}>
                         <tr style={{ color: 'var(--colorNeutralForeground1)' }} className="z-40 top-0 text-[14px] ">
                             <th className="py-[7px] font-semibold text-center" style={{ width: '8%' }}>Codigo</th>
-                            <th className="font-semibold text-center" style={{ width: '9%' }}>Documento</th>
-                            <th className="font-semibold text-center" style={{ width: '24%' }}>Nombre de tercero</th>
+                            <th className="font-semibold text-center" style={{ width: '24%' }}>Nombre del departamento</th>
                             <th className="font-semibold text-center" style={{ width: '20%' }}>Acciones</th>
                         </tr>
                     </thead>
                 </table>
-                <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
+                <div style={{ maxHeight: '145px', overflowY: 'auto' }}>
                     <table style={{ borderTopColor: 'var(--colorNeutralStroke2)' }} className="border-t-[1px] w-full divide-y-[1px] divide-first text-center text-first">
                         <tbody>
                             {data.map(row => (
                                 <tr key={row.id} style={{ color: 'var(--colorNeutralForeground1)', borderBottomColor: 'var(--colorNeutralStroke2)', borderTopColor: 'var(--colorNeutralStroke2)' }} className="h-[35px] text-[12px] font-semibold border-b-[0.5px] w-full">
                                     <td className="" style={{ width: '10%' }}>{row.codigo}</td>
-                                    <td className="text-center" style={{ width: '15%' }}>{row.documento}</td>
                                     <td className="text-start" style={{ width: '24%' }}>{row.name}</td>
                                     <td className="text-end" style={{ width: '12%' }}>
                                         <div className="flex justify-around w-full">

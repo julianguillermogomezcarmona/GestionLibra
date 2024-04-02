@@ -108,11 +108,11 @@ export default function home() {
   };
   return (
     <FluentProvider theme={currentTheme} className="">
-      <section className="relative flex flex-col overflow-x-hidden overflow-y-scroll">
-        <div id="header" className="fixed z-50 w-full">
+      <section className="relative h-screen flex flex-col gap-[15px] overflow-x-hidden overflow-y-scroll">
+        <div id="header" className="w-full">
           <Header showLedger={toggleComponenteLedger} showJournalVouchers={toggleComponenteJournalVouchers} showDiaryBox={toggleComponenteDiaryBox} showDiaryBook={toggleComponenteDiary} showProcessed={toggleComponenteProcessed} showModal={cambiarTema} ></Header>
         </div>
-        <main className="flex flex-wrap w-full px-[40px] flex-col h-screen">
+        <main className="w-full px-[40px]">
           <Outlet></Outlet>
         </main>
         {showLedger ? <Ledger showModal={handleCloseLedger}></Ledger> : ""}

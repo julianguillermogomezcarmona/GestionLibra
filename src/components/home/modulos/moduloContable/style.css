@@ -137,3 +137,18 @@ input[type='number'] {
 .check.fkhj508 {
     font-size: 12px;
 }
+
+@keyframes showAlert {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-10%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }

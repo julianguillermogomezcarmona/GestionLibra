@@ -43,7 +43,6 @@ const useStyles = makeStyles({
     display: "flex",
     // justifyContent: "flex-start",
     // ...shorthands.padding("50px", "20px"),
-    rowGap: "5px",
   },
 });
 type modalProp = {
@@ -57,10 +56,12 @@ type modalProp = {
 export default function Header({ showLedger, showProcessed, showDiaryBox, showModal, showDiaryBook, showJournalVouchers }: modalProp) {
   const styles = useStyles();
   const [darkMode, setDarkMode] = useState(false); // Estado del modo oscuro
-
+  const [menuVisible, setMenuVisible] = useState(false); // Estado para controlar la visibilidad del menú
   const handleDarkModeToggle = () => {
-    setDarkMode(!darkMode); // Cambiar el estado del modo oscuro
+    setDarkMode(!darkMode);
+    // Cambiar el estado del modo oscuro
   };
+
   // const { theme } = useThemeContext();
   // const { setTheme, theme } = useThemeContext();
   //
@@ -80,11 +81,11 @@ export default function Header({ showLedger, showProcessed, showDiaryBox, showMo
     { id: '2', text: 'Contabilidad NIIF', option: [{ name: 'Transacciones NIIIF', route: 'ruta' }, { name: 'Transacciones ESFA', route: 'ruta' }] },
   ]
   const nav3 = [
-    { id: '1', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'processed_movement', funtion: showProcessed }, { name: 'Anexos', route: 'ruta', funtion: showProcessed }, { name: 'Auxiliares', route: 'ruta', funtion: showProcessed }, { name: 'Libro diario legal', route: 'ruta', funtion: showDiaryBook }, { name: 'Libro mayor legal', route: 'ruta', funtion: showLedger }, { name: 'Comprobantes de diario', route: 'ruta', funtion: showJournalVouchers }, { name: 'Caja diario', route: 'ruta', funtion: showDiaryBox }, { name: 'Libro de inventario y balance', route: 'ruta', funtion: showProcessed }, { name: 'Estados financiero', route: 'ruta', funtion: showProcessed }, { name: 'Foliadores de libro', route: 'ruta', funtion: showProcessed }, { name: 'Impresión certificador', route: 'ruta', funtion: showProcessed },] }
+    { id: '1', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'processed_movement', funtion: showProcessed, }, { name: 'Anexos', route: 'ruta', funtion: showProcessed, }, { name: 'Auxiliares', route: 'ruta', funtion: showProcessed, }, { name: 'Libro diario legal', route: 'ruta', funtion: showDiaryBook, }, { name: 'Libro mayor legal', route: 'ruta', funtion: showLedger, }, { name: 'Comprobantes de diario', route: 'ruta', funtion: showJournalVouchers, }, { name: 'Caja diario', route: 'ruta', funtion: showDiaryBox, }, { name: 'Libro de inventario y balance', route: 'ruta', funtion: showProcessed, }, { name: 'Estados financiero', route: 'ruta', funtion: showProcessed, }, { name: 'Foliadores de libro', route: 'ruta', funtion: showProcessed, }, { name: 'Impresión certificador', route: 'ruta', funtion: showProcessed, },] }
   ]
   return (
     <Card className="header top-0 w-full">
-      <header className="w-full h-[8%] flex  items-center ">
+      <header className="w-full h-[6vh] flex  items-center ">
         <div className="flex items-center w-full">
           <figure className="flex h-[100%] items-center gap-[10px] px-[15px] justify-between ">
             <Link to={"/moduls"} className="relative font-semibold flex  text text-[19px]">
@@ -96,7 +97,7 @@ export default function Header({ showLedger, showProcessed, showDiaryBox, showMo
           </figure>
           {/* <NavContable></NavContable> */}
           <nav className="flex items-center">
-            <div className={`  ${styles.root}`}>
+            <div className={` gap-1 ${styles.root} `}>
 
               <TabList defaultSelectedValue="">
                 {nav.map((item, index) => (
@@ -153,11 +154,13 @@ export default function Header({ showLedger, showProcessed, showDiaryBox, showMo
                   <MenuPopover>
                     <MenuList>
                       {item.option.map((option, i) => (
-                        <Button onClick={option.funtion} size="small" appearance="subtle" key={i}>
+                        <MenuItem style={{ fontSize: '12px', height: '24px', minHeight: '0', alignItems: 'center' }}
+                          onClick={option.funtion}
+                          key={i}>
                           <span className="w-full text-start truncate font-semibold  ">
                             {option.name}
                           </span>
-                        </Button>
+                        </MenuItem>
                       ))}
                     </MenuList>
                   </MenuPopover>

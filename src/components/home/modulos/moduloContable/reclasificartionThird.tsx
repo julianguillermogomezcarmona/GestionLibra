@@ -5,7 +5,7 @@ import { Search12Regular } from "@fluentui/react-icons";
 export function ReclasificationThird() {
     const inputId = useId("input");
     return (
-        <section className="w-[60%]  flex items-center h-screen">
+        <section className="w-[60%]  flex items-center">
             <Card className=" w-[100%] py-[35px] flex flex-col items-start">
                 <h3 className="w-full    font-semibold absolute top-0 py-[5px] px-[15px] left-0" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Reclasificar terceros</h3>
                 <div className="px-[20px] w-full mt-[20px] py-[10px] flex flex-col gap-[5px]">

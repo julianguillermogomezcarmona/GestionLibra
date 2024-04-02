@@ -34,7 +34,10 @@ import {
 import { useCallback, useState } from "react";
 import { height } from "@fortawesome/free-brands-svg-icons/fa42Group";
 // import './component.css'
-export function TableFountain() {
+type tableProps = {
+    Delete?: () => void;
+}
+export function TableFountain({ Delete }: tableProps) {
     // Array con más información para las filas
     const [data, setData] = useState([
         {
@@ -143,7 +146,7 @@ export function TableFountain() {
                                     <td className="text-end" style={{ width: '15%' }}>
                                         <div className="flex justify-around w-[100%]">
                                             <Button className="table1" icon={<Eye12Filled />}></Button>
-                                            <Button className="table2" icon={<Delete12Filled />}></Button>
+                                            <Button onClick={Delete} className="table2" icon={<Delete12Filled />}></Button>
                                             <Button className="table3" icon={<Edit12Filled />}></Button>
                                         </div>
                                     </td>
