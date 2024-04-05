@@ -13,14 +13,14 @@ export default function login() {
   return (
     <section className="grid bg-white grid-cols-2 h-screen w-full">
       <div className="bg-white">
-        <div className="  flex flex-col items-center justify-center relative px-[15px] h-[100%]  rounded-[5px] overflow-hidden ">
+        <div className=" text-black  flex flex-col items-center justify-center relative px-[15px] h-[100%]  rounded-[5px] overflow-hidden ">
           <form action="" className="flex flex-col items-center">
             <img
               src="/src/assets/logo.svg"
               className="h-[40px] w-[40px]"
               alt=""
             />
-            <h2 className="font-bold text-black text-[20px]">
+            <h2 className="font-bold text-[20px]">
               Bienvenido de Gestion Libra
             </h2>
             <p className="text-gray-400 font-semibold">

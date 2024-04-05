@@ -19,7 +19,9 @@ export default function RedirectLink({
           {title}
           <span className="text-[10px]">{description}</span>
         </h2>
-        <FontAwesomeIcon className="cursor-pointer" icon={faChevronRight}></FontAwesomeIcon>
+        <button>
+          <FontAwesomeIcon className="" icon={faChevronRight}></FontAwesomeIcon>
+        </button>
       </div>
     </div>
   );

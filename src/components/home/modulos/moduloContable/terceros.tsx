@@ -38,9 +38,7 @@ export function Terceros({ visualization, newTercero }: tercerProps) {
                 <div className="flex justify-end w-full gap-[10px]">
                     <button onClick={newTercero} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom rounded-[2px] py-[5px] text-[12px]">Nuevo tercero<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
                     <button onClick={visualization} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Informes<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
-
                 </div>
-
             </Card>
             {showDelete ? <Delete showModal={handleCloseDelete}></Delete> : ""}
         </section>

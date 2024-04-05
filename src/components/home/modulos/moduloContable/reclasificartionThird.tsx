@@ -9,6 +9,7 @@ export function ReclasificationThird() {
             <Card className=" w-[100%] py-[35px] flex flex-col items-start">
                 <h3 className="w-full    font-semibold absolute top-0 py-[5px] px-[15px] left-0" style={{ backgroundColor: 'var(--colorNeutralForeground1)', color: 'var(--colorNeutralForegroundInverted)' }}>Reclasificar terceros</h3>
                 <div className="px-[20px] w-full mt-[20px] py-[10px] flex flex-col gap-[5px]">
+                    {/* Selección del codigo */}
                     <div className="flex gap-[10px] w-[90%]  items-center ">
                         <div className="w-[100%] justify-between flex items-center">
                             <Label className="font-bold" htmlFor={inputId} style={{ paddingInlineEnd: "12px" }}>
@@ -24,6 +25,7 @@ export function ReclasificationThird() {
                             </div>
                         </div>
                     </div>
+                    {/* Edición nuevo codigo */}
                     <div className="flex flex-col gap-[5px] w-[90%]  ">
                         <div className="flex items-center w-full justify-between ">
                             <Label className="font-bold" htmlFor={inputId} style={{ paddingInlineEnd: "12px" }}>
@@ -65,12 +67,13 @@ export function ReclasificationThird() {
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div className="flex flex-col w-full">
+                    {/* tabla de tercero */}
                     <div className="w-[100%] px-[20px] flex flex-col">
                         <TableTercero></TableTercero>
                     </div>
+                    {/* Acciones */}
                     <div className="flex mt-[15px] w-full justify-end gap-[10px]">
                         <button className="butom px-[10px] py-[5px] rounded-[2px]  text-white">Reclasificar Tercero</button>
                         <button className="bg-red-500 hover:bg-[#ff6060] px-[10px] py-[5px] rounded-[2px] text-white">Limpiar campos</button>

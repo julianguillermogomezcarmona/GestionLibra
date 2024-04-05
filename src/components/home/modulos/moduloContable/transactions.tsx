@@ -1,4 +1,4 @@
-import { Button, Card, Field } from "@fluentui/react-components";
+import { Card, Field } from "@fluentui/react-components";
 import { SearchBox } from "@fluentui/react-search-preview";
 import { TableComponent } from "../../../table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,11 +8,9 @@ import './style.css'
 import { useState } from "react";
 import { Delete } from "../../../delete";
 import { Visualization } from "../visualizacion";
-type transactionProps = {
-    newTransactions?: () => void;
-}
 
-export function Transactions({ newTransactions }: transactionProps) {
+export function Transactions() {
+    // mostrar ventana de la nueva transacción
     const [showModal, setShowModal] = useState(false);
     const toggleComponente = () => {
         setShowModal(!showModal);
@@ -24,6 +22,7 @@ export function Transactions({ newTransactions }: transactionProps) {
         // console.log(showModal);
         document.body.style.overflow = 'auto';
     };
+    // mostrar ventana antes de eliminar
     const [showDelete, setShowDelete] = useState(false);
     const toggleComponenteDelete = () => {
         setShowDelete(!showDelete);
@@ -35,6 +34,7 @@ export function Transactions({ newTransactions }: transactionProps) {
         // console.log(showModal);
         document.body.style.overflow = 'auto';
     };
+    // mostrar ventana de visualización
     const [showVisualitation, setShowVisualitation] = useState(false);
     const toggleComponenteVisualitation = () => {
         setShowVisualitation(!showVisualitation);
@@ -54,14 +54,11 @@ export function Transactions({ newTransactions }: transactionProps) {
                     <Field className="" >
                         <SearchBox className="w-[240px]" placeholder="Buscar" appearance="underline" />
                     </Field>
-
-                    {/* <button className="flex gap-[5px] items-center px-[7px] text-white bg-1 rounded-[2px] py-[2px] text-[12px]">Nueva transferencia<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button> */}
                 </div>
                 <div className="px-[14px] h-[100%] overflow-hidden w-[100%] ">
                     <TableComponent Delete={toggleComponenteDelete}></TableComponent>
                 </div>
                 <div className="w-full flex justify-end gap-[5px]">
-
                     <button onClick={toggleComponente} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom rounded-[2px] py-[5px] text-[12px]">Nueva transacción<FontAwesomeIcon icon={faPlus}></FontAwesomeIcon></button>
                     <button onClick={toggleComponenteVisualitation} className="flex gap-[5px] font-semibold items-center px-[7px] text-white butom2 rounded-[2px] py-[2px] text-[12px]">Visualización<FontAwesomeIcon icon={faPrint}></FontAwesomeIcon></button>
                 </div>

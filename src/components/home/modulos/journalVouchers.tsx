@@ -1,7 +1,6 @@
 import { Card, Select, Label, Input, useId, Checkbox, RadioGroup, Radio } from "@fluentui/react-components";
 import { faPaperPlane, faPrint, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Space, DatePicker } from "antd";
 import type { CheckboxProps } from "@fluentui/react-components";
 import { useEffect, useState } from "react";
 import './style.css'
@@ -13,7 +12,7 @@ export function JournalVouchers({ showModal }: modalProps) {
     const selectId2 = useId("select");
     const [checked, setChecked] = useState<CheckboxProps["checked"]>(false);
     const [checked2, setChecked2] = useState<CheckboxProps["checked"]>(false);
-    const [FontWeight, setFontWeight] = useState<'normal' | '500'>('normal');
+    const [Weight, setFontWeight] = useState<'normal' | '500'>('normal');
     const [radioFontWeight, setRadioFontWeight] = useState<'normal' | '500'>('normal'); // Estado para controlar el fontWeight del radio seleccionado
     function handleCloset() {
         showModal();
@@ -43,25 +42,24 @@ export function JournalVouchers({ showModal }: modalProps) {
                         </Select>
                         <FontAwesomeIcon icon={faPrint}></FontAwesomeIcon>
                     </div>
-
                 </div>
                 <Card className="w-full">
                     <div>
                         <h3 className="font-semibold">Escoga un periodo</h3>
                         <RadioGroup layout="horizontal" className="grid grid-cols-3" defaultValue={''}>
                             <div className="grid grid-cols-4 w-full">
-                                <Radio className="radio" value="enero" label="Enero" style={{ fontWeight: FontWeight === 'enero' ? '500' : 'normal' }} onChange={() => setFontWeight('enero')} />
-                                <Radio className="radio" value="febrero" label="Febrero" style={{ fontWeight: FontWeight === 'febrero' ? '500' : 'normal' }} onChange={() => setFontWeight('febrero')} />
-                                <Radio className="radio" value="marzo" label="Marzo" style={{ fontWeight: FontWeight === 'marzo' ? '500' : 'normal' }} onChange={() => setFontWeight('marzo')} />
-                                <Radio className="radio" value="abril" label="Abril" style={{ fontWeight: FontWeight === 'abril' ? '500' : 'normal' }} onChange={() => setFontWeight('abril')} />
-                                <Radio className="radio" value="mayo" label="Mayo" style={{ fontWeight: FontWeight === 'mayo' ? '500' : 'normal' }} onChange={() => setFontWeight('mayo')} />
-                                <Radio className="radio" value="junio" label="Junio" style={{ fontWeight: FontWeight === 'junio' ? '500' : 'normal' }} onChange={() => setFontWeight('junio')} />
-                                <Radio className="radio" value="julio" label="Julio" style={{ fontWeight: FontWeight === 'julio' ? '500' : 'normal' }} onChange={() => setFontWeight('julio')} />
-                                <Radio className="radio" value="agosto" label="Agosto" style={{ fontWeight: FontWeight === 'agosto' ? '500' : 'normal' }} onChange={() => setFontWeight('agosto')} />
-                                <Radio className="radio" value="septiembre" label="Septiembre" style={{ fontWeight: FontWeight === 'septiembre' ? '500' : 'normal' }} onChange={() => setFontWeight('septiembre')} />
-                                <Radio className="radio" value="octubre" label="Octubre" style={{ fontWeight: FontWeight === 'octubre' ? '500' : 'normal' }} onChange={() => setFontWeight('octubre')} />
-                                <Radio className="radio" value="noviembre" label="Noviembre" style={{ fontWeight: FontWeight === 'noviembre' ? '500' : 'normal' }} onChange={() => setFontWeight('noviembre')} />
-                                <Radio className="radio" value="diciembre" label="Diciembre" style={{ fontWeight: FontWeight === 'diciembre' ? '500' : 'normal' }} onChange={() => setFontWeight('diciembre')} />
+                                <Radio className="radio" value="enero" label="Enero" style={{ fontWeight: Weight === 'enero' ? '500' : 'normal' }} onChange={() => setFontWeight('enero')} />
+                                <Radio className="radio" value="febrero" label="Febrero" style={{ fontWeight: Weight === 'febrero' ? '500' : 'normal' }} onChange={() => setFontWeight('febrero')} />
+                                <Radio className="radio" value="marzo" label="Marzo" style={{ fontWeight: Weight === 'marzo' ? '500' : 'normal' }} onChange={() => setFontWeight('marzo')} />
+                                <Radio className="radio" value="abril" label="Abril" style={{ fontWeight: Weight === 'abril' ? '500' : 'normal' }} onChange={() => setFontWeight('abril')} />
+                                <Radio className="radio" value="mayo" label="Mayo" style={{ fontWeight: Weight === 'mayo' ? '500' : 'normal' }} onChange={() => setFontWeight('mayo')} />
+                                <Radio className="radio" value="junio" label="Junio" style={{ fontWeight: Weight === 'junio' ? '500' : 'normal' }} onChange={() => setFontWeight('junio')} />
+                                <Radio className="radio" value="julio" label="Julio" style={{ fontWeight: Weight === 'julio' ? '500' : 'normal' }} onChange={() => setFontWeight('julio')} />
+                                <Radio className="radio" value="agosto" label="Agosto" style={{ fontWeight: Weight === 'agosto' ? '500' : 'normal' }} onChange={() => setFontWeight('agosto')} />
+                                <Radio className="radio" value="septiembre" label="Septiembre" style={{ fontWeight: Weight === 'septiembre' ? '500' : 'normal' }} onChange={() => setFontWeight('septiembre')} />
+                                <Radio className="radio" value="octubre" label="Octubre" style={{ fontWeight: Weight === 'octubre' ? '500' : 'normal' }} onChange={() => setFontWeight('octubre')} />
+                                <Radio className="radio" value="noviembre" label="Noviembre" style={{ fontWeight: Weight === 'noviembre' ? '500' : 'normal' }} onChange={() => setFontWeight('noviembre')} />
+                                <Radio className="radio" value="diciembre" label="Diciembre" style={{ fontWeight: Weight === 'diciembre' ? '500' : 'normal' }} onChange={() => setFontWeight('diciembre')} />
                             </div>
                         </RadioGroup>
                     </div>
@@ -72,7 +70,6 @@ export function JournalVouchers({ showModal }: modalProps) {
                                 <option>Natural</option>
                                 <option>Juridico</option>
                             </Select>
-
                             <div className="flex items-center ">
                                 <Label htmlFor="copias" className="font-bold check" style={{ paddingInlineEnd: "5px" }}>
                                     Numero de copias

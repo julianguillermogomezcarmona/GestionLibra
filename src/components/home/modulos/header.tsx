@@ -1,5 +1,4 @@
 import {
-  Card,
   Menu,
   MenuButton,
   MenuItem,
@@ -7,70 +6,31 @@ import {
   MenuPopover,
   MenuTrigger,
   makeStyles,
-  Switch,
 } from "@fluentui/react-components";
 import { Link, } from "react-router-dom";
-import { unstable_HistoryRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SearchBox } from "@fluentui/react-search-preview";
 import {
   faCircleInfo,
-  faQuestion,
-  faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
-import { QuestionCircle48Regular } from "@fluentui/react-icons";
 import "./Nav";
-import { NavContable } from "./Nav";
-import { useState } from "react";
-type toggleProps = {
-  toggleSidebar?: () => void;
-};
 const useStyles = makeStyles({
   buton: {
     minWidth: "0",
   },
   switch: {
-    //  ":root":
   },
   ".&width": {
     textWrap: "nowrap",
   },
 });
-type modalProp = {
-  showModal?: () => void;
 
-};
-export default function Header({ showModal }: modalProp) {
+export default function Header() {
   const styles = useStyles();
-  const [darkMode, setDarkMode] = useState(false); // Estado del modo oscuro
-
-  const handleDarkModeToggle = () => {
-    setDarkMode(!darkMode); // Cambiar el estado del modo oscuro
-  };
-  const nav = [
-    { text: 'Transacciones', route: 'transacciones' },
-    { text: 'Extracción de movimientos', route: 'transacciones' },
-    { text: 'Movimiento externo', route: 'transacciones' },
-  ]
-  const nav2 = [
-    {
-      id: '1', text: 'Contabilidad NIIF', option: [{ name: 'Generar movimiento contable', route: 'ruta' }, { name: 'Leer movimiento externo', route: 'ruta' }]
-    },
-    { id: '2', text: 'Reclasificar terceros', option: [{ name: 'Transacciones NIIIF', route: 'ruta' }, { name: 'Transacciones ESFA', route: 'ruta' }] },
-    { id: '3', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'ruta' }, { name: 'Anexos', route: 'ruta' }, { name: 'Auxiliares', route: 'ruta' }, { name: 'Libro diario legal', route: 'ruta' }, { name: 'Libro mayor legal', route: 'ruta' }, { name: 'Comprobantes de diario', route: 'ruta' }, { name: 'Caja diario', route: 'ruta' }, { name: 'Libro de inventario y balance', route: 'ruta' }, { name: 'Estados financiero', route: 'ruta' }, { name: 'Foliadores de libro', route: 'ruta' }, { name: 'Impresión certificador', route: 'ruta' },] }
-  ]
-  // const { theme } = useThemeContext();
-  // const { setTheme, theme } = useThemeContext();
-  //
-  // function handleCloset() {
-  //   showModal();
-  // }
   return (
     <div className="header p-[12px]">
       <header className="w-full h-[8%] flex justify-between items-center ">
         <div className="flex font-bold items-center px-[10px]">
           <Link to={'/moduls'}>Modulos</Link>
-          {/* <button onClick={handleClick}>h</button> */}
         </div>
         <div className="font-bold flex items-center gap-2">
           <h2 className="">Usuario02</h2>
@@ -91,7 +51,6 @@ export default function Header({ showModal }: modalProp) {
               <MenuList>
                 <MenuItem>Contrato de Licencia</MenuItem>
                 <MenuItem>Acerca de</MenuItem>
-                {/* <MenuItem>Información del sistema</MenuItem> */}
               </MenuList>
             </MenuPopover>
           </Menu>
@@ -101,7 +60,6 @@ export default function Header({ showModal }: modalProp) {
                 className={styles.buton}
                 size="small"
                 appearance="primary"
-                // icon={<QuestionCircle48Regular />}
                 menuIcon={null}
               >
                 J
@@ -111,20 +69,10 @@ export default function Header({ showModal }: modalProp) {
               <MenuList>
                 <MenuItem className="text-[15px]">Documentación</MenuItem>
                 <MenuItem>Soporte técnico</MenuItem>
-                {/* <Switch
-                  checked={darkMode} // Estado del modo oscuro
-                  onChange={handleDarkModeToggle} // Manejador del cambio de estado del modo oscuro
-                  onClick={showModal}
-                  className="w-full switch"
-                  labelPosition="before"
-                  style={{ maxWidth: "400px" }}
-                  label="Tema oscuro"
-                /> */}
                 <MenuItem>Preferencias</MenuItem>
                 <MenuItem>
                   <Link to={"/"}>
                     Cerar sesión
-                    {/* <FontAwesomeIcon icon={faRightFromBracket} /> */}
                   </Link>
                 </MenuItem>
               </MenuList>

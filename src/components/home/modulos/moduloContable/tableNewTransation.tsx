@@ -1,6 +1,3 @@
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 export function TableNewTransation() {
     return (
         <section className="px-[15px]">

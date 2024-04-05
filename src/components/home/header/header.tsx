@@ -10,39 +10,25 @@ import {
   Button,
   TabList,
   Tab,
-  ToggleButton,
   Switch,
 } from "@fluentui/react-components";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SearchBox } from "@fluentui/react-search-preview";
 import {
   faCircleInfo,
-  faQuestion,
-  faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
-import { QuestionCircle48Regular } from "@fluentui/react-icons";
 import "./Nav";
-import { NavContable } from "./Nav";
 import { useState } from "react";
-type toggleProps = {
-  toggleSidebar?: () => void;
-};
+
 const useStyles = makeStyles({
   buton: {
     minWidth: "0",
-  },
-  switch: {
-    //  ":root":
   },
   ".&width": {
     textWrap: "nowrap",
   },
   root: {
-    // alignItems: "flex-start",
     display: "flex",
-    // justifyContent: "flex-start",
-    // ...shorthands.padding("50px", "20px"),
   },
 });
 type modalProp = {
@@ -56,18 +42,10 @@ type modalProp = {
 export default function Header({ showLedger, showProcessed, showDiaryBox, showModal, showDiaryBook, showJournalVouchers }: modalProp) {
   const styles = useStyles();
   const [darkMode, setDarkMode] = useState(false); // Estado del modo oscuro
-  const [menuVisible, setMenuVisible] = useState(false); // Estado para controlar la visibilidad del menú
   const handleDarkModeToggle = () => {
     setDarkMode(!darkMode);
-    // Cambiar el estado del modo oscuro
   };
-
-  // const { theme } = useThemeContext();
-  // const { setTheme, theme } = useThemeContext();
-  //
-  // function handleCloset() {
-  //   showModal();
-  // }
+  // json de los menús de navegación
   const nav = [
     { text: 'Transacciones', route: 'transation', },
     { text: 'Fuentes', route: 'fountain' },
@@ -83,19 +61,19 @@ export default function Header({ showLedger, showProcessed, showDiaryBox, showMo
   const nav3 = [
     { id: '1', text: 'Informes', option: [{ name: 'Movimiento procesado', route: 'processed_movement', funtion: showProcessed, }, { name: 'Anexos', route: 'ruta', funtion: showProcessed, }, { name: 'Auxiliares', route: 'ruta', funtion: showProcessed, }, { name: 'Libro diario legal', route: 'ruta', funtion: showDiaryBook, }, { name: 'Libro mayor legal', route: 'ruta', funtion: showLedger, }, { name: 'Comprobantes de diario', route: 'ruta', funtion: showJournalVouchers, }, { name: 'Caja diario', route: 'ruta', funtion: showDiaryBox, }, { name: 'Libro de inventario y balance', route: 'ruta', funtion: showProcessed, }, { name: 'Estados financiero', route: 'ruta', funtion: showProcessed, }, { name: 'Foliadores de libro', route: 'ruta', funtion: showProcessed, }, { name: 'Impresión certificador', route: 'ruta', funtion: showProcessed, },] }
   ]
+
+
   return (
     <Card className="header top-0 w-full">
       <header className="w-full h-[6vh] flex  items-center ">
         <div className="flex items-center w-full">
           <figure className="flex h-[100%] items-center gap-[10px] px-[15px] justify-between ">
-            <Link to={"/moduls"} className="relative font-semibold flex  text text-[19px]">
+            <Link to={"/moduls"} className="relative font-semibold flex  text-[19px]">
               {/* <img className="h-[35px]" src="/public/logo.svg" alt="logo" /> */}
               <img className="h-6" src="/public/escribiendo.svg" alt="icono" />
-
               Contabilidad
             </Link>
           </figure>
-          {/* <NavContable></NavContable> */}
           <nav className="flex items-center">
             <div className={` gap-1 ${styles.root} `}>
 
@@ -103,20 +81,13 @@ export default function Header({ showLedger, showProcessed, showDiaryBox, showMo
                 {nav.map((item, index) => (
                   <Link to={item.route} key={index} className=" flex  text-[11px]">
                     <Tab className="font-simbold tab" value={item.text}>
-
-                      {/* <FontAwesomeIcon icon={faMoneyBill} className="text-1"></FontAwesomeIcon> */}
-
                       <span key={index} className="truncate font-semibold text-start text-[12px]">
                         {item.text}
                       </span>
                     </Tab>
                   </Link>
-
                 ))}
-                {/* <Tab onClick={() => setActiveTab("Datos_basicos")} className="font-simbold tab" value="Datos_basicos">Datos Básicos</Tab>
-                  <Tab onClick={() => setActiveTab("Modulos")} className="font-simbold tab" value="Modulos">Módulos</Tab> */}
               </TabList>
-
 
               {nav2.map((item, index) => (
                 <Menu key={index}>
@@ -139,7 +110,6 @@ export default function Header({ showLedger, showProcessed, showDiaryBox, showMo
                     </MenuList>
                   </MenuPopover>
                 </Menu>
-
               ))}
               {/* nav3 */}
               {nav3.map((item, index) => (
@@ -189,7 +159,6 @@ export default function Header({ showLedger, showProcessed, showDiaryBox, showMo
               <MenuList>
                 <MenuItem>Contrato de Licencia</MenuItem>
                 <MenuItem>Acerca de</MenuItem>
-                {/* <MenuItem>Información del sistema</MenuItem> */}
               </MenuList>
             </MenuPopover>
           </Menu>

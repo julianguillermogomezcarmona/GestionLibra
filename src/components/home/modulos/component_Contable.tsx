@@ -1,40 +1,18 @@
-import React, { useEffect, useState } from "react";
-import SideBar from "../sidebar";
+import  { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { useThemeContext, ThemeProvider } from "../../../contex/themeContext";
-// import { FluentProvider } from "@fluentui/react-components";
-import { Transactions } from "./moduloContable/transactions";
 import {
-  Button,
-  BrandVariants,
   FluentProvider,
-  Theme,
-  createDarkTheme,
-  createLightTheme,
   webDarkTheme,
   webLightTheme,
-  Switch,
 } from "@fluentui/react-components";
 import Header from "../header/header";
-import { ReclasificationThird } from "./moduloContable/reclasificartionThird";
-import { Terceros } from "./moduloContable/terceros";
-import { Fountain } from "./moduloContable/fountain";
-import { Extraction } from "./moduloContable/extraction";
-import { NewTransations } from "./moduloContable/newTransactions";
 import './style.css'
-import { NewFountain } from "./moduloContable/newFountain";
-import { NewTerceros } from "./moduloContable/terceros/newTercero";
-import { Delete } from "../../delete";
 import { ProcessedMovement } from "./moduloContable/processedMovement";
 import { DiaryBook } from "./moduloContable/diaryBook";
 import { DiaryBox } from "./moduloContable/diaryBox";
 import { JournalVouchers } from "./journalVouchers";
 import { Ledger } from "./moduloContable/ledger";
 export default function home() {
-  // const { setTheme, theme } = useThemeContext();
-  const [isReduced, setIsReduced] = useState(false);
-
-  // const { theme } = useThemeContext();
   const [currentTheme, setCurrentTheme] = useState<any>(webLightTheme);
   function cambiarTema() {
     console.log(currentTheme);
@@ -42,10 +20,7 @@ export default function home() {
       prevTexto === webLightTheme ? webDarkTheme : webLightTheme
     ),
       console.log(currentTheme);
-    //  setCurrentTheme()
-    // setTheme((prevTheme)=> (prevTheme === "dark" ? "light" : "dark"));
   }
-
   // Movimiento procesado
   const [showProcessedMovement, setShowProcessedMovement] = useState(false);
   const toggleComponenteProcessed = () => {
@@ -53,9 +28,7 @@ export default function home() {
     document.body.style.overflow = 'hidden';
   };
   const handleCloseProcessed = () => {
-    // console.log(showModal);
     setShowProcessedMovement(!showProcessedMovement);
-    // console.log(showModal);
     document.body.style.overflow = 'auto';
   };
   //Libro diario
@@ -77,9 +50,7 @@ export default function home() {
     document.body.style.overflow = 'hidden';
   };
   const handleCloseDiaryBox = () => {
-    // console.log(showModal);
     setShowDiaryBox(!showDiaryBox);
-    // console.log(showModal);
     document.body.style.overflow = 'auto';
   };
   //Comprobantes de diario
@@ -89,9 +60,7 @@ export default function home() {
     document.body.style.overflow = 'hidden';
   };
   const handleCloseJournalVouchers = () => {
-    // console.log(showModal);
     setShowJournalVouchers(!showJournalVouchers);
-    // console.log(showModal);
     document.body.style.overflow = 'auto';
   };
   //Diario mayor
@@ -101,9 +70,7 @@ export default function home() {
     document.body.style.overflow = 'hidden';
   };
   const handleCloseLedger = () => {
-    // console.log(showModal);
     setShowLedger(!showLedger);
-    // console.log(showModal);
     document.body.style.overflow = 'auto';
   };
   return (
@@ -124,4 +91,3 @@ export default function home() {
     </FluentProvider>
   );
 }
-

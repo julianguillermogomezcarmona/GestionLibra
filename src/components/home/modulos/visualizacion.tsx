@@ -1,7 +1,6 @@
 import { Card, Select, Label, Input, useId, Checkbox, RadioGroup, Radio, Button } from "@fluentui/react-components";
 import { faPaperPlane, faPrint, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Space, DatePicker } from "antd";
 import type { CheckboxProps } from "@fluentui/react-components";
 import { useEffect, useState } from "react";
 import './style.css'
@@ -11,9 +10,6 @@ type modalProps = {
 }
 export function Visualization({ showModal }: modalProps) {
     const selectId = useId("select");
-    const selectId2 = useId("select");
-    const [checked, setChecked] = useState<CheckboxProps["checked"]>(false);
-    const [checked2, setChecked2] = useState<CheckboxProps["checked"]>(false);
     const [radioFontWeight, setRadioFontWeight] = useState<'normal' | '500'>('normal'); // Estado para controlar el fontWeight del radio seleccionado
     function handleCloset() {
         showModal();
@@ -21,7 +17,6 @@ export function Visualization({ showModal }: modalProps) {
     useEffect(() => {
         // Disable scroll on body when component mounts
         document.body.style.overflow = 'hidden';
-
         // Enable scroll on body when component unmounts
         return () => {
             document.body.style.overflow = 'auto';
@@ -30,7 +25,6 @@ export function Visualization({ showModal }: modalProps) {
     const fountain = useId("input");
     const copy = useId("input");
     return (
-
         <section className="fixed z-[50] top-0 h-screen flex items-center w-full left-0 justify-center  before:content-[''] before:bg-black before:absolute before:w-full before:h-screen before:top-0 before:left-0 before:opacity-20 before:z-0">
             <Card className="w-[45%] flex flex-col items-start">
                 <div className="flex justify-between h-5 " style={{ color: 'var(--colorNeutralForegroundInverted)' }}>
@@ -46,7 +40,6 @@ export function Visualization({ showModal }: modalProps) {
                         </Select>
                         <FontAwesomeIcon icon={faPrint}></FontAwesomeIcon>
                     </div>
-
                 </div>
                 <Card className="w-full">
                     <div className="flex flex-col gap-2">
@@ -88,7 +81,6 @@ export function Visualization({ showModal }: modalProps) {
                             </RadioGroup>
                         </div>
                     </div>
-
                 </Card>
                 <div className="flex  w-full justify-between gap-[10px] mt-[10px]">
                     <div className="flex gap-[10px]">
